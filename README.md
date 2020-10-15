@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/xrdocs/ncs5500.svg?branch=gh-pages)](https://travis-ci.org/xrdocs/ncs5500)
+[![Build Status](https://travis-ci.org/xrdocs/multicast.svg?branch=gh-pages)](https://travis-ci.org/xrdocs/multicast)
 
-# NCS 5500
+# Multicast
 
-Blogs, Documentation and Tutorials on Cisco NCS5500.
+Blogs, Documentation and Tutorials on Multicast with IOS XR devices.

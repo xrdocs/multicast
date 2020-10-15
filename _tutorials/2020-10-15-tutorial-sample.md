@@ -3,6 +3,7 @@ published: true
 date: '2020-10-15 13:27 -0400'
 title: tutorial-sample
 position: hidden
+author: Mike Korshunov
 ---
 ## A New Post
 

@@ -7,8 +7,6 @@ branches:
 script:
 - bundle exec jekyll build --config _config.yml
 - bundle exec htmlproofer ./_site --external_only --only-4xx --url-ignore \"/#.*/,/getting-started\"
-after_success:
-- ".travis/push.sh"
 env:
   global:
     secure: XndXk7azIn5a624SfiUdY/2ALwF6V34WWIHNQNZtSthDtLo+PsD9tx1p0u61eDu9+XaEU/9EwkALkSJBWNo2lEeQ3JDvP+PPfwyniqBJ/nttA/463ikLTkB0I+u7LXgnIAdQO4vDiYbDYv1B554TqNqV//bVfCLaSqMVjastt0Nqha8WCh3XU0aeb68Fa5D2SOD9KWzkTpZEymfk/odUKuBW3cXCAXX52wEHzb8NPbzgnu4D1rFFXDv4zUMulOy8CKGEnvrGsN1kvKaLyOVm4+/fDeFFdjjDU3osWdcYLZMthcAgF48Jn75iGK+I6gXqayqUIxrVD4BzyxmQeZmqblgvc2lBGG4yBnpGwRPyExFKI0ity2T8qMziNTd9vlstd3sqbmRY86jDsNNnCeTqny14X7qb4sw0TDHQJnbtr48qrtPoCtXHgmtQ+/mLhhwvymnzfTCs+tRLb4JzH1lndw4aGd0+g4JvQSQBqnUIV6EgD6jNJHmZjSmYwCH4s2ZMYS7XdExYghHktBWozBaCbqck+U5I+zypsoj7cJxt1GtNusHBWqeKzCs4ff0O2Mf51oNzzoMm+5v3DFBts9z7BFf3IIijeQQn3HqvXepJrHZpF2thzls0ouxQJHXlVageDj1348hWsdXxsKkNjwNoaOyUTgxhHgaQ0erXIYIPkOo=

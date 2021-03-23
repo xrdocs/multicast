@@ -122,3 +122,19 @@ The only difference now is that the traffic class is 6 or 7. The multicast packe
 ![Screenshot 2021-03-23 at 18.33.42.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 18.33.42.png)
 
 ## Unicast and Multicast 
+
+- Unicast scheduled (transmitted only after permission granted) 
+- Multicast unscheduled (only relying on back pressure mechanism to slow down) 
+- Egress port congestion possible: we need a tie-break 
+
+There is a possibility that the port will be congested when we have both unicast and multicast traffic. Unicast traffic waits for tokens to get transmitted while multicast traffic gets transmitted instantly. It is important to have differentiation between LP and HP. We need to know what kind of packet will go where. Packets without priority will be considered as unicast LP. Every packet marked as priority queue will be unicast HP. Also, locally generated traffic like BGP, IGMP, etc., will be treated as high priority unicast or multicast depending on the type of traffic. This the role of these 4 queues. 
+
+![Screenshot 2021-03-23 at 18.34.48.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 18.34.48.png)
+
+## Tie-Break Case 
+
+- In case of egress interface congestion 
+	- High priority will take full precedence over low priority 
+    - If same priority (HP/HP or LP/LP), forwarding will be 80% ucast / 20% mcast 
+    
+

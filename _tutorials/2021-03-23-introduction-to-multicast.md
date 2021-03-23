@@ -92,4 +92,11 @@ In egress there is a pre-allocated buffer of 10 milliseconds, but this can be al
 
 ## Test Case 1 – Traffic Class 1 
 
-Packet “a” is received on Hu0/0/0/0 and needs to be replicated to two egress ports: 
+Packet “a” is received on Hu0/0/0/0 and needs to be replicated to two egress ports:
+
+- Hu0/5/0/1 (NPU 0 LC 5) 
+- Hu0/7/0/0 (NPU 0 LC 7)
+
+![Screenshot 2021-03-23 at 18.06.11.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 18.06.11.png)
+
+

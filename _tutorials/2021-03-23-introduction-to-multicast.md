@@ -137,4 +137,10 @@ There is a possibility that the port will be congested when we have both unicast
 	- High priority will take full precedence over low priority 
     - If same priority (HP/HP or LP/LP), forwarding will be 80% ucast / 20% mcast 
     
+![Screenshot 2021-03-23 at 18.35.55.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 18.35.55.png)
 
+## Future plan 
+
+A 2nd pass 3rd pass model where we will have packets received on the egress pipeline and recirculating to the ingress pipeline. This way the packet will go twice in the pipeline and buffered twice, and this is how it is done in ASR9K. The drawback is the cost, half of the packet per second being recirculated. Once this model gets adapted to multicast, it will be possible to classify the egress multicast but it is going to happen in the ingress side. 
+
+*Longest Prefix Match Database is a SRAM used to store IPv4 and IPv6 prefixes 

@@ -116,3 +116,9 @@ The only difference now is that the traffic class is 6 or 7. The multicast packe
 
 ![Screenshot 2021-03-23 at 18.33.07.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 18.33.07.png)
 
+- Packet is passed to the fabric interface and split in cells 
+- Based on MCID-Mapping bitmap, the cells are replicated in the fabric to the NPUs where they are re-assembled by fabric interface 
+
+![Screenshot 2021-03-23 at 18.33.42.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 18.33.42.png)
+
+## Unicast and Multicast 

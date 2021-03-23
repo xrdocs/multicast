@@ -25,3 +25,23 @@ Multicast replication is a two-stage process. The process starts in the fabric t
 **Data plane:** Multicast packet is received on ingress interface and there are two places where packets are stored, L3 packets go to LPM* and L2 packets go to iTCAM. We receive the packet, we have a lookup on the forwarding block of the ingress pipeline that will perform a resolution inside the FEC, and it will point to a MCID and then the packet will be sent to the fabric and will be split in cells. 
 
 ![Screenshot 2021-03-23 at 15.35.55.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 15.35.55.png)
+
+## Multicast packet ingress pipeline processing 
+
+There is a good reason Multicast is not scheduled and this is explained below. 
+- Packet “a” needs to be replicated to multiple interfaces but one is full 
+
+![Screenshot 2021-03-23 at 16.34.30.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 16.34.30.png)
+
+If we use a scheduled based system, in a scenario such as the above and we need to replicate a packet in multiple interfaces, and one is congested then it will not give the right to the packet to transmit. Meaning that the line cards LC6 and LC7 will not receive this copy of the packet. This is called head-of-line blocking (https://en.wikipedia.org/wiki/Head-of-line_blocking). We cannot rely on tokens for permission to be transmitted, we need to auto allocate a token for a multicast packet. 
+
+Additionally, with this scheduled approach, we will have one interface congested which will not send the token and the rest will be blocked so this model of scheduling will not be possible. The ingress scheduler will auto allocate a token to itself and send the traffic to the fabric where it will be replicated. 
+
+It can be replicated and received on the site but there is a disadvantage because some part of the traffic, unicast, follows the rule of scheduling while multicast does not. This creates a lot of implications in terms of QoS which means we are not able to see the multicast traffic with a service policy, it will not appear in the show commands and it will not be counted. We need to know how much bandwidth we need to save so we do not allocate it into the network shapers. 
+
+The solution to the above problem is the Fabric Multicast Queue (FMQ) 
+- Multicast packets are not classified in VOQs but in 4 Fabric Multicast Queues 
+	- FMQ0 to FMQ2 will be Low Priority 
+    - FMQ3 is treated as High priority in the Egress port queues 
+- Mapping is done in ingress between FMQ Traffic Class pairs 
+	- Without policy-map, all multicast traffic is TC=0, which maps to FMQ0 

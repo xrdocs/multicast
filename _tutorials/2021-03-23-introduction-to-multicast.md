@@ -99,4 +99,20 @@ Packet “a” is received on Hu0/0/0/0 and needs to be replicated to two egress
 
 ![Screenshot 2021-03-23 at 18.06.11.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 18.06.11.png)
 
+An input service policy is configured, classifies the multicast packet and marks it with TC 1. Automatically it will map TC 1 to FMQ 0 and transmit the packet to fabric where it will be replicated. A copy of the packet is received on the two egress pipelines. Since it is FMQ 0, the packet is stored in the low priority Multicast egress port buffer before being sent to the destination. 
+
+![Screenshot 2021-03-23 at 18.31.58.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 18.31.58.png)
+
+## Test Case 2 – Traffic Class 6 or 7 
+
+The only difference now is that the traffic class is 6 or 7. The multicast packet will land on high priority Multicast on egress. 
+
+![Screenshot 2021-03-23 at 18.32.28.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 18.32.28.png)
+
+## Multicast egress processing MCDB 
+
+- Re-assembled packets will be replicated on egress NPU based on MCID-DB information 
+- It is the second level of replication
+
+![Screenshot 2021-03-23 at 18.33.07.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 18.33.07.png)
 

@@ -62,3 +62,34 @@ The solution to the above problem is the Fabric Multicast Queue (FMQ)
 
 ## Life of a Multicast Packet 
 
+The following example will describe in detail how a multicast packet is being managed when it is received on the ingress port. A packet is received and the first thing that happens is the assignment of the traffic class. 
+
+![Screenshot 2021-03-23 at 17.40.25.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 17.40.25.png)
+
+- Ingress Traffic Manager selects packet from an FMQ and sends it to Ingress Fab 
+
+![Screenshot 2021-03-23 at 17.40.45.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 17.40.45.png)
+
+- Ingress Fab splits packet into cells and load balances them across the fabric cards 
+
+![Screenshot 2021-03-23 at 17.52.05.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 17.52.05.png)
+
+- Fabric cards replicate cells to each egress card 
+- Egress Fab reassembles and replicates to each interface’s egress queues 
+
+![Screenshot 2021-03-23 at 17.52.48.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 17.52.48.png)
+
+- Egress Traffic Manager selects packets from egress interface queues 
+- Egress Net transmits packets 
+- No ingress replication (one at the fabric, one at the egress NPU level) 
+
+![Screenshot 2021-03-23 at 17.53.38.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 17.53.38.png)
+
+- Four shallow egress port queues per interfaces 
+- They hold the packets before they are put on the wire 
+
+In egress there is a pre-allocated buffer of 10 milliseconds, but this can be altered. The buffer can be reduced to 1 packet only, but this is not happening physically on the egress interface, it is happening for unicast traffic only on ingress. The multicast traffic will always take the remaining space of unicast traffic. 
+
+## Test Case 1 – Traffic Class 1 
+
+Packet “a” is received on Hu0/0/0/0 and needs to be replicated to two egress ports: 

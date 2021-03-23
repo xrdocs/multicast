@@ -50,4 +50,15 @@ The solution to the above problem is the Fabric Multicast Queue (FMQ)
 
 ![Screenshot 2021-03-23 at 17.32.12.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 17.32.12.png)
 
+- Can be influenced by QoS configuration 
+	- But only via ingress classification with assignment to specific traffic-class 
+    - Ingress policy-map but no queueing or shaping in egress policy-map 
+    - Service-policy output will not count multicast packets 
+    
+![Screenshot 2021-03-23 at 17.39.29.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 17.39.29.png)
+
+- Ingress Interface receives packet, applies input policy-map to move them to the right queue 
+- Then it makes forwarding decision and selects FMQ based on traffic class value 
+
+## Life of a Multicast Packet 
 

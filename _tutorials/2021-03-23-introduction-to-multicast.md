@@ -20,13 +20,8 @@ Multicast replication is a two-stage process. The process starts in the fabric t
 
 #### Multicast packet ingress pipeline processing 
 
-**Control plane:** The packets are punted to the line card CPU and are passed to different processes. It is checked if an MCID (Multicast ID) already exists and if it does not a new one is created. If one already exists it is updated with the new multicast pairs. Two tables are created, MCID mapping table which is a 128 bitmap mask where Ones represent NPUs who received a join and expect a copy of the packet from fabric and MCID-DB which associates ports where a replication is expected. 
+****Control plane:**** The packets are punted to the line card CPU and are passed to different processes. It is checked if an MCID (Multicast ID) already exists and if it does not a new one is created. If one already exists it is updated with the new multicast pairs. Two tables are created, MCID mapping table which is a 128 bitmap mask where Ones represent NPUs who received a join and expect a copy of the packet from fabric and MCID-DB which associates ports where a replication is expected. 
 
-**Data plane:** Multicast packet is received on ingress interface and there are two places where packets are stored, L3 packets go to LPM* and L2 packets go to iTCAM. We receive the packet, we have a lookup on the forwarding block of the ingress pipeline that will perform a resolution inside the FEC, and it will point to a MCID and then the packet will be sent to the fabric and will be split in cells. 
+****Data plane:**** Multicast packet is received on ingress interface and there are two places where packets are stored, L3 packets go to LPM* and L2 packets go to iTCAM. We receive the packet, we have a lookup on the forwarding block of the ingress pipeline that will perform a resolution inside the FEC, and it will point to a MCID and then the packet will be sent to the fabric and will be split in cells. 
 
 ![Screenshot 2021-03-23 at 15.35.55.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 15.35.55.png)
-
-
-
-
-

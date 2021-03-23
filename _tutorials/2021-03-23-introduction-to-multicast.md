@@ -44,4 +44,10 @@ The solution to the above problem is the Fabric Multicast Queue (FMQ)
 	- FMQ0 to FMQ2 will be Low Priority 
     - FMQ3 is treated as High priority in the Egress port queues 
 - Mapping is done in ingress between FMQ Traffic Class pairs 
-	- Without policy-map, all multicast traffic is TC=0, which maps to FMQ0 
+	- Without policy-map, all multicast traffic is TC=0, which maps to FMQ0
+    
+![Screenshot 2021-03-23 at 17.31.39.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 17.31.39.png)
+
+![Screenshot 2021-03-23 at 17.32.12.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 17.32.12.png)
+
+

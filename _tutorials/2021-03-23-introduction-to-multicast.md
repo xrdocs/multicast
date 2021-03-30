@@ -12,7 +12,7 @@ This introduction will be the start of a new series in the NCS-5500 xrdocs famil
 
 ## Introduction to packet replication
 
-This is the first blog spot of the new series and will cover the most important part, which is how is multicast replicated. In the following link https://xrdocs.io/ncs5500/tutorials/ncs5500-qos-part-1-understanding-packet-buffering/ you can find information about packet buffering and how is unicast traffic scheduled on ncs5500.
+This is the first blog spot of the new series and will cover the most important part, which is how is multicast replicated. In the following link [https://xrdocs.io/ncs5500/tutorials/ncs5500-qos-part-1-understanding-packet-buffering/] you can find information about packet buffering and how is unicast traffic scheduled on ncs5500.
 
 ## NCS 5500 System Architecture
 
@@ -143,4 +143,4 @@ There is a possibility that the port will be congested when we have both unicast
 
 A 2nd pass 3rd pass model where we will have packets received on the egress pipeline and recirculating to the ingress pipeline. This way the packet will go twice in the pipeline and buffered twice, and this is how it is done in ASR9K. The drawback is the cost, half of the packet per second being recirculated. Once this model gets adapted to multicast, it will be possible to classify the egress multicast but it is going to happen in the ingress side. 
 
-*Longest Prefix Match Database is a SRAM used to store IPv4 and IPv6 prefixes 
+*Longest Prefix Match Database is a SRAM used to store IPv4 and IPv6 prefixes

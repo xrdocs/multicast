@@ -12,7 +12,7 @@ This introduction will be the start of a new series in the NCS-5500 xrdocs famil
 
 ## Introduction to packet replication
 
-This is the first blog spot of the new series and will cover the most important part, which is how is multicast replicated. In the following link [https://xrdocs.io/ncs5500/tutorials/ncs5500-qos-part-1-understanding-packet-buffering/] you can find information about packet buffering and how is unicast traffic scheduled on ncs5500.
+This is the first blog spot of the new series and will cover the most important part, which is how is multicast replicated. In the following link https://xrdocs.io/ncs5500/tutorials/ncs5500-qos-part-1-understanding-packet-buffering/ you can find information about packet buffering and how is unicast traffic scheduled on ncs5500.
 
 ## NCS 5500 System Architecture
 
@@ -33,7 +33,7 @@ There is a good reason Multicast is not scheduled and this is explained below.
 
 ![Screenshot 2021-03-23 at 16.34.30.png]({{site.baseurl}}/images/Screenshot 2021-03-23 at 16.34.30.png)
 
-If we use a scheduled based system, in a scenario such as the above and we need to replicate a packet in multiple interfaces, and one is congested then it will not give the right to the packet to transmit. Meaning that the line cards LC6 and LC7 will not receive this copy of the packet. This is called head-of-line blocking [https://en.wikipedia.org/wiki/Head-of-line_blocking]. We cannot rely on tokens for permission to be transmitted, we need to auto allocate a token for a multicast packet. 
+If we use a scheduled based system, in a scenario such as the above and we need to replicate a packet in multiple interfaces, and one is congested then it will not give the right to the packet to transmit. Meaning that the line cards LC6 and LC7 will not receive this copy of the packet. This is called head-of-line blocking https://en.wikipedia.org/wiki/Head-of-line_blocking. We cannot rely on tokens for permission to be transmitted, we need to auto allocate a token for a multicast packet. 
 
 Additionally, with this scheduled approach, we will have one interface congested which will not send the token and the rest will be blocked so this model of scheduling will not be possible. The ingress scheduler will auto allocate a token to itself and send the traffic to the fabric where it will be replicated. 
 

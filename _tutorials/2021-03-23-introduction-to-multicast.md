@@ -12,7 +12,7 @@ This introduction will be the start of a new series in the NCS-5500 xrdocs famil
 
 ## Introduction to packet replication
 
-This is the first blog spot of the new series and will cover the most important part, which is how is multicast replicated. In the following link [https://xrdocs.io/ncs5500/tutorials/ncs5500-qos-part-1-understanding-packet-buffering/][PlDb] you can find information about packet buffering and how is unicast traffic scheduled on ncs5500.
+This is the first blog spot of the new series and will cover the most important part, which is how is multicast replicated. In the following link [Packet buffering](https://xrdocs.io/ncs5500/tutorials/ncs5500-qos-part-1-understanding-packet-buffering/) you can find information about packet buffering and how is unicast traffic scheduled on ncs5500.
 
 ## NCS 5500 System Architecture
 

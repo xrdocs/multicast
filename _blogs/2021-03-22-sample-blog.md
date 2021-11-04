@@ -6,8 +6,9 @@ author: Mike Korshunov
 excerpt: first sample blog
 position: hidden
 ---
-## A New Post
+## Multicast 101
 
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
+Multicast is a technology that allows us to send IP packets to a group of receivers in a single transmission. It has been developed in order to save network resources such as bandwidth by sending information to a specific group of devices and avoid duplication examples.
 
-Some extra changes here
+
+

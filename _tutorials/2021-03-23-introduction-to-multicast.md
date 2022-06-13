@@ -4,7 +4,7 @@ date: '2022-06-13 17:56 +0200'
 title: Multicast
 author: Lampros Gkavogiannis
 excerpt: Introduction to NCS5500 Multicast
-position: hidden
+position: top
 tags:
   - iosxr
   - multicast

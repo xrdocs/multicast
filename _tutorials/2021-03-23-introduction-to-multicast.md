@@ -1,10 +1,16 @@
 ---
 published: true
-date: '2021-03-23 14:46 +0200'
+date: '2022-06-13 17:56 +0200'
 title: Multicast
 author: Lampros Gkavogiannis
 excerpt: Introduction to NCS5500 Multicast
 position: hidden
+tags:
+  - iosxr
+  - multicast
+  - NCS
+  - DNX
+  - ASR9K
 ---
 ## Introduction to Multicast on NCS-5500
 

@@ -4,7 +4,11 @@ date: '2021-03-22 06:48 -1000'
 title: Multicast 101 Introduction
 author: Lampros Gkavogiannis
 excerpt: Multicast 101 Introduction
-position: hidden
+position: top
+tags:
+  - iosxr
+  - cisco
+  - multicast
 ---
 
 ## Multicast 101

@@ -32,4 +32,4 @@ Once the packet is replicated, it moves to the next hop/ node and keeps on flowi
 
 ![multicast_101_introducction_1_4.png]({{site.baseurl}}/images/multicast_101_introducction_1_4.png)
 
-The receivers belong to the “group” 224.1.1.1 and this is the destination of the packet. Whenever there is a branch in the network connected to a receiver the packet is replicated and sent to it. The packet has no information about the receivers but only for the “group”
+The receivers belong to the “group” 224.1.1.1 and this is the destination of the packet. Whenever there is a branch in the network connected to a receiver the packet is replicated and sent to it. The packet has no information about the receivers but only for the “group”.

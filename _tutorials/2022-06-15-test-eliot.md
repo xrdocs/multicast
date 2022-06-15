@@ -5,6 +5,8 @@ title: test eliot
 author: Eliot Pickhardt
 excerpt: test Eliot
 position: hidden
+tags:
+  - iosxr
 ---
 ## A New Post
 

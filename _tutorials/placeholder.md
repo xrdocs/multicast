@@ -5,4 +5,7 @@ title: test adam
 author: Adam Horton
 excerpt: test adam
 position: hidden
+tags:
+  - iosxr
 ---
+Hello World!

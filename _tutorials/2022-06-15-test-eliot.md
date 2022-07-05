@@ -8,6 +8,4 @@ position: hidden
 tags:
   - iosxr
 ---
-## A New Post
-
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
+Testing markdown styles and prose.io

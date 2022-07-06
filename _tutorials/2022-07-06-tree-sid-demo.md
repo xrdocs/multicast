@@ -41,5 +41,5 @@ The following drawing shows the connections between the routers, the IPs and the
 
 This drawing includes all the interfaces between the routers.
 
-
+![]({{site.baseurl}}/images/Tree-SID%20demo%201.2.png)
 

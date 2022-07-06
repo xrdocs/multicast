@@ -43,6 +43,16 @@ This drawing includes all the interfaces between the routers.
 
 ![]({{site.baseurl}}/images/Tree-SID%20demo%201.2.png)
 
+All the routers are running the following IOS-XR releases:
+R1 - 7.4.2
+R2 - 7.5.1
+R3 - 7.5.1
+R4 - 7.5.2
+R5 - 7.5.1
+R6 - 7.3.2
+
+The base release is 7.3.1 +. Anything above that can support this demo
+
 ### Router Configurations
 
 #### ROOT - R1
@@ -409,5 +419,3 @@ performance-measurement
  !
 !
 ```
-
-

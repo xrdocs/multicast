@@ -15,7 +15,7 @@ position: hidden
 
 This tutorial describes the process of a Tree-SID demo which was implemented on 6 NCS5500 devices. It consists the topology, the outputs and the relevant configurations on all the routers.
 
-# Overview
+### Overview
 
 IGP Segment Routing is configured to establish unicast connectivity between root, mid and leaf nodes.
 The MVPN BGP session is established between root and leaf nodes for:
@@ -33,4 +33,13 @@ There are two MVPNs configured:
 
 Note: Both VPNs have associated "default" and "data" MDTs
 
-Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
+### Topology
+
+The following drawing shows the connections between the routers, the IPs and the affinity links (red, blue). The source is the R1 and the receivers are R5 and R6.
+
+![]({{site.baseurl}}/images/Tree-SID%20demo%201.1.png)
+
+This drawing includes all the interfaces between the routers.
+
+
+

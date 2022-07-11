@@ -55,74 +55,12 @@ The base release is 7.3.1 +. Anything above that can support this demo
 
 ### Router Configurations
 
-#### ROOT - R1
+[ROOT-R1](https://github.com/lambros90/xrdocs/blob/main/tree-sid-demo/root-R1.txt)
+
+It is important to notice the Tree-SID policies, the segment routing and the colour affinities.
 
 ```
-vrf red
- address-family ipv4 unicast
-  import route-target
-   2:10
-  !
-  export route-target
-   2:10
-  !
- !
- address-family ipv4 multicast
- !
-!
-vrf blue
- address-family ipv4 unicast
-  import route-target
-   1:10
-  !
-  export route-target
-   1:10
-  !
- !
- address-family ipv4 multicast
- !
-!
-vrf vpn1
- address-family ipv4 unicast
-  import route-target
-   1:11
-  !
-  export route-target
-   1:21
-  !
- !
-!
-interface Loopback0
- ipv4 address 1.1.1.1 255.255.255.255
-!
-interface TenGigE0/0/0/8
- ipv4 address 11.1.3.1 255.255.255.0
- lldp
- !
-!
-interface TenGigE0/0/0/9
- ipv4 address 10.1.3.1 255.255.255.0
- lldp
- !
-!
-interface TenGigE0/0/0/12
- ipv4 address 10.1.4.1 255.255.255.0
- lldp
- !
-!
-interface TenGigE0/0/0/13
- ipv4 address 11.1.4.1 255.255.255.0
- lldp
- !
-!
-interface BVI1
- vrf blue
- ipv4 address 10.10.8.1 255.255.255.0
-!
-interface BVI2
- vrf red
- ipv4 address 10.10.9.1 255.255.255.0
-!
+...
 route-policy treeSID
   set core-tree sr-p2mp
 end-policy
@@ -155,120 +93,6 @@ router isis 1
    prefix-sid absolute 16001
   !
  !
- interface TenGigE0/0/0/8
-  circuit-type level-2-only
-  point-to-point
-  address-family ipv4 unicast
-   fast-reroute per-prefix
-   fast-reroute per-prefix ti-lfa
-   metric 10
-  !
- !
- interface TenGigE0/0/0/9
-  circuit-type level-2-only
-  point-to-point
-  address-family ipv4 unicast
-   fast-reroute per-prefix
-   fast-reroute per-prefix ti-lfa
-   metric 10
-  !
- !
- interface TenGigE0/0/0/12
-  circuit-type level-2-only
-  point-to-point
-  address-family ipv4 unicast
-   fast-reroute per-prefix
-   fast-reroute per-prefix ti-lfa
-   metric 10
-  !
- !
- interface TenGigE0/0/0/13
-  circuit-type level-2-only
-  point-to-point
-  address-family ipv4 unicast
-   fast-reroute per-prefix
-   fast-reroute per-prefix ti-lfa
-   metric 10
-  !
- !
-!
-router bgp 1
- bgp router-id 1.1.1.1
- bgp graceful-restart
- address-family ipv4 unicast
-  redistribute connected
- !
- address-family vpnv4 unicast
- !
- address-family ipv4 mvpn
- !
- neighbor 1.1.1.5
-  remote-as 1
-  update-source Loopback0
-  address-family ipv4 unicast
-  !
-  address-family vpnv4 unicast
-  !
-  address-family ipv4 mvpn
-   route-policy pass-all in
-   route-policy pass-all out
-  !
- !
- neighbor 1.1.1.6
-  remote-as 1
-  update-source Loopback0
-  address-family ipv4 unicast
-  !
-  address-family vpnv4 unicast
-  !
-  address-family ipv4 mvpn
-   route-policy pass-all in
-   route-policy pass-all out
-  !
- !
- neighbor 10.10.11.2
-  remote-as 1
-  address-family ipv4 unicast
-  !
- !
- neighbor 10.10.12.3
-  remote-as 1
-  address-family ipv4 unicast
-  !
- !
- vrf red
-  rd 2:20
-  address-family ipv4 unicast
-   redistribute connected
-  !
-  address-family ipv4 mvpn
-  !
- !
- vrf blue
-  rd 1:20
-  address-family ipv4 unicast
-   redistribute connected
-  !
-  address-family ipv4 mvpn
-  !
- !
-!
-l2vpn
- bridge group bg
-  bridge-domain red
-   interface TenGigE0/0/0/10.2
-   !
-   routed interface BVI2
-   !
-  !
-  bridge-domain blue
-   interface TenGigE0/0/0/10.1
-   !
-   routed interface BVI1
-   !
-  !
- !
-!
 multicast-routing
  address-family ipv4
   mdt source Loopback0
@@ -362,60 +186,126 @@ segment-routing
    !
   !
  !
-!
-router pim
- address-family ipv4
-  sr-p2mp-policy p2mp-te-global
-   static-group 233.1.4.1 inc-mask 0.0.0.1 count 5 11.1.1.135
-  !
-  sr-p2mp-policy p2mp-igp-global
-   static-group 232.1.4.1 inc-mask 0.0.0.1 count 5 11.1.1.135
-  !
- !
- vrf red
-  address-family ipv4
-   rpf topology route-policy treeSID
-   mdt c-multicast-routing bgp
-   !
-  !
- !
- vrf blue
-  address-family ipv4
-   rpf topology route-policy treeSID
-   mdt c-multicast-routing bgp
-   !
-  !
- !
- vrf vpn1
-  address-family ipv4
-   sr-p2mp-policy p2mp-igp-red-vpn1
-    static-group 232.1.2.1 11.1.2.100
-   !
-   sr-p2mp-policy p2mp-igp-blue-vpn1
-    static-group 233.1.2.1 11.1.2.100
-   !
-  !
- !
-performance-measurement
- interface TenGigE0/0/0/8
-  delay-measurement
-   advertise-delay 12
-  !
- !
- interface TenGigE0/0/0/9
-  delay-measurement
-   advertise-delay 12
-  !
- !
- interface TenGigE0/0/0/12
-  delay-measurement
-   advertise-delay 12
-  !
- !
- interface TenGigE0/0/0/13
-  delay-measurement
-   advertise-delay 12
-  !
- !
+ ...
 !
 ```
+
+[PCE-R2](https://github.com/lambros90/xrdocs/blob/main/tree-sid-demo/PCE-R2.txt)
+
+```
+segment-routing
+  traffic-eng
+   p2mp
+    endpoint-set leaf-R6
+     ipv4 1.1.1.6
+    !
+    endpoint-set leaf-R5-R6
+     ipv4 1.1.1.5
+     ipv4 1.1.1.6
+    !
+    label-range min 15400 max 15600
+    policy p2mp-te-global
+     source ipv4 1.1.1.1
+     color 101 endpoint-set leaf-R5-R6
+     treesid mpls 15101
+     candidate-paths
+      preference 100
+       dynamic
+        metric
+         type te
+        !
+       !
+      !
+     !
+    !
+    policy p2mp-igp-global
+     source ipv4 1.1.1.1
+     color 100 endpoint-set leaf-R5-R6
+     treesid mpls 15100
+     candidate-paths
+      preference 100
+       dynamic
+        metric
+         type igp
+        !
+       !
+      !
+     !
+    !
+    policy p2mp-delay-global
+     source ipv4 1.1.1.1
+     color 102 endpoint-set leaf-R5-R6
+     treesid mpls 15102
+     candidate-paths
+      preference 100
+       dynamic
+        metric
+         type latency
+        !
+       !
+      !
+     !
+    !
+    policy p2mp-igp-red-vpn1
+     source ipv4 1.1.1.1
+     color 200 endpoint-set leaf-R5-R6
+     treesid mpls 15200
+     candidate-paths
+      constraints
+       affinity
+        include-any
+         RED
+        !
+       !
+      !
+      preference 100
+       dynamic
+        metric
+         type igp
+        !
+       !
+      !
+     !
+    !
+    policy p2mp-igp-blue-vpn1
+     source ipv4 1.1.1.1
+     color 201 endpoint-set leaf-R5-R6
+     treesid mpls 15201
+     candidate-paths
+      constraints
+       affinity
+        include-any
+         BLUE
+        !
+       !
+      !
+      preference 100
+       dynamic
+        metric
+         type igp
+        !
+       !
+      !
+     !
+    !
+   !
+   affinity bit-map
+    RED 23
+    BLUE 24
+   !
+  !
+ !
+!
+...
+```
+[MID-node-R3](https://github.com/lambros90/xrdocs/blob/main/tree-sid-demo/MID-node-R3.txt)
+
+[MID-node-R4](https://github.com/lambros90/xrdocs/blob/main/tree-sid-demo/MID-node-R4.txt)
+
+[LEAF-R5](https://github.com/lambros90/xrdocs/blob/main/tree-sid-demo/LEAF-R5.txt)
+
+[LEAF-R6](https://github.com/lambros90/xrdocs/blob/main/tree-sid-demo/LEAF-R6.txt)
+
+
+
+

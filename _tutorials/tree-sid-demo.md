@@ -558,7 +558,7 @@ Tree: sr_p2mp_root_1.1.1.1_tree_id_524295, Root: 1.1.1.1 ID: 524295
 
 ```
 
-#### show pce lsp p2mp root ipv4 1.1.1.1 <tree id> --> data mdt for red
+#### show pce lsp p2mp root ipv4 1.1.1.1 "tree id" --> data mdt for red
 
 ```
 PCE-R2#show pce lsp p2mp root ipv4 1.1.1.1 524289
@@ -594,7 +594,7 @@ Nodes:
     Incoming: 15576 CC-ID: 4
 ```
   
-#### show pce lsp p2mp root ipv4 1.1.1.1 <tree id> --> data mdt for blue
+#### show pce lsp p2mp root ipv4 1.1.1.1 "tree id" --> data mdt for blue
   
 ```
 PCE-R2#show pce lsp p2mp root ipv4 1.1.1.1 524293
@@ -658,7 +658,7 @@ Replication:
   Interface: TenGigE0/0/0/1 [11.4.6.6]  Outgoing label: 15578 CC-ID: 1
 ```
   
-#### show mpls forwarding labels <tree-sid>
+#### show mpls forwarding labels "tree-sid"
 
 ```
 RP/0/RP0/CPU0:MID-NODE-R4#show mpls forwarding labels 15578

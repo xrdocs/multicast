@@ -518,7 +518,7 @@ Core Source      Cust (Source, Group)                Core Data        Expires
 
 ### PCE-R2
 
-#### show pce ipv4 peer --> data mdt
+#### show pce ipv4 peer
 
 ```
 PCE-R2#show pce ipv4 peer

@@ -312,7 +312,7 @@ segment-routing
 
 The root is the node where everything starts from. The traffic will be starting from here towards the rest of the nodes within the topology.
 
-****[d82] show run multicast-routing vrf red****
+****show run multicast-routing vrf red****
 
 ```
 ROOT-R1#show run multicast-routing vrf red

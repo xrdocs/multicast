@@ -329,7 +329,7 @@ vrf red
 !
 ```
 
-****[d83] show run segment-routing traffic-eng on-demand color 10****
+**show run segment-routing traffic-eng on-demand color 10**
 
 ```
 ROOT-R1#show run segment-routing traffic-eng on-demand color 10
@@ -351,7 +351,7 @@ traffic-eng
 !
 ```
 
-****[d84] show run multicast-routing vrf blue****
+**show run multicast-routing vrf blue**
 
 ```
 ROOT-R1#show run multicast-routing vrf blue
@@ -368,7 +368,7 @@ vrf blue
 !
 ```
 
-****[d85] show run segment-routing traffic-eng on-demand color 20****
+**show run segment-routing traffic-eng on-demand color 20**
 
 ```
 ROOT-R1#show run segment-routing traffic-eng on-demand color 20
@@ -390,7 +390,7 @@ traffic-eng
 !
 ```
 
-****[d86] show bgp vrf red ipv4 mvpn****
+**show bgp vrf red ipv4 mvpn**
 
 ```
 ROOT-R1#show bgp vrf red ipv4 mvpn
@@ -426,7 +426,7 @@ Route Distinguisher: 2:20 (default for vrf red)
 Processed 7 prefixes, 8 paths
 ```
 
-****[d87] show bgp vrf blue ipv4 mvpn****
+**show bgp vrf blue ipv4 mvpn**
 
 ```
 ROOT-R1#show bgp vrf blue ipv4 mvpn
@@ -462,7 +462,7 @@ Route Distinguisher: 1:20 (default for vrf blue)
 Processed 7 prefixes, 8 paths
 ```
 
-****[d88] show mvpn vrf red database segment-routing --> default mdt****
+**show mvpn vrf red database segment-routing --> default mdt**
 
 ```
 ROOT-R1#show mvpn vrf red database segment-routing
@@ -477,7 +477,7 @@ Part              0.0.0.0            0 (0x00000)  Down 10
 Control           0.0.0.0            0 (0x00000)  Down 10
 ```
 
-****[d89] show pim vrf red mdt sr-p2mp cache --> data mdt****
+**show pim vrf red mdt sr-p2mp cache --> data mdt**
 
 ```
 ROOT-R1#show pim vrf red mdt sr-p2mp cache
@@ -489,7 +489,7 @@ Core Source      Cust (Source, Group)                Core Data        Expires
                  1.1.1.5
 ```
 
-****[d90] show mvpn vrf blue database segment-routing --> default mdt****
+**show mvpn vrf blue database segment-routing --> default mdt**
 
 ```
 ROOT-R1#show mvpn vrf blue database segment-routing
@@ -504,7 +504,7 @@ Part              0.0.0.0            0 (0x00000)  Down 20
 Control           0.0.0.0            0 (0x00000)  Down 20
 ```
 
-****[d91] show pim vrf blue mdt sr-p2mp cache --> data mdt****
+**show pim vrf blue mdt sr-p2mp cache --> data mdt**
 
 ```
 ROOT-R1#show pim vrf blue mdt sr-p2mp cache
@@ -518,7 +518,7 @@ Core Source      Cust (Source, Group)                Core Data        Expires
 
 ### PCE-R2
 
-****[d92] show pce ipv4 peer --> data mdt****
+**show pce ipv4 peer --> data mdt**
 
 ```
 PCE-R2#show pce ipv4 peer
@@ -547,7 +547,7 @@ Peer address: 1.1.1.6
 
 ```
 
-****[d94] show pce lsp p2mp root ipv4 1.1.1.1 | include Tree****
+**show pce lsp p2mp root ipv4 1.1.1.1 | include Tree**
 
 ```
 PCE-R2#show pce lsp p2mp root ipv4 1.1.1.1 | include Tree
@@ -557,7 +557,7 @@ Tree: sr_p2mp_root_1.1.1.1_tree_id_524293, Root: 1.1.1.1 ID: 524293
 Tree: sr_p2mp_root_1.1.1.1_tree_id_524295, Root: 1.1.1.1 ID: 524295
 
 ```
-****[d95] + "treeid" - show pce lsp p2mp root ipv4 1.1.1.1 <tree id> --> data mdt for red****
+**show pce lsp p2mp root ipv4 1.1.1.1 <tree id> --> data mdt for red**
 
 ```
 PCE-R2#show pce lsp p2mp root ipv4 1.1.1.1 524289
@@ -593,7 +593,7 @@ Nodes:
     Incoming: 15576 CC-ID: 4
 ```
   
-****[d95] + "treeid" - show pce lsp p2mp root ipv4 1.1.1.1 <tree id> --> data mdt for blue****
+**show pce lsp p2mp root ipv4 1.1.1.1 <tree id> --> data mdt for blue**
   
 ```
 PCE-R2#show pce lsp p2mp root ipv4 1.1.1.1 524293
@@ -631,7 +631,7 @@ Nodes:
   
 ### MID-NODE-R4
 
-****[d96] show segment-routing traffic-eng p2mp policy root ipv4 1.1.1.1****
+**show segment-routing traffic-eng p2mp policy root ipv4 1.1.1.1**
   
 ```
 MID-NODE-R4#show segment-routing traffic-eng p2mp policy root ipv4 1.1.1.1
@@ -657,7 +657,7 @@ Replication:
   Interface: TenGigE0/0/0/1 [11.4.6.6]  Outgoing label: 15578 CC-ID: 1
 ```
   
-****[d97] + "treesid_label" - show mpls forwarding labels <tree-sid>****
+**show mpls forwarding labels <tree-sid>**
 
 ```
 RP/0/RP0/CPU0:MID-NODE-R4#show mpls forwarding labels 15578

@@ -13,25 +13,25 @@ position: hidden
 ---
 ## Tree-SID Demo
 
-This tutorial describes the process of a Tree-SID demo which was implemented on 6 NCS5500 devices. It consists the topology, the outputs and the relevant configurations on all the routers.
+This tutorial describes the process of a Tree-SID demo which was implemented on 6 NCS5500 devices. It consists of the topology, the configurations and the relevant outputs on the routers.
 
 ### Overview
 
 IGP Segment Routing is configured to establish unicast connectivity between root, mid and leaf nodes.
 The MVPN BGP session is established between root and leaf nodes for:
-- PE auto discovery.
-- P-Tunnel signaling and.
-- C-multicast route signaling.
+- PE auto discovery
+- P-Tunnel signaling and
+- C-multicast route signaling
 
 PCE learns the topology via IGP or BGP-LS.
 PCE has PCEP sessions with root, mid and leaf nodes.
 Tree-SID labels are allocated from the segment routing local block.
 
 There are two MVPNs configured:
-1. MVPN VRF RED - P2MP transport with IGP metric and affinity constraint which corresponds to red links (color 10)
-2. MVPN VRF BLUE - P2MP transport with IGP metric and affinity constraint which corresponds to blue links (color 20)
+1. MVPN VRF RED - P2MP transport with IGP metric and affinity constraint which corresponds to red links (color 10).
+2. MVPN VRF BLUE - P2MP transport with IGP metric and affinity constraint which corresponds to blue links (color 20).
 
-Note: Both VPNs have associated "default" and "data" MDTs
+Note: Both VPNs have associated "default" and "data" MDTs.
 
 ### Topology
 
@@ -44,20 +44,20 @@ This drawing includes all the interfaces between the routers.
 ![]({{site.baseurl}}/images/Tree-SID%20demo%201.2.png)
 
 All the routers are running the following IOS-XR releases:
-R1 - 7.4.2
-R2 - 7.5.1
-R3 - 7.5.1
-R4 - 7.5.2
-R5 - 7.5.1
-R6 - 7.3.2
+- R1 - 7.4.2
+- R2 - 7.5.1
+- R3 - 7.5.1
+- R4 - 7.5.2
+- R5 - 7.5.1
+- R6 - 7.3.2
 
-The base release is 7.3.1 +. Anything above that can support this demo
+The base release is 7.3.1 +. Anything above that can support this demo configuration.
 
 ### Router Configurations
 
 [ROOT-R1](https://github.com/lambros90/xrdocs/blob/main/tree-sid-demo/root-R1.txt)
 
-It is important to notice the Tree-SID policies, the segment routing and the colour affinities.
+It is important to notice the Tree-SID policies, the segment routing configuration and the colour affinities.
 
 ```
 ...
@@ -308,9 +308,9 @@ segment-routing
 
 ### Outputs
 
-#### ROOT - R1
+### ROOT - R1
 
-The root is the node where everything starts from. The traffic will be starting from here towards the rest of the nodes in the topology.
+The root is the node where everything starts from. The traffic will be starting from here towards the rest of the nodes within the topology.
 
 ****[d82] show run multicast-routing vrf red****
 

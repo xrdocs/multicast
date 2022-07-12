@@ -2,7 +2,7 @@
 published: true
 date: '2022-07-06 16:40 +0300'
 title: Tree-SID Demo
-author: LAMPROS GKAVOGIANNIS
+author: Lampros Gkavogiannis
 excerpt: This will be a Tree-SID demo using Cisco NCS5500 routers
 tags:
   - iosxr

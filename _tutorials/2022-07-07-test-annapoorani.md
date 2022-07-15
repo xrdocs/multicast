@@ -2,8 +2,8 @@
 published: true
 date: '2022-07-07 17:16 +0300'
 title: test Annapoorani
-author: Annapoorani G
-excerpt: test Anna
+author: Cisco MIG Notebooks Team
+excerpt: test tech writers team
 tags:
   - vagrant
 position: hidden

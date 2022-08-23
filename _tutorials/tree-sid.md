@@ -18,6 +18,8 @@ This tutorial will be dedicated to Tree-SID which is a fresh Multicast technolog
 
 In order to establish the appropriate Tree-SID knowledge we first need to understand two technologies, Multicast and Segment Routing.
 
+There is also a [video](https://www.youtube.com/watch?v=q3VNOnw-bIE&ab_channel=xrdocs) explaining the following concepts.
+
 ## Segment Routing
 
 Segment Routing is a technology that uses source routing to forward traffic to the destination. Packet is forwarded from segment to segment based on the information carried in it. Segment Routing achieves a stateless IP fabric and delivers a unified end to end policy aware network infrastructure.

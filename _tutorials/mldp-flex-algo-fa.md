@@ -29,9 +29,19 @@ MLDP is an extension to LDP used to facilitate the transportation of multicast m
 - It is a receiver driven tree building protocol like PIM
 - mLDP uses the LDP Transport to exchange Label Mappings
 
+### LDP Label Mapping Message
+
+Before we move to the mLDP examples we need to understand what a LDP message is like.
+
+
+
+
+
 ### mLDP signaling and packet forwarding - P2MP Tree
 
 ![mLDP + FA_image_1.1.jpg]({{site.baseurl}}/images/mLDP + FA_image_1.1.jpg)
+
+In the above P2MP scenario there are 2 receivers, PE3 and PE2. The Label Mapping(LM) starts from the receivers. P3 initiaties the LM with P node and moves to the root(PE1). 
 
 PE2, PE3: receivers
 Label mapping starts from the receiver.

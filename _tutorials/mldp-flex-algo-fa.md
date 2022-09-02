@@ -33,7 +33,7 @@ MLDP is an extension to LDP used to facilitate the transportation of multicast m
 
 Before we move to the mLDP examples we need to understand what a LDP message is like.
 
-
+![mLDP + FA_image_1.1.jpeg]({{site.baseurl}}/images/mLDP + FA_image_1.1.jpeg)
 
 
 

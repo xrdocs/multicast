@@ -18,7 +18,7 @@ mLDP is an extension to LDP used to facilitate the transportation of multicast m
 
 ## Benefits
 
-- Based on over 15 years of IP Multicast expertise, experience, and innovation using Cisco IOS Software
+- Based on over 15 years of IP multicast expertise, experience, and innovation using Cisco IOS Software
 - An innovative unified control and forwarding plane that allows service providers and enterprises to transit MVPN traffic using multipoint LSPs (P2MP and MP2MP)
 - State aggregation to minimize core states
 - MPLS capabilities, such as Fast Reroute, that can now be applied to multicast traffic
@@ -38,7 +38,7 @@ Before we move to the mLDP examples we need to understand what a LDP message is 
 There is mLDP Label Binding and it is a FEC Type 0x100. The FEC element contains 3 things:
 1. Type: Point-to-Multipoint (P2M) or Multipoint-to-Multipoint (MP2MP)
 2. Root: There is only one Root identified by an IP address
-3. Opaque: Determines the kind of Multicast service (e.g. default MDT, partitioned MDT, data MDT). P routers do not interpret this value
+3. Opaque: Determines the kind of multicast service (e.g. default MDT, partitioned MDT, data MDT). P routers do not interpret this value
 
 The above 3 items uniquely identify the mLDP tree.
 
@@ -64,4 +64,36 @@ The Downstream traffic is going to flow to the reverse direction of the Upstream
 
 In the case of mLDP, the tree root for P2MP will be the ingress PE while for MP2MP tree the root is any P or PE.
 
-In a scenario that LDP is not needed because of SR MPLS, unicast LDP will be off but LDP will be turned on only for Multicast.
+In a scenario that LDP is not needed because of SR MPLS, unicast LDP will be off but LDP will be turned on only for multicast.
+
+# Multicast LDP with transport differentiation using SR Flex-Algo
+
+In this section mLDP with Traffic Engineering (TE) will be covered. So far it is known that mLDP works with basic IGP metrics but by using a different transport, SR Flex-Algo it can be enhanced to use custom constraints and metrics.
+
+## SR Flex-Algo (FA)
+
+SR FLex-Algo is a complement solution for SRTE that adds new Prefix-Segments with specific optimization objective and constraints such as:
+- minimize igp-metric or delay or te-metric
+- avoid SRLG or affinity
+
+It makes it possible to define different constraints and segment the network in multiple parts which results in a network which is defined by different segments. Also it leverages SRTE benefits of simplicity and automation such as
+- Automated sub-50msec FRR (TILFA)
+- On-Demand Policy (ODN)
+- Automated Steering (AS)
+
+## FA + Unicast
+
+FA gives the ability to segment the network into different planes.
+
+In the following example there are 3 groups of nodes:
+1.Nodes 0 and 9 participate to Algo0, Algo128 and Algo129
+2.Nodes 1/2/3/4 participate to Algo0 and Algo128
+3.Nodes 5/6/7/8 participate to Algo0 and Algo129
+
+It provides a virtual segmentation of the network with 2 planes, one green and one red. Each node must advertise which FA it belongs to.
+
+![mLDP + FA_image_1.2.jpeg]({{site.baseurl}}/images/mLDP + FA_image_1.2.jpeg)
+
+### FA aware mLDP
+
+Let's see how mLDP can work with FA. The most useful use cases are the Disjoint Trees and the Live-Live scenarios for the possibly critical traffic. 16:10

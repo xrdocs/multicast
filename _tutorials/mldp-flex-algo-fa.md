@@ -96,4 +96,25 @@ It provides a virtual segmentation of the network with 2 planes, one green and o
 
 ### FA aware mLDP
 
-Let's see how mLDP can work with FA. The most useful use cases are the Disjoint Trees and the Live-Live scenarios for the possibly critical traffic. 16:10
+Let's see how mLDP can work with FA. Originally mLDP is used to build the network tree. However, FA gives the option to create multiple trees by influencing the path computation by associating metrics and constraints within the same network. This is done to either separate the traffic (Disjoint Trees) or duplicate it (Live-Live).
+
+In the scenario of Disjoint Trees we can achieve segmentation of the traffic in the same network. We might want to avoid specific links, nodes due to security reasons.
+
+On the other hand, we might have critical traffic that we want to carry it through different paths and leverage the Live-Live scenario. Later, We can define which path the traffic should follow.
+
+In the following example
+
+![mLDP + FA_image_2.2.jpg]({{site.baseurl}}/images/mLDP + FA_image_2.2.jpg)
+
+
+For example when we have 2 planes (green and blue) we can create a tree on one of them
+
+
+
+In this scenario you can create a scope for the multicast traffic to go through (e.g. in this example Multicast source is only sending traffic over green links). Same source can send traffic to a different plane (blue plane) as well. (it is standarized in IETF)
+
+use case 1 - secure path
+use case 1 - real time communications and applications
+use case 1 - dual plane/ multi-plane
+use case 1 - only use a subset of the routers in your network (network slicing)
+use case 1 - define a path traversing high speed links for bandwidth sensitive traffic

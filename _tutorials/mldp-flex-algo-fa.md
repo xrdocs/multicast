@@ -112,44 +112,49 @@ In the following example we have 1 multicast source, 5 receivers and 2 planes, g
 
 ![mLDP + FA_image_2.2.jpg]({{site.baseurl}}/images/mLDP + FA_image_2.2.jpg)
 
-Most of bgp mvpn discovery routers they do carry P-MSI tunnel attributes (PTA) and the FEC is carried in the PTA.
+Let's talk about BGP mVPN discovery. These routes carry a P-MSI tunnel attribute (PTA) and the FEC is carried in the PTA.
 
-reminder: FEC is the opaque value that is being used to create the underlay tree.
+Reminder: FEC is the opaque value that is being use to create the underlay tree.
 
-we use another field which is called IPA field and it is the IGP algorithm field that carries the SR Flex Algo instance ID. that helps the egress PE to start building the underlay tree with appropriate fa underlay.
+Also, within PTA there is the IGP Algorithm (IPA) field that carries the SR Flex Algo instance ID and that helps the egress PE to start building the underlay tree with the appropriate FA underlay.
 
-fa + cisco ios-xr
-what is supported today:
+### FA + IOS-XR
 
-mvpn profile 14 - partitioned MDT mLDP P2MP with BGP-AD and BGP c-mcast signaling
-
-mVPNv4/ mVPNv6 overlay
-
-Partitioned and data MDTs
-
-Granular mapping of (C-S, C-G) to a Partitioned MDT/ DATA MDT bound to a FA instance
-
-PIM ASM, SSM, IGMPv2 and IGMPv3 as customer access protocols
-
-ECMP - A FA topology may have ECMP and therefore multicast flows are load balanced if multiple paths are available
+Today in IOS-XR we support the following:
+- mVPN profile 14 - partitioned MDT mLDP P2MP with BGP-AD and BGP c-mcast signaling
+- mVPNv4/ mVPNv6 overlay
+- Partitioned and data MDTs
+- Granular mapping of (C-S, C-G) to a Partitioned MDT/ DATA MDT bound to a FA instance
+- PIM ASM, SSM, IGMPv2 and IGMPv3 as customer access protocols
+- ECMP - A FA topology may have ECMP and therefore multicast flows are load balanced if multiple paths are available
 
 ### mLDP signaling with FA (How operation works)
 
-In the follow example we have 2 vrfs, blue and purple. S1 is the source and R1, R2 the receivers for the blue vrf while S2 is the source and R3 the receiver for the purple vrf.
+The following is an example of mLDP signaling with FA. The operation is split into 6 steps and works like this:
+	
+There are 2 VRFs, blue and purple. S1 is the source and R1, R2 are the receivers for the blue VRF while S2 is the source and R3 the receiver for the purple vrf. Routers 0 and 9 are the edge devices, P nodes, meaning that all the overlay signaling will take place between them and the underlay tree will be built using the core network. We can see that R0 has a (S, G) policy with Algo129. R0 is linked to S1 therefore any request that carries the same policy will go over red plane (Algo129). 
 
-with respect to mVPN signaling routers 0 and 9 are the edge devices, P nodes. ALl the overlay signaling will happen between 0 and 9 and underlay tree will be built using the core network
+Step 1: 
+The membership request can either by PIM Join or IGMP Join in case the receivers are directly connected.
 
-there is a policy defined on router 0 for the given source with S1 that any request that is coming for (S, G) it has to go over Algo129 which is nothing but redplane. The member receive request could PIM Join, IGMP Join in case receivers are directly connected.
+Step 2: 
+To analyze mVPN signaling we look where the source is and the source is behind R0. So R9 sends Join overlay to R0 for this particular VRF. Once R0 receives it, it is going to look at the policy for the following:
+1. Where exactly this traffic has to come from
+2. Where the underlay tree has to be created
 
-for mVPN signaling we look where the source is. the source is behind Router 0. So 9 sends Join overlay to 0 for this particular flow in vrf context.
-Once Router 0 receives this particular overlay Join, is going to look at the policy, where exactly this traffic has to come from, where the underlay tree has to be created and it looks that this tree has to be created using FA129. So it is going to allocate a tree which we call partioned MDT or data MDT and it is going to signal back to 9 saying that if you want to build a tree you need to use Algo129 which is defined in the policy.
-Router 9 starts building underlay multicast tree for this FEC we received from 0 and now this particular Join goes over your redplane and once the Join is received by the actual source vrf , traffic starts flowing through the redplane.
+Step 3: 
+This tree has to be created using Algo129, so it is going to allocate a tree which we call partioned MDT or data MDT and it is going to signal back to R9 saying that if you want to build a tree you need to use Algo129 which is defined in the policy.
 
-one thing that is really important to remember here, if there is any failure this failure will be taken care within the same plane. No matter what is happening between 5,6,7,8 it will never be linked to green plane. it will be contained within the single plane that you have defined in fa.
+Step 4:
+R9 starts building the underlay multicast tree for this FEC by sticking to policy Alg129.
 
-there are many use cases that you might want Live-Live scenario with same content but different flows. You might want to make sure that some flows are using the green or redplane
+Step 5:
+Eventually the Join is received by the actual source VRF, S1.
 
+Step 6:
+S1 starts flowing the traffic through the red plane.
 
+It is important to understand that the network is now separated which makes red plane totally independent by green plane. Anything that might happen within the red plane such as failure, it will be taken care by the current plane and will be containted in it without interfering with the other planes. Whatever happens between 5,6,7,8 will never be linked to the green plane.
 
 ![mLDP + FA_image_1.3.jpg]({{site.baseurl}}/images/mLDP + FA_image_1.3.jpg)
 

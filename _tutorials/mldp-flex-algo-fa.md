@@ -90,7 +90,7 @@ It provides a virtual segmentation of the network with 2 planes, one green and o
 
 ![mLDP + FA_image_1.2.jpeg]({{site.baseurl}}/images/mLDP + FA_image_1.2.jpeg)
 
-### FA aware mLDP
+## FA aware mLDP
 
 Let's see how mLDP can work with FA. Originally mLDP is used to build the network tree. However, FA gives the option to create multiple trees by influencing the path computation by associating metrics and constraints within the same network. This is done to enable a new list of use cases. 
 
@@ -108,13 +108,15 @@ In the following example we have 1 multicast source, 5 receivers and 2 planes, g
 
 ![mLDP + FA_image_2.2.jpg]({{site.baseurl}}/images/mLDP + FA_image_2.2.jpg)
 
+## BGP + FA
+
 Let's talk about BGP mVPN discovery. These routes carry a P-MSI tunnel attribute (PTA) and the FEC is carried in the PTA.
 
 Reminder: FEC is the opaque value that is being use to create the underlay tree.
 
 Also, within PTA there is the IGP Algorithm (IPA) field that carries the SR Flex Algo instance ID and that helps the egress PE to start building the underlay tree with the appropriate FA underlay.
 
-### FA + IOS-XR
+## FA + IOS-XR
 
 Today in IOS-XR we support the following:
 - mVPN profile 14 - partitioned MDT mLDP P2MP with BGP-AD and BGP c-mcast signaling
@@ -124,7 +126,7 @@ Today in IOS-XR we support the following:
 - PIM ASM, SSM, IGMPv2 and IGMPv3 as customer access protocols
 - ECMP - A FA topology may have ECMP and therefore multicast flows are load balanced if multiple paths are available
 
-### mLDP signaling with FA (How operation works)
+## mLDP signaling with FA (How operation works)
 
 The following is an example of mLDP signaling with FA. The operation is split into 6 steps and works like this:
 	

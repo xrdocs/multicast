@@ -122,7 +122,7 @@ Today in IOS-XR we support the following:
 - mVPN profile 14 - partitioned MDT mLDP P2MP with BGP-AD and BGP c-mcast signaling
 - mVPNv4/ mVPNv6 overlay
 - Partitioned and data MDTs
-- Granular mapping of (C-S, C-G) to a Partitioned MDT/ DATA MDT bound to a FA instance
+- Granular mapping of (C-S, C-G) to a partitioned MDT/ data MDT bound to a FA instance
 - PIM ASM, SSM, IGMPv2 and IGMPv3 as customer access protocols
 - ECMP - A FA topology may have ECMP and therefore multicast flows are load balanced if multiple paths are available
 

@@ -95,11 +95,11 @@ It provides a virtual segmentation of the network with 2 planes, one green and o
 Let's see how mLDP can work with FA. Originally mLDP is used to build the network tree. However, FA gives the option to create multiple trees by influencing the path computation by associating metrics and constraints within the same network. This is done to enable a new list of use cases. 
 
 Some of the use cases:
-1. Disjoint Trees (Dual plane)
+1. Disjoint Trees (Dual plane):
 	In the scenario of Disjoint Trees we can achieve segmentation of the traffic in the same network. We might want to avoid specific links, paths due to security reasons.
-2. Live-Live
+2. Live-Live:
 	We might have critical traffic that we want to carry it through different paths and leverage the Live-Live scenario. Later, We can define which path the traffic should follow.
-3. Low latency routing
+3. Low latency routing:
 	We might want to achieve low latency routes for real-time, latency-sensitive activities.
     
 All of the above use cases are possible by adding the flexible metrics and constraints.

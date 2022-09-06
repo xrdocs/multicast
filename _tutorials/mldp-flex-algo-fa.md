@@ -96,21 +96,22 @@ It provides a virtual segmentation of the network with 2 planes, one green and o
 
 ### FA aware mLDP
 
-Let's see how mLDP can work with FA. Originally mLDP is used to build the network tree. However, FA gives the option to create multiple trees by influencing the path computation by associating metrics and constraints within the same network. This is done to either separate the traffic (Disjoint Trees) or duplicate it (Live-Live).
+Let's see how mLDP can work with FA. Originally mLDP is used to build the network tree. However, FA gives the option to create multiple trees by influencing the path computation by associating metrics and constraints within the same network. This is done to enable a new list of use cases. 
 
-In the scenario of Disjoint Trees we can achieve segmentation of the traffic in the same network. We might want to avoid specific links, nodes due to security reasons.
+Some of the use cases:
+1. Disjoint Trees (Dual plane)
+	In the scenario of Disjoint Trees we can achieve segmentation of the traffic in the same network. We might want to avoid specific links, paths due to security reasons.
+2. Live-Live
+	We might have critical traffic that we want to carry it through different paths and leverage the Live-Live scenario. Later, We can define which path the traffic should follow.
+3. Low latency routing
+	We might want to achieve low latency routes for real-time, latency-sensitive activities.
+    
+All of the above use cases are possible by adding the flexible metrics and constraints.
 
-On the other hand, we might have critical traffic that we want to carry it through different paths and leverage the Live-Live scenario. Later, We can define which path the traffic should follow.
-
-In the following example we have 1 multicast source, 5 receivers and 2 planes green and blue. There is the slicing of the traffic between the 2 different planes but we can see that the source is able to send traffic to both planes.
+In the following example we have 1 multicast source, 5 receivers and 2 planes, green and blue. There is the slicing of the traffic between the 2 different planes but we can see that the source is able to send traffic to both planes.
 
 ![mLDP + FA_image_2.2.jpg]({{site.baseurl}}/images/mLDP + FA_image_2.2.jpg)
 
-use case 1 - secure path
-use case 1 - real time communications and applications
-use case 1 - dual plane/ multi-plane
-use case 1 - only use a subset of the routers in your network (network slicing)
-use case 1 - define a path traversing high speed links for bandwidth sensitive traffic
-use case 1 - low latency routing
-use case 1 - paths avoiding specific links
-use case 1 - data sovereignty / region scope
+
+
+

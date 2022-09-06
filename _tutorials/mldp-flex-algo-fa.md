@@ -18,16 +18,16 @@ mLDP is an extension to LDP used to facilitate the transportation of multicast m
 
 ## Benefits
 
-- Based on over 15 years of IP multicast expertise, experience, and innovation using Cisco IOS Software
-- An innovative unified control and forwarding plane that allows service providers and enterprises to transit mVPN traffic using multipoint LSPs (P2MP and MP2MP)
-- State aggregation to minimize core states
-- MPLS capabilities, such as Fast Reroute, that can now be applied to multicast traffic
-- Seamless support of migration from generic routing encapsulation (GRE) and IP Multicast VPNs
-- No need to manage customer premise equipment, enable multicast routing in the core, or use link-state routing protocol extensions to support mLDP
-- Minimal cost associated with meeting bandwidth requirements of applications such as high-definition video
-- Based on industry standards
-- It is a receiver driven tree building protocol like PIM
-- mLDP uses the LDP Transport to exchange Label Mappings
+- Based on over 15 years of IP multicast expertise, experience, and innovation using Cisco IOS Software.
+- An innovative unified control and forwarding plane that allows service providers and enterprises to transit mVPN traffic using multipoint LSPs (P2MP and MP2MP).
+- State aggregation to minimize core states.
+- MPLS capabilities, such as Fast Reroute, that can now be applied to multicast traffic.
+- Seamless support of migration from generic routing encapsulation (GRE) and IP Multicast VPNs.
+- No need to manage customer premise equipment, enable multicast routing in the core, or use link-state routing protocol extensions to support mLDP.
+- Minimal cost associated with meeting bandwidth requirements of applications such as high-definition video.
+- Based on industry standards.
+- It is a receiver driven tree building protocol like PIM.
+- mLDP uses the LDP Transport to exchange Label Mappings.
 
 ## LDP Label Mapping Message
 
@@ -36,9 +36,9 @@ Before we move to the mLDP examples we need to understand what a LDP message is 
 ![mLDP + FA_image_1.1.jpeg]({{site.baseurl}}/images/mLDP + FA_image_1.1.jpeg)
 
 There is mLDP Label Binding and it is a FEC Type 0x100. The FEC element contains 3 things:
-1. Type: Point-to-Multipoint (P2M) or Multipoint-to-Multipoint (MP2MP)
-2. Root: There is only one Root identified by an IP address
-3. Opaque: Determines the kind of multicast service (e.g. default MDT, partitioned MDT, data MDT). P routers do not interpret this value
+1. Type: Point-to-Multipoint (P2M) or Multipoint-to-Multipoint (MP2MP).
+2. Root: There is only one Root identified by an IP address.
+3. Opaque: Determines the kind of multicast service (e.g. default MDT, partitioned MDT, data MDT). P routers do not interpret this value.
 
 The above 3 items uniquely identify the mLDP tree.
 
@@ -69,22 +69,22 @@ In this section mLDP with Traffic Engineering (TE) will be covered. So far it is
 ## SR Flex-Algo (FA)
 
 SR FLex-Algo is a complement solution for SRTE that adds new Prefix-Segments with specific optimization objective and constraints such as:
-- minimize igp-metric or delay or te-metric
-- avoid SRLG or affinity
+- minimize igp-metric or delay or te-metric.
+- avoid SRLG or affinity.
 
-It makes it possible to define different constraints and segment the network in multiple parts which results in a network which is defined by different segments. Also it leverages SRTE benefits of simplicity and automation such as
-- Automated sub-50msec FRR (TILFA)
-- On-Demand Policy (ODN)
-- Automated Steering (AS)
+It makes it possible to define different constraints and segment the network in multiple parts which results in a network which is defined by different segments. Also it leverages SRTE benefits of simplicity and automation such as:
+- Automated sub-50msec FRR (TILFA).
+- On-Demand Policy (ODN).
+- Automated Steering (AS).
 
 ## FA + Unicast
 
 FA gives the ability to segment the network into different planes.
 
 In the following example there are 3 groups of nodes:
-1. Nodes 0 and 9 participate to Algo0, Algo128 and Algo129
-2. Nodes 1/2/3/4 participate to Algo0 and Algo128
-3. Nodes 5/6/7/8 participate to Algo0 and Algo129
+1. Nodes 0 and 9 participate to Algo0, Algo128 and Algo129.
+2. Nodes 1/2/3/4 participate to Algo0 and Algo128.
+3. Nodes 5/6/7/8 participate to Algo0 and Algo129.
 
 It provides a virtual segmentation of the network with 2 planes, one green and one red. Each node must advertise which FA it belongs to.
 
@@ -119,12 +119,12 @@ Also, within PTA there is the IGP Algorithm (IPA) field that carries the SR Flex
 ## FA + IOS-XR
 
 Today in IOS-XR we support the following:
-- mVPN profile 14 - partitioned MDT mLDP P2MP with BGP-AD and BGP c-mcast signaling
-- mVPNv4/ mVPNv6 overlay
-- Partitioned and data MDTs
-- Granular mapping of (C-S, C-G) to a partitioned MDT/ data MDT bound to a FA instance
-- PIM ASM, SSM, IGMPv2 and IGMPv3 as customer access protocols
-- ECMP - A FA topology may have ECMP and therefore multicast flows are load balanced if multiple paths are available
+- mVPN profile 14 - partitioned MDT mLDP P2MP with BGP-AD and BGP c-mcast signaling.
+- mVPNv4/ mVPNv6 overlay.
+- Partitioned and data MDTs.
+- Granular mapping of (C-S, C-G) to a partitioned MDT/ data MDT bound to a FA instance.
+- PIM ASM, SSM, IGMPv2 and IGMPv3 as customer access protocols.
+- ECMP - A FA topology may have ECMP and therefore multicast flows are load balanced if multiple paths are available.
 
 ## mLDP signaling with FA (How operation works)
 
@@ -133,13 +133,12 @@ The following is an example of mLDP signaling with FA. The operation is split in
 There are 2 VRFs, blue and purple. S1 is the source and R1, R2 are the receivers for the blue VRF while S2 is the source and R3 the receiver for the purple VRF. Routers 0 and 9 are the edge devices, P nodes, meaning that all the overlay signaling will take place between them and the underlay tree will be built using the core network. We can see that R0 has a (S, G) policy with Algo129. R0 is linked to S1 therefore any request that carries the same policy will go over red plane (Algo129). 
 
 Step 1:
-
 The membership request can either be PIM Join or IGMP Join in case the receivers are directly connected.
 
 Step 2: 
 To analyze mVPN signaling we look where the source is and the source is behind R0. So R9 sends Join overlay to R0 for this particular VRF. Once R0 receives it, it is going to look at the policy for the following:
 1. Where exactly this traffic has to come from
-2. Where the underlay tree has to be created
+2. Where the underlay tree has to be created..
 
 Step 3: 
 This tree has to be created using Algo129, so it is going to allocate a tree which can be partioned MDT or data MDT and it is going to signal back to R9 saying that if you want to build a tree you need to use Algo129 which is defined in the policy.

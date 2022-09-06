@@ -134,7 +134,7 @@ There are 2 VRFs, blue and purple. S1 is the source and R1, R2 are the receivers
 
 Step 1:
 
-The membership request can either by PIM Join or IGMP Join in case the receivers are directly connected.
+The membership request can either be PIM Join or IGMP Join in case the receivers are directly connected.
 
 Step 2: 
 To analyze mVPN signaling we look where the source is and the source is behind R0. So R9 sends Join overlay to R0 for this particular VRF. Once R0 receives it, it is going to look at the policy for the following:

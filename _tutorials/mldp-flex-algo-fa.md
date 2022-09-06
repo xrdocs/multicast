@@ -112,7 +112,7 @@ In the following example we have 1 multicast source, 5 receivers and 2 planes, g
 
 Let's talk about BGP mVPN discovery. These routes carry a P-MSI tunnel attribute (PTA) and the FEC is carried in the PTA.
 
-_Reminder:_ FEC is the opaque value that is being use to create the underlay tree.
+_Reminder: FEC is the opaque value that is being use to create the underlay tree._
 
 Also, within PTA there is the IGP Algorithm (IPA) field that carries the SR Flex Algo instance ID and that helps the egress PE to start building the underlay tree with the appropriate FA underlay.
 

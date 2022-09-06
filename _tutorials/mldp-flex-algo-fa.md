@@ -19,7 +19,7 @@ mLDP is an extension to LDP used to facilitate the transportation of multicast m
 ## Benefits
 
 - Based on over 15 years of IP multicast expertise, experience, and innovation using Cisco IOS Software
-- An innovative unified control and forwarding plane that allows service providers and enterprises to transit MVPN traffic using multipoint LSPs (P2MP and MP2MP)
+- An innovative unified control and forwarding plane that allows service providers and enterprises to transit mVPN traffic using multipoint LSPs (P2MP and MP2MP)
 - State aggregation to minimize core states
 - MPLS capabilities, such as Fast Reroute, that can now be applied to multicast traffic
 - Seamless support of migration from generic routing encapsulation (GRE) and IP Multicast VPNs

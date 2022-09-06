@@ -142,7 +142,7 @@ To analyze mVPN signaling we look where the source is and the source is behind R
 2. Where the underlay tree has to be created
 
 Step 3: 
-This tree has to be created using Algo129, so it is going to allocate a tree which we call partioned MDT or data MDT and it is going to signal back to R9 saying that if you want to build a tree you need to use Algo129 which is defined in the policy.
+This tree has to be created using Algo129, so it is going to allocate a tree which can be partioned MDT or data MDT and it is going to signal back to R9 saying that if you want to build a tree you need to use Algo129 which is defined in the policy.
 
 Step 4:
 R9 starts building the underlay multicast tree for this FEC by sticking to policy Alg129.

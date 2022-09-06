@@ -23,7 +23,7 @@ mLDP is an extension to LDP used to facilitate the transportation of multicast m
 - State aggregation to minimize core states
 - MPLS capabilities, such as Fast Reroute, that can now be applied to multicast traffic
 - Seamless support of migration from generic routing encapsulation (GRE) and IP Multicast VPNs
-- No need to manage customer premise equipment, enable multicast routing in the core, or use link-state routing protocol extensions to support MLDP
+- No need to manage customer premise equipment, enable multicast routing in the core, or use link-state routing protocol extensions to support mLDP
 - Minimal cost associated with meeting bandwidth requirements of applications such as high-definition video
 - Based on industry standards
 - It is a receiver driven tree building protocol like PIM
@@ -46,9 +46,9 @@ The above 3 items uniquely identify the mLDP tree.
 
 ![mLDP + FA_image_1.1.jpg]({{site.baseurl}}/images/mLDP + FA_image_1.1.jpg)
 
-In the above P2MP scenario there are 2 receivers, PE3 and PE2 and PE1 the root. The Label Mapping (LM) starts from the receiver. P3 initiaties the LM with P node and moves to the root (PE1).
+In the above P2MP scenario there are 2 receivers, PE3 and PE2 and the root PE1. The Label Mapping (LM) starts from the receiver. P3 initiaties the LM with P node and moves to the root (PE1).
 
-The message contains the type P2MP, the root and the Opaque value. There is a local label exchange between PE and P to receive traffic on this tree. This creates a leg from PE3 to P to PE1 and when a new receiver comes, PE2 will do the similar Label Mapping and this Opaque value will remain same for the single given tree. P already has the information from the tree that was created and will simply add a branch to PE2 to join that tree. This is how the P2MP tree is created.
+The message contains the type P2MP, the root and the opaque value. There is a local label exchange between PE3 and P to receive traffic on this tree. This creates a leg from PE3 to P to PE1 and when a new receiver comes, PE2 will do the similar Label Mapping and this opaque value will remain same for the single given tree. P already has the information from the tree that was created and will simply add a branch to PE2 to join that tree. This is how the P2MP tree is created.
 
 When traffic flows, it starts from the root downstream to the receivers which is reverse direction of the signaling and it is similar to the traditional use of PIM.
 
@@ -58,13 +58,9 @@ When traffic flows, it starts from the root downstream to the receivers which is
 
 The MP2MP tree can support bidirectional traffic. It will flow from root to leaves and the opposite.
 
-The leaf starts the signaling by sending the LM all the way to the root while the Opaque value remains the same. The main difference is the type in the LM which becomes MP2MP. However, in a MP2MP there will be Downstream LM starting from the root to the leaves and the Opaque values carries the tree identifier.
+The leaf starts the signaling by sending the LM all the way up (Upstream) to the root while the opaque value remains the same. The main difference is the type in the LM which becomes MP2MP. However, in a MP2MP there will be Downstream LM starting from the root to the leaves while the opaque value carries the tree identifier. The Downstream traffic is going to flow to the reverse direction of the Upstream tree building flow but the leaves can send traffic Upstream to the root.
 
-The Downstream traffic is going to flow to the reverse direction of the Upstream tree building flow but the leaves can send traffic Upstream to the root.
-
-In the case of mLDP, the tree root for P2MP will be the ingress PE while for MP2MP tree the root is any P or PE.
-
-In a scenario that LDP is not needed because of SR MPLS, unicast LDP will be off but LDP will be turned on only for multicast.
+In the case of mLDP, the tree root for P2MP will be the ingress PE while for MP2MP tree the root is any P or PE. In a scenario that LDP is not needed because of SR MPLS, unicast LDP will be off but LDP will be turned on only for multicast.
 
 # Multicast LDP with transport differentiation using SR Flex-Algo
 
@@ -86,9 +82,9 @@ It makes it possible to define different constraints and segment the network in 
 FA gives the ability to segment the network into different planes.
 
 In the following example there are 3 groups of nodes:
-1.Nodes 0 and 9 participate to Algo0, Algo128 and Algo129
-2.Nodes 1/2/3/4 participate to Algo0 and Algo128
-3.Nodes 5/6/7/8 participate to Algo0 and Algo129
+1. Nodes 0 and 9 participate to Algo0, Algo128 and Algo129
+2. Nodes 1/2/3/4 participate to Algo0 and Algo128
+3. Nodes 5/6/7/8 participate to Algo0 and Algo129
 
 It provides a virtual segmentation of the network with 2 planes, one green and one red. Each node must advertise which FA it belongs to.
 

@@ -132,7 +132,8 @@ The following is an example of mLDP signaling with FA. The operation is split in
 	
 There are 2 VRFs, blue and purple. S1 is the source and R1, R2 are the receivers for the blue VRF while S2 is the source and R3 the receiver for the purple VRF. Routers 0 and 9 are the edge devices, P nodes, meaning that all the overlay signaling will take place between them and the underlay tree will be built using the core network. We can see that R0 has a (S, G) policy with Algo129. R0 is linked to S1 therefore any request that carries the same policy will go over red plane (Algo129). 
 
-Step 1: 
+Step 1:
+
 The membership request can either by PIM Join or IGMP Join in case the receivers are directly connected.
 
 Step 2: 

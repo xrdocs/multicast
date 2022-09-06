@@ -132,24 +132,24 @@ The following is an example of mLDP signaling with FA. The operation is split in
 	
 There are 2 VRFs, blue and purple. S1 is the source and R1, R2 are the receivers for the blue VRF while S2 is the source and R3 the receiver for the purple VRF. Routers 0 and 9 are the edge devices, P nodes, meaning that all the overlay signaling will take place between them and the underlay tree will be built using the core network. We can see that R0 has a (S, G) policy with Algo129. R0 is linked to S1 therefore any request that carries the same policy will go over red plane (Algo129). 
 
-Step 1:
+**Step 1:**
 The membership request can either be PIM Join or IGMP Join in case the receivers are directly connected.
 
-Step 2: 
+**Step 2:** 
 To analyze mVPN signaling we look where the source is and the source is behind R0. So R9 sends Join overlay to R0 for this particular VRF. Once R0 receives it, it is going to look at the policy for the following:
 1. Where exactly this traffic has to come from
 2. Where the underlay tree has to be created..
 
-Step 3: 
+**Step 3:**
 This tree has to be created using Algo129, so it is going to allocate a tree which can be partioned MDT or data MDT and it is going to signal back to R9 saying that if you want to build a tree you need to use Algo129 which is defined in the policy.
 
-Step 4:
+**Step 4:**
 R9 starts building the underlay multicast tree for this FEC by sticking to policy Alg129.
 
-Step 5:
+**Step 5:**
 Eventually the Join is received by the actual source VRF, S1.
 
-Step 6:
+**Step 6:**
 S1 starts flowing the traffic through the red plane.
 
 It is important to understand that the network is now separated which makes red plane totally independent by green plane. Anything that might happen within the red plane such as failure, it will be taken care by the current plane and will be containted in it without interfering with the other planes. Whatever happens between 5,6,7,8 will never be linked to the green plane.

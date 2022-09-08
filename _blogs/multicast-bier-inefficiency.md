@@ -2,7 +2,7 @@
 published: true
 date: '2022-09-08 14:03 +0300'
 title: Multicast + Bier = Inefficiency
-author: LAMPROS GKAVOGIANNIS
+author: Lampros Gkavogiannis
 excerpt: This blog explains the concept of Bier and why it is not recommended
 tags:
   - iosxr

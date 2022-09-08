@@ -32,6 +32,26 @@ The bit index table is tied to ECMP for multiple paths from each, where applicab
 
 ![BIER_image_1_1.jpg]({{site.baseurl}}/images/BIER_image_1_1.jpg)
 
+Figure 3-19:
+The receiver information (egress router for multicast flow) is learned via an overlay mechanism. The current deployment of BIER in IOS-XR is via BGP overlay for receiver learning. Once the receiver is known within the domain, the forwarding is simple, using the bitmask index. This is different from PIM domains, where the forwarding and signaling are maintaned in the multicast state table at the same time. In BIER, multicast forwarding is kept separate from the signaling
+
+![BIER_image_2_1.jpg]({{site.baseurl}}/images/BIER_image_2_1.jpg)
+
+Figure 3-20:
+Provides a high-level overview of packet flow in BIER:
+- Before the multicast exchange, all the routers in the BIER domain exchange bitmask information by using IGP (OSPF in this case). All the routers in the unicast domain for BIER calculate the best path for each of the BFR indexes.
+- The overlay control plane (in this case BGP) transmits the receiver information and the BIER nodes in the domain, as in the step above.
+- The multicast data plane from the source connected to R1 is propagated to R4 through the bit index Boolean AND function, as in steps 2 through 4.
+
+BIER, which is relatively new, is available only in IOS-XR at this writing. With this innovative solution, there is no need to run PIM, MLDP or P2MP MPLS traffic engineering in the network to signal multicast forwarding state created in the network is driven by advertisements through the link state protocols OSPF or IS-IS. This forwarding state is not per (*, G) or (S, G) but per egress router. Each egress router for multicast is identified by a bit index. Each BIER router must have on unique bit in a bitstring. This bitstring is also foud in the multicast packets that need to be forwarded through a BIER network.
+
+Summary
+MPLS VPN has been around for many years, implemented by service providers and enterprise customers because it provides the ability to logically separate traffic using one physical infrastrcuture. The capability of supporting multicast in an MPLS VPN environment has been available using default MDT. As technology has evolved, so has the capability of supporting multicast in an MPLS network. Today you can still use the traditional default MDT method, but there are now also 26 other profiles to choose from-from IP/GRE encapsulation using PIM, to traffic engineering tunnels, to MLDP, to BIER.
+
+The requiremens for extranet MVPNs, or the capability of sharing multicast messages between VPNs, has also brought about development of new capabilities, such as VRF fallback, VRF select, and VASI. The combinations of solutions are almost endless, and this chapter was specifically written to provide a taste of different solutions and capabilities.
+
+RFC 2365, RFC 6037, RFC 6514, RFC 6516, RFC 7358, RFC 7441
+
 
 Cisco® Bit Indexed Explicit Replication (BIER) is an architecture used to forward multicast through an IP network. The innovative part of BIER is that it requires no explicit multicast signaling protocol in the network. There is no need to run Protocol Independent Multicast (PIM), multipoint LDP (mLDP), or P2MP MPLS traffic engineering within the network to signal multicast state hop-by-hop. Instead, the multicast forwarding state created in the network is driven by advertisements through the link state protocols OSPF or ISIS. This forwarding state is not per (*,G) or (S,G), but per egress router. Although packet forwarding is new and unique, there is interoperability with existing techniques for overlay signaling. These techniques are widely deployed in mVPN networks today.
 

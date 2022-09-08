@@ -49,5 +49,14 @@ Suggested solutions
  	1. They want to deploy disjoint live-live trees
     2. Trees are fairly statics
     3. Use to deploy RSVP-TE to address it -> the computation of disjoint trees is made manually 		and it is painful
-    4. 
+    4. Many are moving to Tree-SID + mVPN -> the computation of disjoing tree is automatic (thanks 		  to SR-PCE)
+    5. COE (CrossWork Optimization Engine) and CNC (CrossWork Ip Network Controller) will add lots 		  of value to the Tree-SID + mVPN solution, as the customer could now visualize 2 trees and 	   prove their disjointness
+
+What enterprise & financial are saying:
+	1. Wants to deploy disjoint live-live trees
+    2. Trees are dynamic and states are changing often
+    3. Looking at mLDP + FA + mVPN
+    4. Adding some constraint on topology and network design
+    5. Better suit for dynamic environment compared to Tree-SID
+    
 

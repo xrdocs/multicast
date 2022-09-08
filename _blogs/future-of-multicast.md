@@ -2,7 +2,7 @@
 published: true
 date: '2022-09-08 11:50 +0300'
 title: Future of Multicast
-author: LAMPROS GKAVOGIANNIS
+author: Lampros Gkavogiannis
 excerpt: The following blog gives insight of Cisco's position to Multicast future
 tags:
   - iosxr

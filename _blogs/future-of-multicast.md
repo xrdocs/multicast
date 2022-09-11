@@ -18,6 +18,24 @@ The purpose of the following blog is to give an insight on Business Multicast Se
 
 ## Multicast in the SP world
 
+SPs are split into 3 main categories:
+1. Media Streaming.
+2. Business Multicast VPN.
+3. Financial Streaming.
+
+However, all of them have common Multicast goals such as:
+- Deliver data to multiple locations.
+- Optimize bandwidth utilisation by replicating data in the IP network.
+- Assure the fair distribution of data across multiple sites (receivers, leaves) at the same time.
+
+Our task here is to list these categories and propose solutions based on the current and future requirements.
+
+## Media Streaming
+
+_The Media Streaming customers are CNBC, Sky, BT Broadcast, Bell Broadcast, Verizon, Swisscom, Pixar, ESPN, Disney and more._
+
+
+
 ## asda
 
 Multicast is a technology which Service Providers (SP) use to deploy

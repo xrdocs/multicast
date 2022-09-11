@@ -12,7 +12,44 @@ tags:
   - Innovation
 position: hidden
 ---
-## Multicast Future
+## IP Multicast Evolution
+
+The purpose of the following blog is to give an insight on Business Multicast Service. We will explain how Multicast is currently deployed and how we propose to evolve these deployments in the future. Multicast is a technology used by many Service Providers (SP) but is very limited to Unicast in terms of deployments and evolution. _Cisco currently has customers who are using different flavours of Multicast and it is expected to keep supporting all of them_. However, we believe that Multicast should shift to new technology requirements and adapt to the upcoming evolution of IP Multicast.
+
+## Multicast in the SP world
+
+## asda
+
+Multicast is a technology which Service Providers (SP) use to deploy
+Service Providers (SP) use multicast to deliver 3 main deployments:
+1. Media Streaming
+2. Business Multicast VPN
+3. Financial Streaming
+
+The purpose of this blog is to give an idea of how Business Multicast Service is evolving.
+
+Service Providers (SP) have two main Business use cases when it comes to delivering Multicast:
+1. IPTV or Broadcast TV
+	This service addresses the consumer market 
+2. Multicast VPN (mVPN) for business customers
+	This service addresses enterprise business customers
+    
+Broadcast TV use case:
+Today: Most of the deployments are P2MP RSVP-TE + mVPN. The Tree has to be completed manually for disjointness and Live-Live scenarios.
+Short term future: In 2021 we introduced a Software Defined Network (SDN) based solution made of PCE + Tree-SID + mVPN. The Tree can be automatically created by the Path Computation Element (PCE) for disjointness and Live-Live scenarios.
+CDN overlay: Cisco will be shiting to a newer long term plan with CDN overlay. Replication will be done at the CDN layer and less on the network. Customers are consuming unicast TV with VoD, Replay, Netflix, Youtube are some examples. The encoding adaptation could be done at the SDN layer. Smart TV apps will replace setup boxes. New plan will be quicker and easier to deploy and develop.
+
+Hardware trends
+New NPUs are optimized to increase forwarding performance and speed for unicast with lower packet per second cost and lower power consumption and heat. They will not be optimized to replicate multicast traffic compare to the older generations.
+The new equipment are limited to ingress NPU only which means no ingress and egress replication.
+
+Business Multicast VPN.
+Service providers are not looking into replacing mVPN service. SPs have lots of small mVPN trees and fewer large mVPN trees. It is also clear that mVPN traffic does not increase much while unicast bandwidth continues to double every 18-24 months.
+Today: Vast majority of customers have Rosen mVPN (profile 0) and mLDP mVPN (profile 14) deployments. Cisco will keep on supporting these profiles.
+Evolution: Segment Routing and Flex-Algo are IPv6!
+
+[Screenshot 2022-09-11 at 11.56.24.jpg]({{site.baseurl}}/images/Screenshot 2022-09-11 at 11.56.24.jpg)
+
 
 There are multiple customer use-cases and some of them are:
 1. Multi-media streaming use-case

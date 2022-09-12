@@ -38,7 +38,7 @@ Streaming media is all about traffic delivered and consumed in a continuous stre
 
 ### Current Deployments
 
-Today, most Media Streaming deployments are running RSVP + mVPN.
+Today, most Media Streaming deployments are running RSVP-TE P2MP + mVPN. The Multicast is created manually for scenarios such as disjointness and Live-Live and there is not tree visualization.
 
 
 Today they are mostly running Multicast RSVP + mVPN. The Service-Level-Agreement (SLA) is Live-Live scenario with **manually** maintained and created disjoint trees.

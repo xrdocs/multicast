@@ -34,23 +34,39 @@ Our task here is to list these categories and propose solutions based on the cur
 
 _The Media Streaming customers are CNBC, Sky, BT Broadcast, Bell Broadcast, Verizon, Swisscom, Pixar, ESPN, Disney and more._
 
+Their main goal is to deliver IPTV broadcast channels to all the points of presence while achieving zero disruption of services.
+
+Today they are mostly running Multicast RSVP + mVPN. The Service-Level-Agreement (SLA) is Live-Live scenario with **manually** maintained and created disjoint trees.
+
+RSVP-TE P2MP
+No tree visualization
+
+IP Multicast main requirements:
+- Data: Broadcast TV (SD, HD, 4K, 8K, ... encoding)
+- Leaves: Lots of leaves, controller by operator, always on
+- Protection: Live-Live with controlled disjoint trees
+
+What we suggest as an evolution is TreeSID + mVPN. SLA Live-Live design with automated maintaned and created disjoint trees.
+
+PCE + Tree-SID + mVPN + CNC/COE
+Automate Tree disjointness & Live-Live (via PCE)
+Tree Visualization (CNC/COE)
+
+Extra evolution:
+Customers are consuming unicast TV with VoD, Replay
+Encoding adaption SD, HD, 4K, 8K, ...
+Smart TV apps replacing setup boxes
+NFV as elastic mechanism to scale up during large broadcast events (sport events, political events, ...)
+TTM: how to compete with WEB/OTTs? Takes years to develop network solution, takes days to deploy newer solutions with CDN in place.
+
+## Business Multicast VPN
+
+_The Business Multicast VPN customers are Orange Business Service, ATT IP Services, BT Global, Charter, Comcast, Deutsche Telekom, Vodafone and more._
+
 
 
 ## asda
 
-Multicast is a technology which Service Providers (SP) use to deploy
-Service Providers (SP) use multicast to deliver 3 main deployments:
-1. Media Streaming
-2. Business Multicast VPN
-3. Financial Streaming
-
-The purpose of this blog is to give an idea of how Business Multicast Service is evolving.
-
-Service Providers (SP) have two main Business use cases when it comes to delivering Multicast:
-1. IPTV or Broadcast TV
-	This service addresses the consumer market 
-2. Multicast VPN (mVPN) for business customers
-	This service addresses enterprise business customers
     
 Broadcast TV use case:
 Today: Most of the deployments are P2MP RSVP-TE + mVPN. The Tree has to be completed manually for disjointness and Live-Live scenarios.

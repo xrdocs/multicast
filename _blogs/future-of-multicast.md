@@ -28,13 +28,18 @@ However, all of them have common Multicast goals such as:
 - Optimize bandwidth utilisation by replicating data in the IP network.
 - Assure the fair distribution of data across multiple sites (receivers, leaves) at the same time.
 
-Our task here is to list these categories and propose solutions based on the current and future requirements.
+Our task here is to list these categories and propose solutions based on the current and future industry requirements.
 
 ## Media Streaming
 
 _The Media Streaming customers are CNBC, Sky, BT Broadcast, Bell Broadcast, Verizon, Swisscom, Pixar, ESPN, Disney and more._
 
-Their main goal is to deliver IPTV broadcast channels to all the points of presence while achieving zero disruption of services.
+Streaming media is all about traffic delivered and consumed in a continuous stream from a source. The main goal is to deliver IPTV broadcast channels to all the presence points while maintaning zero disruption of services.
+
+### Current Deployments
+
+Today, most Media Streaming deployments are running RSVP + mVPN.
+
 
 Today they are mostly running Multicast RSVP + mVPN. The Service-Level-Agreement (SLA) is Live-Live scenario with **manually** maintained and created disjoint trees.
 
@@ -63,7 +68,9 @@ TTM: how to compete with WEB/OTTs? Takes years to develop network solution, take
 
 _The Business Multicast VPN customers are Orange Business Service, ATT IP Services, BT Global, Charter, Comcast, Deutsche Telekom, Vodafone and more._
 
+## Financial Streaming
 
+_The Financial Streaming customers are LSEG, Bloomberg, Pico, Morgan Stanley and more._
 
 ## asda
 
@@ -83,14 +90,6 @@ Today: Vast majority of customers have Rosen mVPN (profile 0) and mLDP mVPN (pro
 Evolution: Segment Routing and Flex-Algo are IPv6!
 
 [Screenshot 2022-09-11 at 11.56.24.jpg]({{site.baseurl}}/images/Screenshot 2022-09-11 at 11.56.24.jpg)
-
-
-There are multiple customer use-cases and some of them are:
-1. Multi-media streaming use-case
-2. Financial streaming use-case
-3. Multicast VPN services to business customers use-case
-4. Live-live distribution with disjointness
-5. Other type of constraints
 
 Suggested solutions
 - If there is no need for TE but mVPN is needed:

@@ -34,12 +34,18 @@ Our task here is to list these categories and propose solutions based on the cur
 
 _The Media Streaming customers are CNBC, Sky, BT Broadcast, Bell Broadcast, Verizon, Swisscom, Pixar, ESPN, Disney and more._
 
-Streaming media is all about traffic delivered and consumed in a continuous stream from a source. The main goal is to deliver IPTV broadcast channels to all the presence points while maintaning zero disruption of services.
+Streaming media is all about traffic delivered and consumed in a continuous stream from a source to the receivers. The main goal is to deliver IPTV broadcast channels to all the presence points while maintaning zero disruption of services.
 
 ### Current Deployments
 
-Today, most Media Streaming deployments are running RSVP-TE P2MP + mVPN. The Multicast is created manually for scenarios such as disjointness and Live-Live and there is not tree visualization.
+Today, most Media Streaming deployments are running RSVP-TE P2MP + mVPN. The Multicast tree is created **manually** for scenarios such as disjointness and Live-Live and there is not visualization.
 
+### Cisco Suggestion
+
+In Cisco, we believe that theere are better ways to deliver Media Streaming. We can get rid of manual tree creation and maintenance by deploying the Tree-SID technology which is a controller based approach to build a tree either static or dynamic. Below you can find a list of sources for better understanding of Tree-SID.
+
+[Tree-SID Article](https://xrdocs.io/multicast/tutorials/tree-sid/) and [Video](https://www.youtube.com/watch?v=q3VNOnw-bIE&t=1s&ab_channel=xrdocs)
+[Tree-SID Demo](https://xrdocs.io/multicast/tutorials/tree-sid-demo/) and [Video](https://youtu.be/WhYCwysSDAQ)
 
 Today they are mostly running Multicast RSVP + mVPN. The Service-Level-Agreement (SLA) is Live-Live scenario with **manually** maintained and created disjoint trees.
 

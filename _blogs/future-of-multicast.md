@@ -38,8 +38,9 @@ Streaming media is all about traffic delivered and consumed in a continuous stre
 
 The main requirements are:
 - Data delivery for Broadcast TV in different formats such as SD, HD, 4K, 8K.
-- Creation of multiple Leaves that are controlled by the operator and are always on
+- Creation of multiple leaves that are controlled by the operator and are always on.
 - Protection of the above by deploying Disjoing trees and Live-Live traffic.
+
 
 ### Current Deployments
 
@@ -54,11 +55,17 @@ In Cisco, we believe that theere are better ways to deliver Media Streaming. We 
 
 ### Media Streaming Future
 
+The Industry is moving forward and it is our task to tag alone. The majority of traffic is Unicast, thus it is undeniable that it will grow faster than Multicast. The new NPU's are designed and optimized to increase the forwarding performance and speed while achieving lower per packet cost. There is also lower power consumption and heat generation. Therefore, these NPU's are not Multicast designed. In Addition, replication is happening at ingress NPU only and it is no longer splitted between ingress and egress. In summary we should expect similar replication performance on newer equipment compared to older without any large improvement anymore.
+
 Cisco is currently working with the CNC (Crosswork Network Collector) team to delivery the visualization of Tree-SID.
 
 _na balw photos apo cnc dashboard_
 
 There is already a working Demo with Tree-SID and CNC where you can see a deployed tree either static or dynamic through the dashboard.
+
+The Tree-SID and CNC/ COE scenario is part of the CDN
+- Network Functions Virtualization (NFV) during large broadcast events such as sports events, polical events, etc...
+- Test Traffic Measurement Service (TTM)
 
 
 
@@ -134,5 +141,3 @@ What enterprise & financial are saying:
     3. Looking at mLDP + FA + mVPN
     4. Adding some constraint on topology and network design
     5. Better suit for dynamic environment compared to Tree-SID
-    
-

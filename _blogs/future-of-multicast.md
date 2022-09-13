@@ -36,32 +36,32 @@ _The Media Streaming customers are CNBC, Sky, BT Broadcast, Bell Broadcast, Veri
 
 Streaming media is all about traffic delivered and consumed in a continuous stream from a source to the receivers. The main goal is to deliver IPTV broadcast channels to all the presence points while maintaning zero disruption of services.
 
+The main requirements are:
+- Data delivery for Broadcast TV in different formats such as SD, HD, 4K, 8K.
+- Creation of multiple Leaves that are controlled by the operator and are always on
+- Protection of the above by deploying Disjoing trees and Live-Live traffic.
+
 ### Current Deployments
 
 Today, most Media Streaming deployments are running RSVP-TE P2MP + mVPN. The Multicast tree is created **manually** for scenarios such as disjointness and Live-Live and there is not visualization.
 
-### Cisco Suggestion
+### Today's Cisco Suggestion
 
 In Cisco, we believe that theere are better ways to deliver Media Streaming. We can get rid of manual tree creation and maintenance by deploying the Tree-SID technology which is a controller based approach to build a tree either static or dynamic. Below you can find a list of sources for better understanding of Tree-SID.
 
 [Tree-SID Article](https://xrdocs.io/multicast/tutorials/tree-sid/) and [Video](https://www.youtube.com/watch?v=q3VNOnw-bIE&t=1s&ab_channel=xrdocs)
 [Tree-SID Demo](https://xrdocs.io/multicast/tutorials/tree-sid-demo/) and [Video](https://youtu.be/WhYCwysSDAQ)
 
-Today they are mostly running Multicast RSVP + mVPN. The Service-Level-Agreement (SLA) is Live-Live scenario with **manually** maintained and created disjoint trees.
+### Media Streaming Future
 
-RSVP-TE P2MP
-No tree visualization
+Cisco is currently working with the CNC (Crosswork Network Collector) team to delivery the visualization of Tree-SID.
 
-IP Multicast main requirements:
-- Data: Broadcast TV (SD, HD, 4K, 8K, ... encoding)
-- Leaves: Lots of leaves, controller by operator, always on
-- Protection: Live-Live with controlled disjoint trees
+_na balw photos apo cnc dashboard_
 
-What we suggest as an evolution is TreeSID + mVPN. SLA Live-Live design with automated maintaned and created disjoint trees.
+There is already a working Demo with Tree-SID and CNC where you can see a deployed tree either static or dynamic through the dashboard.
 
-PCE + Tree-SID + mVPN + CNC/COE
-Automate Tree disjointness & Live-Live (via PCE)
-Tree Visualization (CNC/COE)
+
+
 
 Extra evolution:
 Customers are consuming unicast TV with VoD, Replay

@@ -44,11 +44,11 @@ The main requirements are:
 
 ### Current Deployments
 
-Today, most Media Streaming deployments are running RSVP-TE P2MP + mVPN. The Multicast tree is created **manually** for scenarios such as disjointness and Live-Live and there is not visualization.
+Today, most Media Streaming deployments are running RSVP-TE P2MP + mVPN. The Multicast tree is created **manually** for scenarios such as disjointness and Live-Live and there is not visualization. There is no real-time view of the tree as computation is distributed.
 
 ### Today's Cisco Suggestion
 
-In Cisco, we believe that theere are better ways to deliver Media Streaming. We can get rid of manual tree creation and maintenance by deploying the Tree-SID technology which is a controller based approach to build a tree either static or dynamic. Below you can find a list of sources for better understanding of Tree-SID.
+In Cisco, we believe that theere are better ways to deliver Media Streaming. We can get rid of manual tree creation and maintenance by deploying the Tree-SID technology which is a controller based approach to build a tree either static or dynamic. It is a product of Software Defined Networks (SDN) architecture and is a result of PCE + Tree-SID + mVPN where Tree-SID is a SR P2MP policy. Below you can find a list of sources for better understanding of Tree-SID.
 
 [Tree-SID Article](https://xrdocs.io/multicast/tutorials/tree-sid/) and [Video](https://www.youtube.com/watch?v=q3VNOnw-bIE&t=1s&ab_channel=xrdocs)
 [Tree-SID Demo](https://xrdocs.io/multicast/tutorials/tree-sid-demo/) and [Video](https://youtu.be/WhYCwysSDAQ)
@@ -57,25 +57,13 @@ In Cisco, we believe that theere are better ways to deliver Media Streaming. We 
 
 The Industry is moving forward and it is our task to tag alone. The majority of traffic is Unicast, thus it is undeniable that it will grow faster than Multicast. The new NPU's are designed and optimized to increase the forwarding performance and speed while achieving lower per packet cost. There is also lower power consumption and heat generation. Therefore, these NPU's are not Multicast designed. In Addition, replication is happening at ingress NPU only and it is no longer splitted between ingress and egress. In summary we should expect similar replication performance on newer equipment compared to older without any large improvement anymore.
 
-Cisco is currently working with the CNC (Crosswork Network Collector) team to delivery the visualization of Tree-SID.
+Cisco is currently working with the CNC (Crosswork Network Collector) and Crosswork Optimization Engine (COE) team to delivery the visualization of Tree-SID. As a result of NPU's evolution the replication will be happening at the Content Delivery Network (CDN) Layer. This will provide the following advantages and features:
+- Smart TV apps consuming Unicast traffic will replace setup boxes which will reduce Operating Expenditure (OPEX) for SPs.
+- There can be Network Functions Virtualization (NFV) as elastic mechanism to scale up during large broadcast events such as sports evemts, political events, etc...
 
+The deployment of above innovation can be much faster to deploy with CDN in place than deploying common network solutions which makes it possible to compete with WEB and OTT competitors.
+ 
 _na balw photos apo cnc dashboard_
-
-There is already a working Demo with Tree-SID and CNC where you can see a deployed tree either static or dynamic through the dashboard.
-
-The Tree-SID and CNC/ COE scenario is part of the CDN
-- Network Functions Virtualization (NFV) during large broadcast events such as sports events, polical events, etc...
-- Test Traffic Measurement Service (TTM)
-
-
-
-
-Extra evolution:
-Customers are consuming unicast TV with VoD, Replay
-Encoding adaption SD, HD, 4K, 8K, ...
-Smart TV apps replacing setup boxes
-NFV as elastic mechanism to scale up during large broadcast events (sport events, political events, ...)
-TTM: how to compete with WEB/OTTs? Takes years to develop network solution, takes days to deploy newer solutions with CDN in place.
 
 ## Business Multicast VPN
 

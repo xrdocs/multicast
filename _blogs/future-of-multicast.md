@@ -63,4 +63,4 @@ Cisco is currently working with the CNC (Crosswork Network Collector) and Crossw
 
 The deployment of above innovation can be much faster to deploy with CDN in place than deploying common network solutions which makes it possible to compete with WEB and OTT competitors.
  
-_na balw photos apo cnc dashboard_
+_task: add photos from cnc dashboard_

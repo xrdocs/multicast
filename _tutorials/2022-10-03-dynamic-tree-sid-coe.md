@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 date: '2022-10-03 11:31 +0300'
 title: Dynamic Tree-SID + COE
 author: Lampros Gkavogiannis

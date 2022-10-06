@@ -24,6 +24,9 @@ transit node 8, 7, 3?
 
 all the nodes are xrv9k devices
 
+_na boun ola ta configs se ena github_
+_na bei link apo to wiki_
+
 
 ## SR-PCE Configuration
 
@@ -100,8 +103,9 @@ _edit: remove the addresses not belonging in the topology_
 
 ![Tree-SID + COE topology.png]({{site.baseurl}}/images/Tree-SID + COE topology.png)
 
+_edit: wrong screenshot? shows all nodes, also check the addresses above_
 
-_edit: wrong screenshot? is that from static?_
+The above screenshot displays all the nodes in the network that have PCEP sessions with the PCE.
 
 Next step is to check the Tree that has been dynamically created by the PCE. The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Root Node) wih the corresponding Tree IDs.
 
@@ -115,8 +119,195 @@ show pce lsp p2mp root ipv4 198.19.1.5 | include Tree
 Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
 ```
 
-### COE Dashbord of that Tree
+The next output shows the Tree stucture indlucing the Root (Ingress), the Transit nodes and the leaves (Egress) with the corresponding label ID (31000) of the Tree.
 
+### Command:
+```
+show pce lsp p2mp root ipv4 198.19.1.5
+```
 
+### Output:
+```
+Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
+ PCC: 198.19.1.5
+ Label:    31000     Operational: up  Admin: up
+ Local LFA FRR: Enabled
+ Metric Type: IGP
+ Transition count: 1
+ Uptime: 06:10:10 (since Mon Oct 03 02:06:06 UTC 2022)
+ Destinations: 198.19.1.4
+ Nodes:
+  Node[0]: 198.19.1.3 (Node-3)
+   Role: Transit
+   Hops:
+    Incoming: 31000 CC-ID: 1
+    Outgoing: 31000 CC-ID: 1 (198.19.1.4!) [Node-4]
+  Node[1]: 198.19.1.7 (Node-7)
+   Role: Transit
+   Hops:
+    Incoming: 31000 CC-ID: 2
+    Outgoing: 31000 CC-ID: 2 (198.19.1.3!) [Node-3]
+  Node[2]: 198.19.1.8 (Node-8)
+   Role: Transit
+   Hops:
+    Incoming: 31000 CC-ID: 3
+    Outgoing: 31000 CC-ID: 3 (198.19.1.7!) [Node-7]
+  Node[3]: 198.19.1.5 (Node-5)
+   Role: Ingress
+   Hops:
+    Incoming: 31000 CC-ID: 4
+    Outgoing: 31000 CC-ID: 4 (198.19.1.8!) [Node-8]
+  Node[4]: 198.19.1.4 (Node-4)
+   Role: Egress
+   Hops:
+    Incoming: 31000 CC-ID: 5
+```
+
+### COE Dashboard of that Tree
+
+_edit: tha balw photo meta_
+
+Dashboard verifies the Tree-SID path that is rooted at node 5.
+
+All the above conclude the configurations and outputs on PCE node. Now we can move to the Root node.
+
+## Root node
+
+From the root node we can get information such as VRFs, traffic-eng configurations, mvpn and segment-routing configurations
+
+### Command:
+```
+show vrf L3VPN_NM-MVPN-80
+```
+
+### Output:
+```
+VRF                  RD                  RT                         AFI   SAFI
+L3VPN_NM-MVPN-80     65000:80
+                                         import  65000:80            IPV4  Unicast
+                                         export  65000:80            IPV4  Unicast
+```
+
+### COE Dashboard of that Tree
+
+_ti borw na balw edw?_
+
+Now lets check the configuration of that specific VRF. The multicast routing for IPv4 and the bgp auto-discovery are enabled, we will use segment routing P2MP and we will allow default MDT based on P2MP SR policy. There is associated color to the default MDT.
+
+### Command:
+```
+show run multicast-routing vrf L3VPN_NM-MVPN-80
+```
+
+### Output:
+```
+multicast-routing
+ vrf L3VPN_NM-MVPN-80
+  address-family ipv4
+   interface all enable
+   bgp auto-discovery segment-routing
+   !
+   mdt default segment-routing mpls color 80
+   mdt data segment-routing mpls 2 color 80
+  !
+ !
+!
+```
+
+### COE Dashboard of that Tree
+
+_ti borw na balw edw?_
+
+There are one important thing to notice in the following command which is the metric type IGP. Any Tree that is going to be built as part of the default or data MDT is going to be built based on that metric.
+
+_to tree eina bash igp einai te? prepei na balw kai ta dio edw?_
+
+### Command:
+```
+show run segment-routing traffic-eng on-demand color 80
+```
+
+### Output:
+```
+segment-routing
+ traffic-eng
+  on-demand color 80
+   dynamic
+    pcep
+    !
+    metric
+     type igp
+    !
+   !
+  !
+ !
+!
+```
+
+### COE Dashboard of that Tree
+
+_ti borw na balw edw?_
+
+giati den blepw ta multicast group edW?
+
+Below we can see the Route Type 1s for the PE in the network??Is 1.4 the PE?
+
+### Command:
+```
+show bgp vrf L3VPN_NM-MVPN-80 ipv4 mvpn
+```
+
+### Output:
+```
+BGP VRF L3VPN_NM-MVPN-80, state: Active
+BGP Route Distinguisher: 65000:80
+VRF ID: 0x60000003
+BGP router identifier 198.19.1.5, local AS number 65000
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0x0   RD version: 5
+BGP main routing table version 5
+BGP NSR Initial initsync version 2 (Reached)
+BGP NSR/ISSU Sync-Group versions 0/0
+
+Status codes: s suppressed, d damped, h history, * valid, > best
+              i - internal, r RIB-failure, S stale, N Nexthop-discard
+Origin codes: i - IGP, e - EGP, ? - incomplete
+   Network            Next Hop            Metric LocPrf Weight Path
+Route Distinguisher: 65000:80 (default for vrf L3VPN_NM-MVPN-80)
+*>i[1][198.19.1.4]/40 198.19.1.4                    100      0 i
+*> [1][198.19.1.5]/40 0.0.0.0                                0 i
+
+Processed 2 prefixes, 2 paths
+```
+
+### COE Dashboard of that Tree
+
+_ti borw na balw edw?_
+
+The following is the default MDT or I-PMSI. It has 1 member which is root Node 4 and there is a Tree with ID 524289.
+
+### Command:
+```
+show mvpn vrf L3VPN_NM-MVPN-80 database segment-routing
+```
+
+### Output:
+```
+* - LFA protected MDT
+Core Type      Core            Tree Core        State  On-demand
+              Source           Information             Color
+
+Default        198.19.1.5       524289 (0x80001)    Up 80
+   I-PMSI Leg:      198.19.1.4
+Part              0.0.0.0            0 (0x00000)  Down 80
+Control           0.0.0.0            0 (0x00000)  Down 80
+```
+
+### COE Dashboard of that Tree
+
+_ti borw na balw edw?_
+
+Now we move on to the Transit or Mid nodes.
 
 

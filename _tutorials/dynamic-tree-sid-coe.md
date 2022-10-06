@@ -25,7 +25,7 @@ transit node 8, 7, 3?
 all the nodes are xrv9k devices
 
 
-## SR-PCE (xtc1) Configuration
+## SR-PCE Configuration
 
 The PCE holds PCEP sessions with all the routers in the topology. We can verify that by running the following command:
 
@@ -94,72 +94,26 @@ Peer address: 198.19.1.202
   State: TCP Pending
   Capabilities: Stateless
 ```
-edit: remove the addresses not belonging in the topology
+_edit: remove the addresses not belonging in the topology_
+
+### COE Dashboard of topology
 
 ![Tree-SID + COE topology.jpg]({{site.baseurl}}/images/Tree-SID + COE topology.jpg)
 
+Next step is to check the Tree that has been dynamically created by the PCE. The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Root Node) wih the corresponding Tree IDs
 
-
+### Command:
 ```
-router bgp 65000
- address-family ipv4 mvpn
- !
- neighbor-group AS65000-RRC-services-group
-  address-family ipv4 mvpn
-   route-reflector-client
- !
-pce
- segment-routing
-  traffic-eng
-   p2mp
-    label-range min 30000 max 31000
-    fast-reroute lfa
-    multipath-disable
+show pce lsp p2mp root ipv4 198.19.1.5 | include Tree
 ```
 
+### Output:
+```
+Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
+```
+
+### COE Dashbord of that Tree
 
 
 
 
-# SR-PCE (xtc1) Configuration
-
-router bgp 65000
- address-family ipv4 mvpn
- !
- neighbor-group AS65000-RRC-services-group
-  address-family ipv4 mvpn
-   route-reflector-client
- !
-pce
- segment-routing
-  traffic-eng
-   p2mp
-    label-range min 30000 max 31000
-    fast-reroute lfa
-    multipath-disable
-    
-# Root Node (Node-5) Configuration
-
-vrf L3VPN_NM-MVPN-80
- address-family ipv4 unicast
-  import route-target
-   65000:80
-  !
-  export route-target
-   65000:80
-  !
-!
-router bgp 65000
- address-family ipv4 mvpn
- !
- neighbor-group RR-services-group
-   address-family ipv4 mvpn
-!
- vrf L3VPN_NM-MVPN-80
-  rd 65000:80
-  address-family ipv4 unicast
-   redistribute connected
-  !
-  address-family ipv4 mvpn
-  !
-!

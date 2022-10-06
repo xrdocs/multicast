@@ -98,9 +98,12 @@ _edit: remove the addresses not belonging in the topology_
 
 ### COE Dashboard of topology
 
-![Tree-SID + COE topology.jpg]({{site.baseurl}}/images/Tree-SID + COE topology.jpg)
 
-Next step is to check the Tree that has been dynamically created by the PCE. The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Root Node) wih the corresponding Tree IDs
+
+
+_edit: wrong screenshot? is that from static?_
+
+Next step is to check the Tree that has been dynamically created by the PCE. The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Root Node) wih the corresponding Tree IDs.
 
 ### Command:
 ```

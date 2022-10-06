@@ -310,4 +310,83 @@ _ti borw na balw edw?_
 
 Now we move on to the Transit or Mid nodes.
 
+node 3
+
+### Command:
+```
+show segment-routing traffic-eng p2mp policy root ipv4 198.19.1.5
+```
+
+### Output:
+```
+SR-TE P2MP policy database:
+----------------------
+! - Replications with Fast Re-route, * - Stale dynamic policies/endpoints
+
+Policy: sr_p2mp_root_198.19.1.5_tree_id_524289  LSM-ID: 0x40002
+ Root: 198.19.1.5, ID: 524289
+ Role: Transit
+ Replication:
+  Incoming label: 31000 CC-ID: 1
+  Interface: None [198.19.1.4!]  Outgoing label: 31000 CC-ID: 1
+```
+
+### COE Dashboard of that Tree
+
+_ti borw na balw edw?_
+
+node 7
+
+### Command:
+```
+show segment-routing traffic-eng p2mp policy root ipv4 198.19.1.5
+```
+
+### Output:
+```
+SR-TE P2MP policy database:
+----------------------
+! - Replications with Fast Re-route, * - Stale dynamic policies/endpoints
+
+Policy: sr_p2mp_root_198.19.1.5_tree_id_524289  LSM-ID: 0x40003
+ Root: 198.19.1.5, ID: 524289
+ Role: Transit
+ Replication:
+  Incoming label: 31000 CC-ID: 2
+  Interface: None [198.19.1.3!]  Outgoing label: 31000 CC-ID: 2
+```
+
+### COE Dashboard of that Tree
+
+_ti borw na balw edw?_
+
+node 8
+
+### Command:
+```
+show segment-routing traffic-eng p2mp policy root ipv4 198.19.1.5
+```
+
+### Output:
+```
+SR-TE P2MP policy database:
+----------------------
+! - Replications with Fast Re-route, * - Stale dynamic policies/endpoints
+
+Policy: sr_p2mp_root_198.19.1.5_tree_id_524289  LSM-ID: 0x40003
+ Root: 198.19.1.5, ID: 524289
+ Role: Transit
+ Replication:
+  Incoming label: 31000 CC-ID: 3
+  Interface: None [198.19.1.7!]  Outgoing label: 31000 CC-ID: 3
+```
+
+### COE Dashboard of that Tree
+
+_ti borw na balw edw?_
+
+an exei kati extra to wiki
+exei configurations kai outputs
+
+
 

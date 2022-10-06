@@ -98,7 +98,7 @@ _edit: remove the addresses not belonging in the topology_
 
 ### COE Dashboard of topology
 
-
+![Tree-SID + COE topology.png]({{site.baseurl}}/images/Tree-SID + COE topology.png)
 
 
 _edit: wrong screenshot? is that from static?_

@@ -6,7 +6,7 @@ author: Lampros Gkavogiannis
 excerpt: Dynamic Tree-SID + COE
 position: hidden
 ---
-# A New Post
+# Dynamic Tree-SID + COE
 
 We already discussed about Tree-SID in previous tutorials. Today we want to show in action the integration of Dynamic Tree-SID with Crosswork Optimization Engine). The COE team has put effort and time to evolve Tree-SID into an automated and better user experience. We have the option to visualize Tree-SID topology, sessions, policies and more which supports the idea of having an automated Multicast solution. In the rest of the article we will go over screenshots from the COE dashboard and we will use them to visualize the configurations we have in the routers.
 

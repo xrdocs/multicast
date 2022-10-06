@@ -62,3 +62,7 @@ Cisco is currently working with the CNC (Crosswork Network Collector) and Crossw
 - There can be Network Functions Virtualization (NFV) as elastic mechanism to scale up during large broadcast events such as sports evemts, political events, etc...
  
 _task: add photos from cnc dashboard_
+
+## add Business Multicast VPN (IR SRv6 MVPN)
+
+## add financial streaming (mldp +FA)

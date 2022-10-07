@@ -12,7 +12,7 @@ tags:
   - Innovation
 position: hidden
 ---
-## IP Multicast Evolution
+# IP Multicast Evolution
 
 The purpose of the following blog is to give an insight on Business Multicast Service. We will explain how Multicast is currently deployed and how we propose to evolve these deployments in the future. Multicast is a technology used by many Service Providers (SP) but is very limited to Unicast in terms of deployments and evolution. Cisco currently has customers who are using different flavours of Multicast and it is expected to keep supporting all of them. However, we believe that Multicast should shift to new technology requirements and adapt to the upcoming evolution of IP Multicast.
 
@@ -37,7 +37,7 @@ _The Media Streaming customers are CNBC, Sky, BT Broadcast, Bell Broadcast, Veri
 Streaming media is all about traffic delivered and consumed in a continuous stream from a source to the receivers. The main goal is to deliver IPTV broadcast channels to all the presence points while maintaning zero disruption of services.
 
 The main requirements are:
-- Data delivery for Broadcast TV in different formats such as SD, HD, 4K, 8K.
+- Data delivery for Broadcast TV in different formats such as SD, HD, 4K and 8K.
 - Creation of multiple leaves that are controlled by the operator and are always on.
 - Protection of the above by deploying Disjoing trees and Live-Live traffic.
 
@@ -64,5 +64,53 @@ Cisco is currently working with the CNC (Crosswork Network Collector) and Crossw
 _task: add photos from cnc dashboard_
 
 ## add Business Multicast VPN (IR SRv6 MVPN)
+
+Service providers are not looking into replacing mVPN service. SPs have lots of small mVPN trees and fewer large mVPN trees. It is also clear that mVPN traffic does not increase much while unicast bandwidth continues to douvle every 18-24 months.
+
+Today:
+Vast majority of customers have Rosen mVPN (profile 0) and mLDP mVPN (profile 14) deployments. Cisco will keep on supporting these profiles
+
+Evolution:
+Segment Routing and Flex-Algo are IPv6
+
+Suggested:
+Suggested solutions
+- If there is no need for TE but mVPN is needed:
+	1. IR (Ingress Replication) + mVPN for small VPNs:
+    	In IR packets are replicated by ingress PE and send unicast packets over the core to the 		 destination PEs.
+    2. mLDP + mVPN for large mVPN.
+    3. IR and mLDP could be deployed together within the same network. It is transparent to the 		end-user and easy to switch from one to another.
+    4. Solid solution has been proved to work well with SR-MPLS unicast.
+
+- Need for TE in another working tree, computation with constraints (disjointness or other)
+	1. mLDP + FA + mVPN:
+    	- Preferred solution when mVPN are dynamic (lots of state changes)
+        - Limited to some topology (double plane design required, no ring topology)
+    2. Tree-SID + mVPN:
+    	- Preferred solution when mVPN are almost static
+        - Allow the customer to optimize multicast trees and simplify operation with a SDN 		  			controller
+        
+ What are the classical SPs are saying (ATT Business, BT Global, Orange Business Services, ...:
+ - Multicast VPN is not the most growing business area, but can NOT be dropped/ deprecate, must  	carry on newer networks and newer hardware.
+ - IR + mVPN and mLDP + mVPN are still preferred choice
+ 	1. It does not require newer investment (team education, operational tools, ...)
+    2. Has been proved to work for years
+    3. Works well with SR-MPLS
+    4. Required enablement on newer platforms (i.e. 8000)
+    
+ What broadcast SPs are saying (NBC, Sky, ...):
+ 	1. They want to deploy disjoint live-live trees
+    2. Trees are fairly statics
+    3. Use to deploy RSVP-TE to address it -> the computation of disjoint trees is made manually 		and it is painful
+    4. Many are moving to Tree-SID + mVPN -> the computation of disjoing tree is automatic (thanks 		  to SR-PCE)
+    5. COE (CrossWork Optimization Engine) and CNC (CrossWork Ip Network Controller) will add lots 		  of value to the Tree-SID + mVPN solution, as the customer could now visualize 2 trees and 	   prove their disjointness
+
+What enterprise & financial are saying:
+	1. Wants to deploy disjoint live-live trees
+    2. Trees are dynamic and states are changing often
+    3. Looking at mLDP + FA + mVPN
+    4. Adding some constraint on topology and network design
+    5. Better suit for dynamic environment compared to Tree-SID
+
 
 ## add financial streaming (mldp +FA)

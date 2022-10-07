@@ -12,6 +12,8 @@ We already discussed about Tree-SID in previous tutorials. Today we want to show
 
 In the following [wiki](https://wiki.cisco.com/display/PCE/Tree-SID+visualization+using+dCloud) we can find configurations used in dCloud to setup this Demo.
 
+[github repo with configs?](https://github.com/lambros90/xrdocs/tree/main/coe-tree-sid)
+
 The topology that will be used is shown below.
 
 _screenshot of topology_

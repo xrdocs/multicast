@@ -8,7 +8,9 @@ position: hidden
 ---
 # Dynamic Tree-SID + COE
 
-We already discussed about Tree-SID in previous tutorials. Today we want to show in action the integration of Dynamic Tree-SID with Crosswork Optimization Engine). The COE team has put effort and time to evolve Tree-SID into an automated and better user experience. We have the option to visualize Tree-SID topology, sessions, policies and more which supports the idea of having an automated Multicast solution. In the rest of the article we will go over screenshots from the COE dashboard and we will use them to visualize the configurations we have in the routers.
+We already discussed about Tree-SID in previous tutorials. Today we want to show in action the integration of Dynamic Tree-SID with COE (Crosswork Optimization Engine). The COE team has put effort and time to evolve Tree-SID into an automated and better user experience. We have the option to visualize Tree-SID topology, sessions, policies and more which supports the idea of having an automated Multicast solution. In the rest of the article we will go over screenshots from the COE dashboard and we will use them to visualize the configurations we have in the routers.
+
+In the following [wiki](https://wiki.cisco.com/display/PCE/Tree-SID+visualization+using+dCloud) we can find configurations used in dCloud to setup this Demo.
 
 The topology that will be used is shown below.
 
@@ -26,6 +28,7 @@ all the nodes are xrv9k devices
 
 _na boun ola ta configs se ena github_
 _na bei link apo to wiki_
+
 
 
 ## SR-PCE Configuration
@@ -387,6 +390,3 @@ _ti borw na balw edw?_
 
 an exei kati extra to wiki
 exei configurations kai outputs
-
-
-

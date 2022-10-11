@@ -115,8 +115,6 @@ Peer address: 198.19.1.99
 
 ![Tree-SID + COE topology.png]({{site.baseurl}}/images/Tree-SID + COE topology.png)
 
-_edit: wrong screenshot? shows all nodes, also check the addresses above_
-
 The above screenshot displays all the nodes in the network that have PCEP sessions with the PCE.
 
 Next step is to check the Tree that has been dynamically created by the PCE. The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Root Node) wih the corresponding Tree IDs.

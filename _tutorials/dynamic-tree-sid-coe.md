@@ -105,6 +105,10 @@ Peer address: 198.19.1.7
 Peer address: 198.19.1.8
   State: Up
   Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
+
+Peer address: 198.19.1.99
+  State: Up
+  Capabilities: Stateful, Segment-Routing, Update, Instantiation
 ```
 
 ### COE Dashboard of topology

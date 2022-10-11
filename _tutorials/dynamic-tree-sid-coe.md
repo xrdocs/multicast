@@ -8,7 +8,18 @@ position: hidden
 ---
 # Dynamic Tree-SID + COE
 
-We already discussed the fundamentals of Tree-SID in previous tutorials. Today we want to showcase the integration of Dynamic Tree-SID with Crosswork Optimization Engine (COE). The Crosswork team has invested time and effort to evolve Tree-SID with an automated and enhanced user experience. We have the option to visualize Tree-SID topology, sessions, policies, and more in line with an automated Multicast solution. In the rest of this article, we will go over screenshots from the COE dashboard and use them to visualize the configurations we have in the routers.
+[Tree-SID](https://xrdocs.io/multicast/tutorials/tree-sid/) has already been mentioned as a multicast technology in IOS-XR. Our goal is to enhance that technology and expand its potential thats why we are optimizing it by using Crosswork Optimization Engine (COE).
+
+There are 2 major challenges that we are trying to overcome:
+1. The lack of accurate and intuitive visibility into multicast deployments
+2. The effective alignment with the controller architecture
+
+To solve the above we need a tool to visualize and discover the multicast policies the controller holds. In our case we can leverage COE and achieve operational agility with ease of visualization plus rich automation benefits with controller friendly architecture.
+
+
+
+
+We already discussed the fundamentals of Tree-SID in previous tutorials. Today we want to showcase the integration of Dynamic Tree-SID with Crosswork Optimization Engine (COE). The Crosswork team has invested time and effort to evolve Tree-SID into an automated and enhanced user experience. We have the option to visualize Tree-SID topology, sessions, policies, and more in line with an automated Multicast solution. In the rest of this article, we will go over screenshots from the COE dashboard and use them to visualize the configurations we have in the routers.
 
 In the following [wiki](https://wiki.cisco.com/display/PCE/Tree-SID+visualization+using+dCloud) we can find configurations used in dCloud to setup this Demo.
 
@@ -33,18 +44,6 @@ _na bei link apo to wiki_
 
 Treesid discovery and visualization
 
-Challenge:
-Accurate and intuitive visibility into multicast deployments
-Effective alignment with controller architecture
-
-Solution:
-Discovery and visualization of multicast policies with Controller
-
-Outcome:
-Operational agility with ease of visualization
-Automation benefits with controller friendly architecture
-
-It’s a discover through the multicast policies based on the controller with an outcome of operational agility and ease of visualization
 
 Static treesids (with and without FRR) discovery and visualization:
 Identified with Name (ID not reported)

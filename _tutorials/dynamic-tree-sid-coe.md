@@ -129,7 +129,7 @@ show pce lsp p2mp root ipv4 198.19.1.5 | include Tree
 Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
 ```
 
-The next output shows the Tree stucture indlucing the Root (Ingress), the Transit nodes and the leaves (Egress) with the corresponding label ID (31000) of the Tree.
+The next output shows the Tree stucture including the Root (Ingress), the Transit nodes and the leaves (Egress) with the corresponding label ID (31000) of the Tree.
 
 ### Command:
 ```

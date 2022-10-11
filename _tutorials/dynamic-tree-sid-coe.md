@@ -228,7 +228,7 @@ multicast-routing
 
 _ti borw na balw edw?_
 
-There are one important thing to notice in the following command which is the metric type IGP. Any Tree that is going to be built as part of the default or data MDT is going to be built based on that metric.
+There is one important thing to notice in the following command output which is the metric type IGP. Any Tree that is going to be built as part of the default or data MDT is going to be built based on that metric.
 
 _to tree eina bash igp einai te? prepei na balw kai ta dio edw?_
 
@@ -260,7 +260,7 @@ _ti borw na balw edw?_
 
 giati den blepw ta multicast group edW?
 
-Below we can see the Route Type 1s for the PE in the network??Is 1.4 the PE?
+Below we can see the Route Type 1s for the PEs. 198.19.1.5 is the ingress PE and 198.19.1.4 is the egress PE.
 
 ### Command:
 ```

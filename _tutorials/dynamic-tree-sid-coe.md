@@ -105,40 +105,7 @@ Peer address: 198.19.1.7
 Peer address: 198.19.1.8
   State: Up
   Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
-
-Peer address: 198.19.1.99
-  State: Up
-  Capabilities: Stateful, Segment-Routing, Update, Instantiation
-
-Peer address: 198.19.1.101
-  State: Up
-  Capabilities: Stateful, Update, Instantiation
-
-Peer address: 198.19.1.103
-  State: Up
-  Capabilities: Stateful, Update, Instantiation
-
-Peer address: 198.19.1.104
-  State: Up
-  Capabilities: Stateful, Update, Instantiation
-
-Peer address: 198.19.1.105
-  State: Up
-  Capabilities: Stateful, Update, Instantiation
-
-Peer address: 198.19.1.107
-  State: Up
-  Capabilities: Stateful, Update, Instantiation
-
-Peer address: 198.19.1.108
-  State: Up
-  Capabilities: Stateful, Update, Instantiation
-
-Peer address: 198.19.1.202
-  State: TCP Pending
-  Capabilities: Stateless
 ```
-_edit: remove the addresses not belonging in the topology_
 
 ### COE Dashboard of topology
 

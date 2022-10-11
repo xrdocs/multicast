@@ -63,9 +63,66 @@ Cisco is currently working with the CNC (Crosswork Network Collector) and Crossw
  
 _task: add photos from cnc dashboard_
 
+## Business Multicast VPN
+
+_Customers_
+
+Since 2002 Cisco Systems has been providing the solution of Multicast VPN (MVPN). It is simple to set up, highly scalable and has minimal administrative overhead. Providers can dynamically provide multicast support over MPLS networks. It allows for the transport of a customer's IP Multicast traffic across a provider's VPN backbone transparently, and it is integrated transparently with the Cisco IOS® Unicast MPLS VPN solution. It allows a service provider to offer multicast services to its VPN customers in addition to its current Unicast VPN offering.
+
+The MVPN solution uses GRE with unique multicast distribution tree (MDT) forwarding to realize the true scalability of native IP Multicast in the core network. Cisco MVPN is based on the Multicast Domain solution with the highest level of optimization built into the Cisco solution with the help of default MDT and data MDT scaling enhancements. MVPN introduces multicast routing information to the VPN routing and forwarding table (VRF), creating a Multicast VRF.
+
+### Current Deployments
+
+Service providers are not looking into replacing MVPN service. SPs have lots of small mVPN trees and fewer large mVPN trees. MVPN traffic does not increase much while unicast bandwidth continues to double every 18-24 months.
+
+Cisco will continue to support customers who have deployed Rosen mVPN (profile 0) and mLDP mVPN (profile 14). 
+
+### Today's Cisco Suggestion
+
+integrate evolution unicast solution like segment routing and flex-algo or ipv6 transport
+
+as we transition with ingress mVPN and Tree-SID mVPN will allow to optimize mVPN deployment in reducing opex and capex not all nodes will have to replicate flow, the controller will optimize traffic replication and finally P2MP RSVP-TE mVPN mostly deployed by broadcasters will shift to Tree-SID
+
+an example of SDN optimization for mVPN it is shown in this picture where the PCE controller's role is to collect the topology. Collect information of what are the edge nodes with the source or leaf function and also compute what will be the optimal tree for that specific mVPN 06:05 and could select few nodes to be replication nodes, not all nodes are needed to be replication nodes
+
+Tree-SID architecture IETF draft, It shall be possible for a node to advertise Tree-SID capability via IGP and/or BGP-LS. Similarly, a PCE can also advertise its TreeSID capability via IGP and/or BGP-LS. Capability advertisement allows a network node to dynamically choose one or more PCE(s) to obtain services pertraining to SR Replication policies, as well a PCE to dynamically identify TreeSID capable nodes
+
+https://tools.ietf.org/html/draft-hsd-pce-sr-p2mp-policy-02
+
+Pragmatic use cases:
+Example of integrated Ingress replication and Tree-SID with SDN controller
+
+The PCE (SDN controller) has the full visibility of the Multicast distribution and the topology.
+
+Step 1: low number of lead and low bandwidth usage, the SDN controller could decide to limit this Tree-SID to Ingress Replication
+
+Step 2: number of leaf augment or bandwidth increase, the SDN controller does select optimal replicators
+
+makes everything optimal
+
+it allows us to deploy Multicast as a service 
+
+![future of multicast business multicast vpn.jpg]({{site.baseurl}}/images/future of multicast business multicast vpn.jpg)
+
+Business Multicast VPN moving forward
+
+Business as usual (and for the next 10yeards):
+Majority of SP's will continue to deploy Rosen mVPN or mLDP with Segment Routing Unicast
+
+Interesting Proposal:
+SDN, Ingress Replication and Tree-SID to optimize replication by delivering more controller services
+
+No market visibility:
+BIER: cost, scale & performance issues
+
+
+### Business Multicast VPN Future
+
+MVPN traffic does not increase much while unicast bandwidth continues to double every 18-24 months.
+
 ## add Business Multicast VPN (IR SRv6 MVPN)
 
-Service providers are not looking into replacing mVPN service. SPs have lots of small mVPN trees and fewer large mVPN trees. It is also clear that mVPN traffic does not increase much while unicast bandwidth continues to douvle every 18-24 months.
+
 
 Today:
 Vast majority of customers have Rosen mVPN (profile 0) and mLDP mVPN (profile 14) deployments. Cisco will keep on supporting these profiles

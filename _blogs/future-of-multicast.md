@@ -67,7 +67,7 @@ _task: add photos from cnc dashboard_
 
 _Customers_
 
-Since 2002 Cisco Systems has been providing the solution of Multicast VPN (MVPN). It is simple to set up, highly scalable and has minimal administrative overhead. Providers can dynamically provide multicast support over MPLS networks. It allows for the transport of a customer's IP Multicast traffic across a provider's VPN backbone transparently, and it is integrated transparently with the Cisco IOS® Unicast MPLS VPN solution. It allows a service provider to offer multicast services to its VPN customers in addition to its current Unicast VPN offering.
+Since 2002 Cisco Systems® has been providing the solution of Multicast VPN (MVPN). It is simple to set up, highly scalable and has minimal administrative overhead. Providers can dynamically provide multicast support over MPLS networks. It allows for the transport of a customer's IP Multicast traffic across a provider's VPN backbone transparently, and it is integrated transparently with the Cisco IOS® Unicast MPLS VPN solution. It allows a service provider to offer multicast services to its VPN customers in addition to its current Unicast VPN offering.
 
 The MVPN solution uses GRE with unique multicast distribution tree (MDT) forwarding to realize the true scalability of native IP Multicast in the core network. Cisco MVPN is based on the Multicast Domain solution with the highest level of optimization built into the Cisco solution with the help of default MDT and data MDT scaling enhancements. MVPN introduces multicast routing information to the VPN routing and forwarding table (VRF), creating a Multicast VRF.
 
@@ -79,7 +79,33 @@ Cisco will continue to support customers who have deployed Rosen mVPN (profile 0
 
 ### Today's Cisco Suggestion
 
-integrate evolution unicast solution like segment routing and flex-algo or ipv6 transport
+Cisco would like to integrate Multicast with Unicast's solutions such as Segment Routing, Flex-Algorithm and IPv6 transport.
+
+Suggested solutions:
+- If there is no need for TE by mVPN is needed:
+	1. IR (Ingress Replication) + mVPN for small VPNs:
+    	In IR packets are replicated by ingress PE and send unicast packets over the core to the 		 destination PEs.
+    2. mLDP + mVPN for large mVPN.
+    3. IR and mLDP could be deployed together within the same network. It is transparent to the 		end-user and easy to switch from one to another.
+    4. Solid solution has been proved to work well with SR-MPLS unicast.
+
+
+    	
+IR SRv6 mVPN
+
+Suggested solutions
+- If there is no need for TE but mVPN is needed:
+	
+
+- Need for TE in another working tree, computation with constraints (disjointness or other)
+	1. mLDP + FA + mVPN:
+    	- Preferred solution when mVPN are dynamic (lots of state changes)
+        - Limited to some topology (double plane design required, no ring topology)
+    2. Tree-SID + mVPN:
+    	- Preferred solution when mVPN are almost static
+        - Allow the customer to optimize multicast trees and simplify operation with a SDN 		  			controller
+        
+
 
 as we transition with ingress mVPN and Tree-SID mVPN will allow to optimize mVPN deployment in reducing opex and capex not all nodes will have to replicate flow, the controller will optimize traffic replication and finally P2MP RSVP-TE mVPN mostly deployed by broadcasters will shift to Tree-SID
 
@@ -121,14 +147,6 @@ BIER: cost, scale & performance issues
 MVPN traffic does not increase much while unicast bandwidth continues to double every 18-24 months.
 
 ## add Business Multicast VPN (IR SRv6 MVPN)
-
-
-
-Today:
-Vast majority of customers have Rosen mVPN (profile 0) and mLDP mVPN (profile 14) deployments. Cisco will keep on supporting these profiles
-
-Evolution:
-Segment Routing and Flex-Algo are IPv6
 
 Suggested:
 Suggested solutions

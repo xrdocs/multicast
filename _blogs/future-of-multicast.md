@@ -81,22 +81,13 @@ Cisco will continue to support customers who have deployed Rosen mVPN (profile 0
 
 Cisco would like to integrate Multicast with Unicast's solutions such as Segment Routing, Flex-Algorithm and IPv6 transport.
 
-Suggested solutions:
+**Suggested solutions:**
 - If there is no need for TE by mVPN is needed:
 	1. IR (Ingress Replication) + mVPN for small VPNs:
     	In IR packets are replicated by ingress PE and send unicast packets over the core to the 		 destination PEs.
     2. mLDP + mVPN for large mVPN.
     3. IR and mLDP could be deployed together within the same network. It is transparent to the 		end-user and easy to switch from one to another.
     4. Solid solution has been proved to work well with SR-MPLS unicast.
-
-
-    	
-IR SRv6 mVPN
-
-Suggested solutions
-- If there is no need for TE but mVPN is needed:
-	
-
 - Need for TE in another working tree, computation with constraints (disjointness or other)
 	1. mLDP + FA + mVPN:
     	- Preferred solution when mVPN are dynamic (lots of state changes)
@@ -104,16 +95,14 @@ Suggested solutions
     2. Tree-SID + mVPN:
     	- Preferred solution when mVPN are almost static
         - Allow the customer to optimize multicast trees and simplify operation with a SDN 		  			controller
-        
 
 
-as we transition with ingress mVPN and Tree-SID mVPN will allow to optimize mVPN deployment in reducing opex and capex not all nodes will have to replicate flow, the controller will optimize traffic replication and finally P2MP RSVP-TE mVPN mostly deployed by broadcasters will shift to Tree-SID
+    	
+IR SRv6 mVPN
 
-an example of SDN optimization for mVPN it is shown in this picture where the PCE controller's role is to collect the topology. Collect information of what are the edge nodes with the source or leaf function and also compute what will be the optimal tree for that specific mVPN 06:05 and could select few nodes to be replication nodes, not all nodes are needed to be replication nodes
 
-Tree-SID architecture IETF draft, It shall be possible for a node to advertise Tree-SID capability via IGP and/or BGP-LS. Similarly, a PCE can also advertise its TreeSID capability via IGP and/or BGP-LS. Capability advertisement allows a network node to dynamically choose one or more PCE(s) to obtain services pertraining to SR Replication policies, as well a PCE to dynamically identify TreeSID capable nodes
 
-https://tools.ietf.org/html/draft-hsd-pce-sr-p2mp-policy-02
+
 
 Pragmatic use cases:
 Example of integrated Ingress replication and Tree-SID with SDN controller
@@ -144,26 +133,25 @@ BIER: cost, scale & performance issues
 
 ### Business Multicast VPN Future
 
+The transition to Ingress mVPN and Tree-SID mVPN will allow the optimization of mVPN deployment by reducing CapEX and OpEX. The replication flow will entirely change because the controller will be able to optimize traffic replication by selecting the replication nodes. Additionally, deployments such as P2MP RSVP-TE mVPN will shift to Tree-SID.
+
+
+
+_CDN strategy:
+
+an example of SDN optimization for mVPN it is shown in this picture where the PCE controller's role is to collect the topology. Collect information of what are the edge nodes with the source or leaf function and also compute what will be the optimal tree for that specific mVPN 06:05 and could select few nodes to be replication nodes, not all nodes are needed to be replication nodes_
+
+
+
 MVPN traffic does not increase much while unicast bandwidth continues to double every 18-24 months.
 
-## add Business Multicast VPN (IR SRv6 MVPN)
+_ietf standards:_
 
-Suggested:
-Suggested solutions
-- If there is no need for TE but mVPN is needed:
-	1. IR (Ingress Replication) + mVPN for small VPNs:
-    	In IR packets are replicated by ingress PE and send unicast packets over the core to the 		 destination PEs.
-    2. mLDP + mVPN for large mVPN.
-    3. IR and mLDP could be deployed together within the same network. It is transparent to the 		end-user and easy to switch from one to another.
-    4. Solid solution has been proved to work well with SR-MPLS unicast.
+Tree-SID architecture IETF draft, It shall be possible for a node to advertise Tree-SID capability via IGP and/or BGP-LS. Similarly, a PCE can also advertise its TreeSID capability via IGP and/or BGP-LS. Capability advertisement allows a network node to dynamically choose one or more PCE(s) to obtain services pertraining to SR Replication policies, as well a PCE to dynamically identify TreeSID capable nodes
 
-- Need for TE in another working tree, computation with constraints (disjointness or other)
-	1. mLDP + FA + mVPN:
-    	- Preferred solution when mVPN are dynamic (lots of state changes)
-        - Limited to some topology (double plane design required, no ring topology)
-    2. Tree-SID + mVPN:
-    	- Preferred solution when mVPN are almost static
-        - Allow the customer to optimize multicast trees and simplify operation with a SDN 		  			controller
+https://tools.ietf.org/html/draft-hsd-pce-sr-p2mp-policy-02
+
+??????
         
  What are the classical SPs are saying (ATT Business, BT Global, Orange Business Services, ...:
  - Multicast VPN is not the most growing business area, but can NOT be dropped/ deprecate, must  	carry on newer networks and newer hardware.

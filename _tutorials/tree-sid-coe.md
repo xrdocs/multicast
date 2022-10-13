@@ -16,9 +16,17 @@ There are 2 major challenges that we are trying to overcome:
 
 To solve the above we need a tool to visualize and discover the multicast policies the controller holds. In our case we can leverage COE and achieve operational agility with ease of visualization plus rich automation benefits with controller friendly architecture.
 
+_what crosswork does_
+
 We already discussed the fundamentals of Tree-SID in previous tutorials. Today we want to showcase the integration of Dynamic Tree-SID with Crosswork Optimization Engine (COE). The Crosswork team has invested time and effort to evolve Tree-SID into an automated and enhanced user experience. We have the option to visualize Tree-SID topology, sessions, policies, and more in line with an automated Multicast solution. In the rest of this article, we will go over screenshots from the COE dashboard and use them to visualize the configurations we have in the routers.
 
 In the following [wiki](https://wiki.cisco.com/display/PCE/Tree-SID+visualization+using+dCloud) we can find configurations used in dCloud to setup this Demo.
+
+-----------------------------------------------------------------------------------------
+
+## Static Tree-SID + COE
+
+
 
 [github repo with configs?](https://github.com/lambros90/xrdocs/tree/main/coe-tree-sid)
 

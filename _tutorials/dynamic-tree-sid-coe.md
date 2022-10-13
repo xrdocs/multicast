@@ -83,7 +83,7 @@ Peer address: 198.19.1.99
 
 ### COE Dashboard of topology
 
-![Tree-SID + COE topology.png]({{site.baseurl}}/images/Tree-SID + COE topology.png)
+![TreeSID+COE 2022-10-13 13.03.56.png]({{site.baseurl}}/images/TreeSID+COE 2022-10-13 13.03.56.png)
 
 The above screenshot displays all the nodes in the network that have PCEP sessions with the PCE.
 
@@ -145,7 +145,7 @@ Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
 
 ### COE Dashboard of that Tree
 
-_edit: tha balw photo meta_
+![TreeSID+COE 2022-10-07 10.56.05.png]({{site.baseurl}}/images/TreeSID+COE 2022-10-07 10.56.05.png)
 
 Dashboard verifies the Tree-SID path that is rooted at node 5.
 
@@ -170,7 +170,8 @@ L3VPN_NM-MVPN-80     65000:80
 
 ### COE Dashboard of that Tree
 
-_ti borw na balw edw?_
+![TreeSID+COE 2022-10-07 10.56.14.png]({{site.baseurl}}/images/TreeSID+COE 2022-10-07 10.56.14.png)
+
 
 Now lets check the configuration of that specific VRF. The multicast routing for IPv4 and the bgp auto-discovery are enabled, we will use segment routing P2MP and we will allow default MDT based on P2MP SR policy. There is associated color to the default MDT.
 

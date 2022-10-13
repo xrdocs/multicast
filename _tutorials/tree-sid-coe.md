@@ -25,19 +25,74 @@ In the following [wiki](https://wiki.cisco.com/display/PCE/Tree-SID+visualizatio
 -----------------------------------------------------------------------------------------
 ## Topology
 
+The topology that will be used is shown below.
+
 image of TreeSID+COE 2022-10-13 13.03.56.png
 
-
+all the nodes are xrv9k devices and they will be used for Static and Dynamic...
 
 ## Static Tree-SID + COE
 
+explain the path
+
+root, leaves, buds
+
+summary topology: TreeSID+COE 2022-10-07 10.54.47.png
+
+tree-sid path topology: TreeSID+COE 2022-10-07 10.55.03.png
+
+### Configurations
+
+PCE config: 
+
+```
+pce
+ address ipv4 198.19.1.201
+ segment-routing
+  traffic-eng
+   p2mp
+    endpoint-set sr_p2mp_c40_ep
+     ipv4 198.19.1.1
+     ipv4 198.19.1.4
+     ipv4 198.19.1.7
+    !
+    endpoint-set sr_p2mp_c41_ep
+     ipv4 198.19.1.1
+     ipv4 198.19.1.3
+     ipv4 198.19.1.4
+    !
+    policy sr_p2mp_root_198.19.1.5_static_c40
+     source ipv4 198.19.1.5
+     color 40 endpoint-set sr_p2mp_c40_ep
+     treesid mpls 10040
+     candidate-paths
+      preference 100
+       dynamic
+        metric
+         type te
+        !
+       !
+      !
+     !
+    !
+    policy sr_p2mp_root_198.19.1.5_static_c41
+     source ipv4 198.19.1.5
+     color 41 endpoint-set sr_p2mp_c41_ep
+     treesid mpls 10041
+     candidate-paths
+      preference 100
+       dynamic
+        metric
+         type igp
+```
 
 
 
-
+### Show Outputs
 
 
 ## Dynamic Tree-SID + COE
+
 
 [github repo with configs?](https://github.com/lambros90/xrdocs/tree/main/coe-tree-sid)
 
@@ -52,8 +107,6 @@ SR-PCE (xtc1) node 1?
 Leaf Node (Node-4) Configuration
 
 transit node 8, 7, 3?
-
-all the nodes are xrv9k devices
 
 _na boun ola ta configs se ena github_
 _na bei link apo to wiki_

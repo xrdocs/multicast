@@ -26,8 +26,7 @@ The topology that will be used is shown below.
 
 ![TreeSID+COE 2022-10-13 13.03.56.png]({{site.baseurl}}/images/TreeSID+COE 2022-10-13 13.03.56.png)
 
-For our TreeSID topology,
-
+For our demonstration TreeSID topology, 
 Node 5 is the root node.
 Node 4 is a Leaf Node.
 Nodes 3, 7 and 8 are Transit Nodes.

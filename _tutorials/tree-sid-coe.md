@@ -500,6 +500,10 @@ multicast-routing
  !
 ```
 
+_configurations of transit nodes?_
+
+### Show outputs
+
 ### Command:
 ```
 show pce lsp p2mp root ipv4 198.19.1.5 | include Tree

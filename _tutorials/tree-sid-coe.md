@@ -80,13 +80,7 @@ Tree-SID path topology:
 
 ![TreeSID+COE tree-sid path topology.png]({{site.baseurl}}/images/TreeSID+COE tree-sid path topology.png)
 
-explain the path
-
-root, leaves, buds
-
-summary topology: TreeSID+COE 2022-10-07 10.54.47.png
-
-tree-sid path topology: TreeSID+COE 2022-10-07 10.55.03.png
+We can see from the path topology that the Root is node 5, Bud nodes are 1, 7 and the Leaf node is 4. 
 
 ### Configurations
 
@@ -300,6 +294,8 @@ router pim
 
 ### Show Outputs
 
+### PCE
+
 The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Root Node) wih the corresponding Tree IDs.
 
 ### Command:
@@ -339,11 +335,32 @@ Tree: sr_p2mp_root_198.19.1.5_static_c40, Root: 198.19.1.5
     Incoming: 10040 CC-ID: 5
 ```
 
+### Root
+
+Now lets check the configuration of that specific VRF (L3VPN_NM-SRTE-ODN-40). The multicast routing for IPv4 and the bgp auto-discovery are enabled and we will use mdt static segment routing.
+
+### Command:
+```
+show run multicast-routing vrf L3VPN_NM-SRTE-ODN-40
+```
+
+### Output:
+```
+multicast-routing
+ vrf L3VPN_NM-SRTE-ODN-40
+  address-family ipv4
+   mdt source Loopback0
+   interface all enable
+   mdt static segment-routing
+  !
+ !
+!
+```
+
+_add more show outputs?_
+_add anything else?_
 
 ## Dynamic Tree-SID + COE
-
-
-[github repo with configs?](https://github.com/lambros90/xrdocs/tree/main/coe-tree-sid)
 
 The topology that will be used is shown below.
 
@@ -360,47 +377,6 @@ transit node 8, 7, 3?
 _na boun ola ta configs se ena github_
 _na bei link apo to wiki_
 
-## SR-PCE Configuration
-
-The PCE holds PCEP sessions with all the routers in the topology. We can verify that by running the following command:
-
-### Command:
-```
-show pce ipv4 peer
-```
-
-### Output:
-```
-PCE's peer database:
---------------------
-Peer address: 198.19.1.1
-  State: Up
-  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
-
-Peer address: 198.19.1.3
-  State: Up
-  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
-
-Peer address: 198.19.1.4
-  State: Up
-  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
-
-Peer address: 198.19.1.5
-  State: Up
-  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
-
-Peer address: 198.19.1.7
-  State: Up
-  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
-
-Peer address: 198.19.1.8
-  State: Up
-  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
-
-Peer address: 198.19.1.99
-  State: Up
-  Capabilities: Stateful, Segment-Routing, Update, Instantiation
-```
 
 ### COE Dashboard of topology
 

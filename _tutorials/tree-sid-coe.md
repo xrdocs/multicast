@@ -24,11 +24,9 @@ We already discussed the fundamentals of Tree-SID in previous tutorials. Today w
 
 The topology that will be used is shown below.
 
-![TreeSID+COE 2022-10-13 13.03.56.png]({{site.baseurl}}/{{site.baseurl}}/images/TreeSID%2BCOE%202022-10-13%2013.03.56.png)
+![TreeSID+COE topology.png]({{site.baseurl}}/images/TreeSID+COE topology.png)
 
-image of TreeSID+COE 2022-10-13 13.03.56.png
-
-all the nodes are xrv9k devices and they will be used for Static and Dynamic...
+We can see all the nodes that will be used in the following examples. The nodes are xrv9k devices and they will be used for both Static and Dynamic Tree-SID.
 
 ## Common Configuration
 

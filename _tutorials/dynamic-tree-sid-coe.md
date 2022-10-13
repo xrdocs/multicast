@@ -27,9 +27,9 @@ The topology that will be used is shown below.
 ![TreeSID+COE 2022-10-13 13.03.56.png]({{site.baseurl}}/images/TreeSID+COE 2022-10-13 13.03.56.png)
 
 For our demonstration TreeSID topology, 
-Node 5 is the root node.
-Node 4 is a Leaf Node.
-Nodes 3, 7 and 8 are Transit Nodes.
+Node-5 is the root node.
+Node-4 is a Leaf Node.
+Node-3, Node-7 and Node-8 are Transit Nodes.
 SR-PCE (xtc1) is out-of-band (OOB) and is not shown in the topology.
 
 Above nodes are xrv9k devices.
@@ -94,7 +94,7 @@ show pce lsp p2mp root ipv4 198.19.1.5 | include Tree
 Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
 ```
 
-The next output shows the Tree stucture including the Root (Ingress), the Transit nodes and the leaves (Egress) with the corresponding label ID (31000) of the Tree.
+The next output shows the Tree structure including the Root (Ingress), the Transit nodes and the leaves (Egress) with the corresponding label ID (31000) of the Tree.
 
 ### Command:
 ```
@@ -142,7 +142,7 @@ Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
 
 ![TreeSID+COE 2022-10-07 10.56.05.png]({{site.baseurl}}/images/TreeSID+COE 2022-10-07 10.56.05.png)
 
-Dashboard verifies the Tree-SID path that is rooted at node 5.
+Dashboard verifies the Tree-SID path that is rooted at Node-5.
 
 All the above conclude the configurations and outputs on PCE node. Now we can move to the Root node.
 

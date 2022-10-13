@@ -31,6 +31,47 @@ image of TreeSID+COE 2022-10-13 13.03.56.png
 
 all the nodes are xrv9k devices and they will be used for Static and Dynamic...
 
+## Common Configuration
+
+### SR-PCE Configuration
+
+The PCE holds PCEP sessions with all the routers in the topology. We can verify that by running the following command:
+
+### Command:
+```
+show pce ipv4 peer
+```
+
+### Output:
+```
+PCE's peer database:
+--------------------
+Peer address: 198.19.1.1
+  State: Up
+  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
+
+Peer address: 198.19.1.3
+  State: Up
+  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
+
+Peer address: 198.19.1.4
+  State: Up
+  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
+
+Peer address: 198.19.1.5
+  State: Up
+  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
+
+Peer address: 198.19.1.7
+  State: Up
+  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
+
+Peer address: 198.19.1.8
+  State: Up
+  Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
+```
+
+
 ## Static Tree-SID + COE
 
 explain the path
@@ -251,9 +292,16 @@ router pim
  !
 ```
 
-
-
 ### Show Outputs
+
+### Command:
+```
+show pce ipv4 peer
+```
+
+### Output:
+```
+```
 
 
 ## Dynamic Tree-SID + COE

@@ -23,10 +23,21 @@ We already discussed the fundamentals of Tree-SID in previous tutorials. Today w
 In the following [wiki](https://wiki.cisco.com/display/PCE/Tree-SID+visualization+using+dCloud) we can find configurations used in dCloud to setup this Demo.
 
 -----------------------------------------------------------------------------------------
+## Topology
+
+image of TreeSID+COE 2022-10-13 13.03.56.png
+
+
 
 ## Static Tree-SID + COE
 
 
+
+
+
+
+
+## Dynamic Tree-SID + COE
 
 [github repo with configs?](https://github.com/lambros90/xrdocs/tree/main/coe-tree-sid)
 

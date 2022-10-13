@@ -24,20 +24,16 @@ In the following [wiki](https://wiki.cisco.com/display/PCE/Tree-SID+visualizatio
 
 The topology that will be used is shown below.
 
-_screenshot of topology_
+![TreeSID+COE 2022-10-13 13.03.56.png]({{site.baseurl}}/images/TreeSID+COE 2022-10-13 13.03.56.png)
 
-node 5 is root
+For our TreeSID topology,
 
-SR-PCE (xtc1) node 1?
+Node 5 is the root node.
+Node 4 is a Leaf Node.
+Nodes 3, 7 and 8 are Transit Nodes.
+SR-PCE (xtc1) is out-of-band (OOB) and is not shown in the topology.
 
-Leaf Node (Node-4) Configuration
-
-transit node 8, 7, 3?
-
-all the nodes are xrv9k devices
-
-_na boun ola ta configs se ena github_
-_na bei link apo to wiki_
+Above nodes are xrv9k devices.
 
 ## SR-PCE Configuration
 

@@ -364,6 +364,10 @@ _add anything else?_
 
 The topology that will be used is shown below.
 
+![TreeSID+COE dynamic tree-sid summary topology.png]({{site.baseurl}}/images/TreeSID+COE dynamic tree-sid summary topology.png)
+
+![TreeSID+COE dynamic tree-sid path topology.png]({{site.baseurl}}/images/TreeSID+COE dynamic tree-sid path topology.png)
+
 _screenshot of topology_
 
 node 5 is root

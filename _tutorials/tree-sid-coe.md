@@ -84,6 +84,8 @@ We can see from the path topology that the Root is node 5, Bud nodes are 1, 7 an
 
 ### Configurations
 
+_delete configurations that do not belong to static?_
+
 PCE config: 
 
 ```
@@ -364,23 +366,15 @@ _add anything else?_
 
 The topology that will be used is shown below.
 
+Summary topology:
+
 ![TreeSID+COE dynamic tree-sid summary topology.png]({{site.baseurl}}/images/TreeSID+COE dynamic tree-sid summary topology.png)
+
+Tree-SID path topology:
 
 ![TreeSID+COE dynamic tree-sid path topology.png]({{site.baseurl}}/images/TreeSID+COE dynamic tree-sid path topology.png)
 
-_screenshot of topology_
-
-node 5 is root
-
-SR-PCE (xtc1) node 1?
-
-Leaf Node (Node-4) Configuration
-
-transit node 8, 7, 3?
-
-_na boun ola ta configs se ena github_
-_na bei link apo to wiki_
-
+We can see from the path topology that the Root is node 5, Transit nodes are 8, 7, 3 and the Leaf node is 4. 
 
 ### COE Dashboard of topology
 

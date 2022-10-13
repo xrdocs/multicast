@@ -76,6 +76,9 @@ Summary topology:
 
 ![TreeSID+COE static summary topology.png]({{site.baseurl}}/images/TreeSID+COE static summary topology.png)
 
+Tree-SID path topology:
+
+![TreeSID+COE tree-sid path topology.png]({{site.baseurl}}/images/TreeSID+COE tree-sid path topology.png)
 
 explain the path
 

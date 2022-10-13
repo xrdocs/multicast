@@ -104,6 +104,23 @@ IR SRv6 mVPN
 
 
 
+
+
+![future of multicast business multicast vpn.jpg]({{site.baseurl}}/images/future of multicast business multicast vpn.jpg)
+
+
+No market visibility:
+BIER: cost, scale & performance issues
+
+
+### Business Multicast VPN Future
+
+The transition to Ingress mVPN and Tree-SID mVPN will allow the optimization of mVPN deployment by reducing CapEX and OpEX. The replication flow will entirely change because the controller will be able to optimize traffic replication by selecting the replication nodes. Additionally, deployments such as P2MP RSVP-TE mVPN will shift to Tree-SID.
+
+_CDN strategy:
+
+an example of SDN optimization for mVPN it is shown in this picture where the PCE controller's role is to collect the topology. Collect information of what are the edge nodes with the source or leaf function and also compute what will be the optimal tree for that specific mVPN 06:05 and could select few nodes to be replication nodes, not all nodes are needed to be replication nodes_
+
 Pragmatic use cases:
 Example of integrated Ingress replication and Tree-SID with SDN controller
 
@@ -117,8 +134,6 @@ makes everything optimal
 
 it allows us to deploy Multicast as a service 
 
-![future of multicast business multicast vpn.jpg]({{site.baseurl}}/images/future of multicast business multicast vpn.jpg)
-
 Business Multicast VPN moving forward
 
 Business as usual (and for the next 10yeards):
@@ -126,21 +141,6 @@ Majority of SP's will continue to deploy Rosen mVPN or mLDP with Segment Routing
 
 Interesting Proposal:
 SDN, Ingress Replication and Tree-SID to optimize replication by delivering more controller services
-
-No market visibility:
-BIER: cost, scale & performance issues
-
-
-### Business Multicast VPN Future
-
-The transition to Ingress mVPN and Tree-SID mVPN will allow the optimization of mVPN deployment by reducing CapEX and OpEX. The replication flow will entirely change because the controller will be able to optimize traffic replication by selecting the replication nodes. Additionally, deployments such as P2MP RSVP-TE mVPN will shift to Tree-SID.
-
-
-
-_CDN strategy:
-
-an example of SDN optimization for mVPN it is shown in this picture where the PCE controller's role is to collect the topology. Collect information of what are the edge nodes with the source or leaf function and also compute what will be the optimal tree for that specific mVPN 06:05 and could select few nodes to be replication nodes, not all nodes are needed to be replication nodes_
-
 
 
 MVPN traffic does not increase much while unicast bandwidth continues to double every 18-24 months.
@@ -174,6 +174,53 @@ What enterprise & financial are saying:
     3. Looking at mLDP + FA + mVPN
     4. Adding some constraint on topology and network design
     5. Better suit for dynamic environment compared to Tree-SID
+
+
+////////////////////////////////////
+
+All depend on what the customers wants…
+ 
+What the customer try to achieve here ?
+Video transport ?
+Mc VPN services ?
+Do they need live-live distribution with disjointness ?
+Do they they have other constraint ?
+ 
+From solutions this is how I suggest working with your customer:
+No need for TE and small mVPN:
+IR (Ingress Replication) + mVPN
+Simple and cost effective
+No need for TE and large mVPN:
+mLDP + mVPN
+Solid solution and has been proved to works well with SR-MPLS unicast
+Need for TE in another word tree computation with constraints
+Option 1: mLDP + FlexAlgo +mVPN
+                                                               i.      Preferred solution when mVPN are dynamic (lots of state changes)
+                                                             ii.      Limited to some topology
+Option 2: Tree-SID + mVPN
+                                                               i.      Prefered solution when mVPN are almost static
+ 
+What the classical SP are saying:
+Mc VPN is not the most business growing area, but can NOT be dropped/depreciate, must carry on newer networks
+IR and mLDP + mVPN are still preferred choice
+It doesn’t require newer investment (team education, operational tools,… )
+Has been proved to works for years
+Works well with SR-MPLS
+ 
+What broadcast SP are saying (NBC, Sky, ..):
+Wants to deploy disjoint live-live trees
+Trees are fairly statics
+Use to deploy RSVP-TE to address it  the computation of disjoint trees is made manually and it’s painful
+Many are moving to tree-SID + mVPN  the computation of disjoint trees is automatic (thanks to SR-PCE)
+COE will add lots of value, as the customer could now visualize 2 trees and prove their disjointness …
+ 
+What enterprise & financial are saying:
+Wants to deploy disjoint live-live trees
+Trees are dynamic and state are changing often
+Looking at mLDP + FlexAlgo + mVPN
+Adding some constraint on topology and network design (no ring)
+Better suit for dynamic environment compared to tree-SID
+ 
 
 
 ## add financial streaming (mldp +FA)

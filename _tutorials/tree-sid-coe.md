@@ -68,8 +68,13 @@ Peer address: 198.19.1.8
   Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
 ```
 
-
 ## Static Tree-SID + COE
+
+The topology that will be used is shown below.
+
+Summary topology:
+
+
 
 explain the path
 
@@ -291,13 +296,43 @@ router pim
 
 ### Show Outputs
 
+The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Root Node) wih the corresponding Tree IDs.
+
 ### Command:
 ```
-show pce ipv4 peer
+show pce lsp p2mp
 ```
 
 ### Output:
 ```
+Tree: sr_p2mp_root_198.19.1.5_static_c40, Root: 198.19.1.5
+ PCC: 198.19.1.5
+ Label:    10040     Operational: up  Admin: up
+ Local LFA FRR: Enabled
+ Metric Type: TE
+ Transition count: 1
+ Uptime: 00:16:31 (since Fri Oct 07 02:36:42 UTC 2022)
+ Destinations: 198.19.1.1, 198.19.1.4, 198.19.1.7
+ Nodes:
+  Node[0]: 198.19.1.5 (Node-5)
+   Role: Ingress
+   Hops:
+    Incoming: 10040 CC-ID: 1
+    Outgoing: 10040 CC-ID: 1 (198.19.1.1!) [Node-1]
+  Node[1]: 198.19.1.1 (Node-1)
+   Role: Bud-Node
+   Hops:
+    Incoming: 10040 CC-ID: 2
+    Outgoing: 10040 CC-ID: 2 (198.19.1.7!) [Node-7]
+  Node[2]: 198.19.1.7 (Node-7)
+   Role: Bud-Node
+   Hops:
+    Incoming: 10040 CC-ID: 4
+    Outgoing: 10040 CC-ID: 4 (198.19.1.4!) [Node-4]
+  Node[3]: 198.19.1.4 (Node-4)
+   Role: Egress
+   Hops:
+    Incoming: 10040 CC-ID: 5
 ```
 
 

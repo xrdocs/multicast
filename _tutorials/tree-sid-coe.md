@@ -74,6 +74,7 @@ The topology that will be used is shown below.
 
 Summary topology:
 
+![TreeSID+COE static summary topology.png]({{site.baseurl}}/images/TreeSID+COE static summary topology.png)
 
 
 explain the path

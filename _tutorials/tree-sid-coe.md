@@ -376,13 +376,129 @@ Tree-SID path topology:
 
 We can see from the path topology that the Root is node 5, Transit nodes are 8, 7, 3 and the Leaf node is 4. 
 
-### COE Dashboard of topology
+### Configurations
 
-![Tree-SID + COE topology.png]({{site.baseurl}}/images/Tree-SID + COE topology.png)
+### PCE
 
-The above screenshot displays all the nodes in the network that have PCEP sessions with the PCE.
+```
+router bgp 65000
+ address-family ipv4 mvpn
+ !
+ neighbor-group AS65000-RRC-services-group
+  address-family ipv4 mvpn
+   route-reflector-client
+ !
+pce
+ segment-routing
+  traffic-eng
+   p2mp
+    label-range min 30000 max 31000
+    fast-reroute lfa
+    multipath-disable
+```
 
-Next step is to check the Tree that has been dynamically created by the PCE. The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Root Node) wih the corresponding Tree IDs.
+### Root
+
+```
+vrf L3VPN_NM-MVPN-80
+ address-family ipv4 unicast
+  import route-target
+   65000:80
+  !
+  export route-target
+   65000:80
+  !
+!
+router bgp 65000
+ address-family ipv4 mvpn
+ !
+ neighbor-group RR-services-group
+   address-family ipv4 mvpn
+!
+ vrf L3VPN_NM-MVPN-80
+  rd 65000:80
+  address-family ipv4 unicast
+   redistribute connected
+  !
+  address-family ipv4 mvpn
+  !
+!
+segment-routing
+ traffic-eng
+ on-demand color 80
+   dynamic
+    pcep
+    !
+    metric
+     type igp
+!
+route-policy L3VPN_NM-MVPN-80
+  if destination in (232.0.0.80) then
+    set on-demand-color 80
+    pass
+  endif
+end-policy
+!
+interface Loopback80
+ description T-SDN interface
+ vrf L3VPN_NM-MVPN-80
+ ipv4 address 10.80.5.1 255.255.255.252
+!
+multicast-routing
+ vrf L3VPN_NM-MVPN-80
+  address-family ipv4
+   interface all enable
+   bgp auto-discovery segment-routing
+   !
+   mdt default segment-routing mpls color 80
+   mdt data segment-routing mpls 2 color 80
+  !
+ !
+```
+
+### Leaf Node 4
+
+```
+vrf L3VPN_NM-MVPN-80
+ address-family ipv4 unicast
+  import route-target
+   65000:80
+  !
+  export route-target
+   65000:80
+  !
+ !
+!
+router bgp 65000
+ address-family ipv4 mvpn
+!
+ neighbor-group RR-services-group
+  address-family ipv4 mvpn
+ !
+ vrf L3VPN_NM-MVPN-80
+  rd 65000:80
+  address-family ipv4 unicast
+   redistribute connected
+  !
+  address-family ipv4 mvpn
+  !
+ !
+!
+interface Loopback80
+ description T-SDN interface
+ vrf L3VPN_NM-MVPN-80
+ ipv4 address 10.80.4.1 255.255.255.252
+!
+multicast-routing
+ vrf L3VPN_NM-MVPN-80
+  address-family ipv4
+   interface all enable
+   bgp auto-discovery segment-routing
+   !
+   mdt default segment-routing mpls color 80
+  !
+ !
+```
 
 ### Command:
 ```

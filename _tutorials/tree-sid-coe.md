@@ -86,6 +86,171 @@ pce
          type igp
 ```
 
+Root config:
+
+```
+vrf L3VPN_NM-SRTE-ODN-40
+ address-family ipv4 unicast
+  import route-target
+   65000:40
+  !
+  export route-target
+   65000:40
+!
+vrf L3VPN_NM-SRTE-ODN-41
+ address-family ipv4 unicast
+  import route-target
+   65000:41
+  !
+  export route-target
+   65000:41
+  !
+ !
+!
+interface Loopback40
+ description T-SDN interface
+ vrf L3VPN_NM-SRTE-ODN-40
+ ipv4 address 10.40.5.1 255.255.255.252
+!
+interface Loopback41
+ description T-SDN interface
+ vrf L3VPN_NM-SRTE-ODN-41
+ ipv4 address 10.41.5.1 255.255.255.252
+!
+route-policy sr-p2mp-core-tree
+  set core-tree sr-p2mp
+end-policy
+!
+multicast-routing
+ address-family ipv4
+  interface Loopback0
+   enable
+  !
+  mdt source Loopback0
+ !
+ vrf L3VPN_NM-SRTE-ODN-40
+  address-family ipv4
+   mdt source Loopback0
+   interface all enable
+   mdt static segment-routing
+!
+ vrf L3VPN_NM-SRTE-ODN-41
+  address-family ipv4
+   mdt source Loopback0
+   interface all enable
+   mdt static segment-routing
+  !
+ !
+!
+router pim
+ address-family ipv4
+  interface Loopback0
+   enable
+  !
+ !
+ vrf L3VPN_NM-SRTE-ODN-40
+  address-family ipv4
+   rpf topology route-policy sr-p2mp-core-tree
+   sr-p2mp-policy sr_p2mp_root_198.19.1.5_static_c40
+    static-group 232.0.0.40 10.40.5.1
+   !
+  !
+ !
+ vrf L3VPN_NM-SRTE-ODN-41
+  address-family ipv4
+   rpf topology route-policy sr-p2mp-core-tree
+   sr-p2mp-policy sr_p2mp_root_198.19.1.5_static_c41
+    static-group 232.0.0.41 10.41.5.1
+```
+
+Leaf config:
+```
+vrf L3VPN_NM-SRTE-ODN-40
+ address-family ipv4 unicast
+  import route-target
+   65000:40
+  !
+  export route-target
+   65000:40
+!
+vrf L3VPN_NM-SRTE-ODN-41
+ address-family ipv4 unicast
+  import route-target
+   65000:41
+  !
+  export route-target
+   65000:41
+  !
+ !
+!
+interface Loopback40
+ description T-SDN interface
+ vrf L3VPN_NM-SRTE-ODN-40
+ ipv4 address 10.40.4.1 255.255.255.252
+!
+interface Loopback41
+ description T-SDN interface
+ vrf L3VPN_NM-SRTE-ODN-41
+ ipv4 address 10.41.4.1 255.255.255.252
+!
+route-policy sr-p2mp-core-tree
+  set core-tree sr-p2mp
+end-policy
+!
+multicast-routing
+ address-family ipv4
+  interface Loopback0
+   enable
+  !
+  mdt source Loopback0
+ !
+ vrf L3VPN_NM-SRTE-ODN-40
+  address-family ipv4
+   mdt source Loopback0
+   interface all enable
+   static sr-policy sr_p2mp_root_198.19.1.5_static_c40
+   mdt static segment-routing
+  !
+ !
+ vrf L3VPN_NM-SRTE-ODN-41
+  address-family ipv4
+   mdt source Loopback0
+   interface all enable
+   static sr-policy sr_p2mp_root_198.19.1.5_static_c41
+   mdt static segment-routing
+  !
+ !
+!
+router igmp
+ vrf L3VPN_NM-SRTE-ODN-40
+  interface Loopback40
+   join-group 232.0.0.40 10.40.5.1
+  !
+ !
+ vrf L3VPN_NM-SRTE-ODN-41
+  interface Loopback41
+   join-group 232.0.0.41 10.41.5.1
+  !
+ !
+!
+router pim
+ address-family ipv4
+  interface Loopback0
+   enable
+  !
+ !
+ vrf L3VPN_NM-SRTE-ODN-40
+  address-family ipv4
+   rpf topology route-policy sr-p2mp-core-tree
+  !
+ !
+ vrf L3VPN_NM-SRTE-ODN-41
+  address-family ipv4
+   rpf topology route-policy sr-p2mp-core-tree
+  !
+ !
+```
+
 
 
 ### Show Outputs

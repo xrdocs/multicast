@@ -86,7 +86,7 @@ We can see from the path topology that the Root is node 5, Bud nodes are 1, 7 an
 
 _delete configurations that do not belong to static?_
 
-PCE config: 
+**PCE config:** 
 
 ```
 pce
@@ -127,9 +127,15 @@ pce
        dynamic
         metric
          type igp
+        !
+       !
+      !
+     !
+    !
+   !
 ```
 
-Root config:
+**Root config:**
 
 ```
 vrf L3VPN_NM-SRTE-ODN-40
@@ -206,7 +212,7 @@ router pim
     static-group 232.0.0.41 10.41.5.1
 ```
 
-Leaf config:
+**Leaf config:**
 ```
 vrf L3VPN_NM-SRTE-ODN-40
  address-family ipv4 unicast
@@ -378,7 +384,7 @@ We can see from the path topology that the Root is node 5, Transit nodes are 8, 
 
 ### Configurations
 
-### PCE
+**PCE config**
 
 ```
 router bgp 65000
@@ -397,7 +403,7 @@ pce
     multipath-disable
 ```
 
-### Root
+**Root config**
 
 ```
 vrf L3VPN_NM-MVPN-80
@@ -456,7 +462,7 @@ multicast-routing
  !
 ```
 
-### Leaf Node 4
+**Leaf config**
 
 ```
 vrf L3VPN_NM-MVPN-80

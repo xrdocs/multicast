@@ -306,12 +306,12 @@ router pim
 
 The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Root Node) wih the corresponding Tree IDs.
 
-### Command:
+**Command:**
 ```
 show pce lsp p2mp
 ```
 
-### Output:
+**Output:**
 ```
 Tree: sr_p2mp_root_198.19.1.5_static_c40, Root: 198.19.1.5
  PCC: 198.19.1.5
@@ -347,12 +347,12 @@ Tree: sr_p2mp_root_198.19.1.5_static_c40, Root: 198.19.1.5
 
 Now lets check the configuration of that specific VRF (L3VPN_NM-SRTE-ODN-40). The multicast routing for IPv4 and the bgp auto-discovery are enabled and we will use mdt static segment routing.
 
-### Command:
+**Command:**
 ```
 show run multicast-routing vrf L3VPN_NM-SRTE-ODN-40
 ```
 
-### Output:
+**Output:**
 ```
 multicast-routing
  vrf L3VPN_NM-SRTE-ODN-40
@@ -510,24 +510,26 @@ _configurations of transit nodes?_
 
 ### Show outputs
 
-### Command:
+### PCE
+
+**Command:**
 ```
 show pce lsp p2mp root ipv4 198.19.1.5 | include Tree
 ```
 
-### Output:
+**Output:**
 ```
 Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
 ```
 
 The next output shows the Tree stucture including the Root (Ingress), the Transit nodes and the leaves (Egress) with the corresponding label ID (31000) of the Tree.
 
-### Command:
+**Command:**
 ```
 show pce lsp p2mp root ipv4 198.19.1.5
 ```
 
-### Output:
+**Output:**
 ```
 Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
  PCC: 198.19.1.5
@@ -564,24 +566,16 @@ Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
     Incoming: 31000 CC-ID: 5
 ```
 
-### COE Dashboard of that Tree
-
-_edit: tha balw photo meta_
-
-Dashboard verifies the Tree-SID path that is rooted at node 5.
-
-All the above conclude the configurations and outputs on PCE node. Now we can move to the Root node.
-
-## Root node
+### Root
 
 From the root node we can get information such as VRFs, traffic-eng configurations, mvpn and segment-routing configurations
 
-### Command:
+**Command:**
 ```
 show vrf L3VPN_NM-MVPN-80
 ```
 
-### Output:
+**Output:**
 ```
 VRF                  RD                  RT                         AFI   SAFI
 L3VPN_NM-MVPN-80     65000:80
@@ -589,18 +583,14 @@ L3VPN_NM-MVPN-80     65000:80
                                          export  65000:80            IPV4  Unicast
 ```
 
-### COE Dashboard of that Tree
-
-_ti borw na balw edw?_
-
 Now lets check the configuration of that specific VRF. The multicast routing for IPv4 and the bgp auto-discovery are enabled, we will use segment routing P2MP and we will allow default MDT based on P2MP SR policy. There is associated color to the default MDT.
 
-### Command:
+**Command:**
 ```
 show run multicast-routing vrf L3VPN_NM-MVPN-80
 ```
 
-### Output:
+**Output:**
 ```
 multicast-routing
  vrf L3VPN_NM-MVPN-80
@@ -615,20 +605,14 @@ multicast-routing
 !
 ```
 
-### COE Dashboard of that Tree
-
-_ti borw na balw edw?_
-
 There is one important thing to notice in the following command output which is the metric type IGP. Any Tree that is going to be built as part of the default or data MDT is going to be built based on that metric.
 
-_to tree eina bash igp einai te? prepei na balw kai ta dio edw?_
-
-### Command:
+**Command:**
 ```
 show run segment-routing traffic-eng on-demand color 80
 ```
 
-### Output:
+**Output:**
 ```
 segment-routing
  traffic-eng
@@ -645,20 +629,14 @@ segment-routing
 !
 ```
 
-### COE Dashboard of that Tree
-
-_ti borw na balw edw?_
-
-giati den blepw ta multicast group edW?
-
 Below we can see the Route Type 1s for the PEs. 198.19.1.5 is the ingress PE and 198.19.1.4 is the egress PE.
 
-### Command:
+**Command:**
 ```
 show bgp vrf L3VPN_NM-MVPN-80 ipv4 mvpn
 ```
 
-### Output:
+**Output:**
 ```
 BGP VRF L3VPN_NM-MVPN-80, state: Active
 BGP Route Distinguisher: 65000:80
@@ -682,18 +660,14 @@ Route Distinguisher: 65000:80 (default for vrf L3VPN_NM-MVPN-80)
 Processed 2 prefixes, 2 paths
 ```
 
-### COE Dashboard of that Tree
-
-_ti borw na balw edw?_
-
 The following is the default MDT or I-PMSI. It has 1 member which is root Node 4 and there is a Tree with ID 524289.
 
-### Command:
+**Command:**
 ```
 show mvpn vrf L3VPN_NM-MVPN-80 database segment-routing
 ```
 
-### Output:
+**Output:**
 ```
 * - LFA protected MDT
 Core Type      Core            Tree Core        State  On-demand
@@ -705,20 +679,14 @@ Part              0.0.0.0            0 (0x00000)  Down 80
 Control           0.0.0.0            0 (0x00000)  Down 80
 ```
 
-### COE Dashboard of that Tree
+### Transit Node 3
 
-_ti borw na balw edw?_
-
-Now we move on to the Transit or Mid nodes.
-
-node 3
-
-### Command:
+**Command:**
 ```
 show segment-routing traffic-eng p2mp policy root ipv4 198.19.1.5
 ```
 
-### Output:
+**Output:**
 ```
 SR-TE P2MP policy database:
 ----------------------
@@ -732,18 +700,14 @@ Policy: sr_p2mp_root_198.19.1.5_tree_id_524289  LSM-ID: 0x40002
   Interface: None [198.19.1.4!]  Outgoing label: 31000 CC-ID: 1
 ```
 
-### COE Dashboard of that Tree
+### Transit Node 7
 
-_ti borw na balw edw?_
-
-node 7
-
-### Command:
+**Command:**
 ```
 show segment-routing traffic-eng p2mp policy root ipv4 198.19.1.5
 ```
 
-### Output:
+**Output:**
 ```
 SR-TE P2MP policy database:
 ----------------------

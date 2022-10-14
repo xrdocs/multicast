@@ -681,6 +681,8 @@ Control           0.0.0.0            0 (0x00000)  Down 80
 
 ### Transit Node 3
 
+_whats the output of the following commands?_
+
 **Command:**
 ```
 show segment-routing traffic-eng p2mp policy root ipv4 198.19.1.5
@@ -721,18 +723,14 @@ Policy: sr_p2mp_root_198.19.1.5_tree_id_524289  LSM-ID: 0x40003
   Interface: None [198.19.1.3!]  Outgoing label: 31000 CC-ID: 2
 ```
 
-### COE Dashboard of that Tree
+### Transit Node 8
 
-_ti borw na balw edw?_
-
-node 8
-
-### Command:
+**Command:**
 ```
 show segment-routing traffic-eng p2mp policy root ipv4 198.19.1.5
 ```
 
-### Output:
+**Output:**
 ```
 SR-TE P2MP policy database:
 ----------------------
@@ -745,10 +743,3 @@ Policy: sr_p2mp_root_198.19.1.5_tree_id_524289  LSM-ID: 0x40003
   Incoming label: 31000 CC-ID: 3
   Interface: None [198.19.1.7!]  Outgoing label: 31000 CC-ID: 3
 ```
-
-### COE Dashboard of that Tree
-
-_ti borw na balw edw?_
-
-an exei kati extra to wiki
-exei configurations kai outputs

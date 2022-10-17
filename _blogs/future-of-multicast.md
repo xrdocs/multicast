@@ -55,13 +55,14 @@ In Cisco, we believe that there are better ways to deliver Media Streaming. We c
 
 ### Media Streaming Future
 
-The Industry is moving forward and it is our task to tag alone. The majority of traffic is Unicast, thus it is undeniable that it will grow faster than Multicast. The new NPU's are designed and optimized to increase the forwarding performance and speed while achieving lower per packet cost. There is also lower power consumption and heat generation, Therefore, these NPU's are not Multicast designed. In Addition, replication is happening at ingress NPU only and it is no longer splitted between ingress and egress. In summary we should expect similar replication performance on newer equipment compared to older without any large improvement anymore.
+The Industry is moving forward and it is our task to tag alone. The majority of traffic is Unicast, thus it is undeniable that it will grow faster than Multicast. The new NPU's are designed and optimized to increase the forwarding performance and speed while achieving lower per packet cost. There is also lower power consumption and heat generation, therefore, these NPU's are not Multicast designed. In Addition, replication is happening at ingress NPU only and it is no longer splitted between ingress and egress. In summary we should expect similar replication performance on newer equipment compared to older without any large improvement anymore.
 
 Cisco is currently working with the CNC (Crosswork Network Collector) and Crosswork Optimization Engine (COE) team to delivery the visualization of Tree-SID. This collaboration will provide the following advantages and features:
 - Smart TV apps consuming Unicast traffic will replace setup boxes which will reduce Operating Expenditure (OPEX) for SPs.
 - There can be Network Functions Virtualization (NFV) as elastic mechanism to scale up during large broadcast events such as sports evemts, political events, etc...
  
-_task: add photos from cnc dashboard_
+**This is how COE Dashboard looks like in which we can see a whole topology of different trees.**
+![TreeSID+COE topology.jpg]({{site.baseurl}}/images/TreeSID+COE topology.jpg)
 
 ## Business Multicast VPN
 

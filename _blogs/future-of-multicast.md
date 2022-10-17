@@ -55,7 +55,7 @@ In Cisco, we believe that there are better ways to deliver Media Streaming. We c
 
 ### Media Streaming Future
 
-The Industry is moving forward and it is our task to tag alone. The majority of traffic is Unicast, thus it is undeniable that it will grow faster than Multicast. The new NPU's are designed and optimized to increase the forwarding performance and speed while achieving lower per packet cost. There is also lower power consumption and heat generation, therefore, these NPU's are not Multicast designed. In Addition, replication is happening at ingress NPU only and it is no longer splitted between ingress and egress. In summary we should expect similar replication performance on newer equipment compared to older without any large improvement anymore.
+The Industry is moving forward and it is our task to tag alone. The majority of traffic is Unicast, thus it is undeniable that it will grow faster than Multicast. The new NPU's are designed and optimized to increase the forwarding performance and speed while achieving lower per packet cost. There is also lower power consumption and heat generation, therefore, these NPU's are not Multicast designed. In Addition, replication is happening at Ingress NPU only and it is no longer splitted between Ingress and Egress. In summary we should expect similar replication performance on newer equipment compared to older without any large improvement anymore.
 
 Cisco is currently working with the CNC (Crosswork Network Collector) and Crosswork Optimization Engine (COE) team to delivery the visualization of Tree-SID. This collaboration will provide the following advantages and features:
 - Smart TV apps consuming Unicast traffic will replace setup boxes which will reduce Operating Expenditure (OPEX) for SPs.
@@ -85,7 +85,7 @@ Cisco would like to integrate Multicast with Unicast's solutions such as Segment
 **Suggested solutions:**
 - If there is no need for TE by mVPN is needed:
 	1. IR (Ingress Replication) + mVPN for small VPNs:
-    	In IR packets are replicated by ingress PE and send unicast packets over the core to the 		 destination PEs.
+    	In IR packets are replicated by Ingress PE and send unicast packets over the core to the 		 destination PEs.
     2. mLDP + mVPN for large VPNs.
     3. IR and mLDP could be deployed together within the same network. It is transparent to the 		end-user and easy to switch from one to another.
     4. SR-MPLS Unicast is another solution
@@ -98,6 +98,12 @@ Cisco would like to integrate Multicast with Unicast's solutions such as Segment
         - Allow the customer to optimize multicast trees and simplify operation with a controller
         
 ### Business Multicast VPN Future
+
+Majority of SP's will continue to deploy Rosen mVPN or mLDP with Segment Routing Unicast but Ingress Replication and Tree-SID could optimize replication by delivering more controller services.
+
+The transition to Ingress mVPN and Tree-SID mVPN will allow the optimization of mVPN deployment by reducing CapEX and OpEX. The replication flow will entirely change because the controller will be able to optimize traffic replication by selecting the replication nodes. Additionally, deployments such as P2MP RSVP-TE mVPN will shift to Tree-SID.
+
+
 
 **The following screenshot reflects to Business Multicast VPN Future**
 ![future of multicast business multicast vpn.jpg]({{site.baseurl}}/images/future of multicast business multicast vpn.jpg)
@@ -116,19 +122,9 @@ IR SRv6 mVPN
 
 
 
-
-
-
-
-
-
-No market visibility:
-BIER: cost, scale & performance issues
-
-
 ### Business Multicast VPN Future
 
-The transition to Ingress mVPN and Tree-SID mVPN will allow the optimization of mVPN deployment by reducing CapEX and OpEX. The replication flow will entirely change because the controller will be able to optimize traffic replication by selecting the replication nodes. Additionally, deployments such as P2MP RSVP-TE mVPN will shift to Tree-SID.
+
 
 _CDN strategy:
 
@@ -148,15 +144,6 @@ makes everything optimal
 it allows us to deploy Multicast as a service 
 
 Business Multicast VPN moving forward
-
-Business as usual (and for the next 10yeards):
-Majority of SP's will continue to deploy Rosen mVPN or mLDP with Segment Routing Unicast
-
-Interesting Proposal:
-SDN, Ingress Replication and Tree-SID to optimize replication by delivering more controller services
-
-
-MVPN traffic does not increase much while unicast bandwidth continues to double every 18-24 months.
 
 _ietf standards:_
 

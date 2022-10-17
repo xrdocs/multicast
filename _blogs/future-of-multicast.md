@@ -139,18 +139,6 @@ Step 1: low number of lead and low bandwidth usage, the SDN controller could dec
 
 Step 2: number of leaf augment or bandwidth increase, the SDN controller does select optimal replicators
 
-makes everything optimal
-
-it allows us to deploy Multicast as a service 
-
-Business Multicast VPN moving forward
-
-_ietf standards:_
-
-Tree-SID architecture IETF draft, It shall be possible for a node to advertise Tree-SID capability via IGP and/or BGP-LS. Similarly, a PCE can also advertise its TreeSID capability via IGP and/or BGP-LS. Capability advertisement allows a network node to dynamically choose one or more PCE(s) to obtain services pertraining to SR Replication policies, as well a PCE to dynamically identify TreeSID capable nodes
-
-https://tools.ietf.org/html/draft-hsd-pce-sr-p2mp-policy-02
-
 ??????
         
  What are the classical SPs are saying (ATT Business, BT Global, Orange Business Services, ...:

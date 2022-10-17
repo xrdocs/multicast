@@ -86,3 +86,10 @@ The controller so far has gathered all the required information. Now, it can pro
 ## Tree-SID Types
 
 The Tree-SID types are defined based on the way the tree root and leaves are learnt either static or dynamic. The former trees are created by the operator and the latter are dynamically created by the controller.
+
+## IETF Standards
+
+Tree-SID technology supports the IETF standards as it stated below.
+It shall be possible for a node to advertise Tree-SID capability via IGP and/or BGP-LS. Similarly, a PCE can also advertise its TreeSID capability via IGP and/or BGP-LS. Capability advertisement allows a network node to dynamically choose one or more PCE(s) to obtain services pertraining to SR Replication policies, as well a PCE to dynamically identify TreeSID capable nodes
+
+https://tools.ietf.org/html/draft-hsd-pce-sr-p2mp-policy-02

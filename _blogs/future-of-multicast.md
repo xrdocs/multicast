@@ -68,34 +68,34 @@ Cisco is currently working with the CNC (Crosswork Network Collector) and Crossw
 
 _Customers_
 
-Since 2002 Cisco Systems® has been providing the solution of Multicast VPN (MVPN). It is simple to set up, highly scalable and has minimal administrative overhead. Providers can dynamically provide multicast support over MPLS networks. It allows for the transport of a customer's IP Multicast traffic across a provider's VPN backbone transparently, and it is integrated transparently with the Cisco IOS® Unicast MPLS VPN solution. It allows a service provider to offer multicast services to its VPN customers in addition to its current Unicast VPN offering.
+Since 2002 Cisco Systems® has been providing the solution of Multicast VPN (mVPN). It is simple to set up, highly scalable and has minimal administrative overhead. Providers can dynamically provide multicast support over MPLS networks. It allows for the transport of a customer's IP Multicast traffic across a provider's VPN backbone transparently, and it is integrated transparently with the Cisco IOS® Unicast MPLS VPN solution. It allows a service provider to offer multicast services to its VPN customers in addition to its current Unicast VPN offering.
 
-The MVPN solution uses GRE with unique multicast distribution tree (MDT) forwarding to realize the true scalability of native IP Multicast in the core network. Cisco MVPN is based on the Multicast Domain solution with the highest level of optimization built into the Cisco solution with the help of default MDT and data MDT scaling enhancements. MVPN introduces multicast routing information to the VPN routing and forwarding table (VRF), creating a Multicast VRF.
+The mVPN solution uses GRE with unique multicast distribution tree (MDT) forwarding to realize the true scalability of native IP Multicast in the core network. Cisco mVPN is based on the Multicast domain solution with the highest level of optimization built into the Cisco solution with the help of default MDT and data MDT scaling enhancements. mVPN introduces multicast routing information to the VPN routing and forwarding table (VRF), creating a Multicast VRF.
 
 ### Current Deployments
 
-Service providers are not looking into replacing MVPN service. SPs have lots of small mVPN trees and fewer large mVPN trees. MVPN traffic does not increase much while unicast bandwidth continues to double every 18-24 months.
+Service providers are not looking into replacing MVPN service. SPs have lots of small mVPN trees and fewer large mVPN trees. mVPN traffic does not increase much while unicast bandwidth continues to double every 18-24 months.
 
 Cisco will continue to support customers who have deployed Rosen mVPN (profile 0) and mLDP mVPN (profile 14). 
 
 ### Today's Cisco Suggestion
 
-Cisco would like to integrate Multicast with Unicast's solutions such as Segment Routing, Flex-Algorithm and IPv6 transport.
+Cisco would like to integrate Multicast with Unicast's solutions such as Segment Routing, Flex-Algorithm (FA) and IPv6 transport.
 
 **Suggested solutions:**
 - If there is no need for TE by mVPN is needed:
 	1. IR (Ingress Replication) + mVPN for small VPNs:
     	In IR packets are replicated by ingress PE and send unicast packets over the core to the 		 destination PEs.
-    2. mLDP + mVPN for large mVPN.
+    2. mLDP + mVPN for large VPNs.
     3. IR and mLDP could be deployed together within the same network. It is transparent to the 		end-user and easy to switch from one to another.
-    4. Solid solution has been proved to work well with SR-MPLS unicast.
+    4. SR-MPLS Unicast is another solution
 - Need for TE in another working tree, computation with constraints (disjointness or other)
 	1. mLDP + FA + mVPN:
-    	- Preferred solution when mVPN are dynamic (lots of state changes)
+    	- Preferred solution when mVPNs are dynamic (lots of state changes)
         - Limited to some topology (double plane design required, no ring topology)
     2. Tree-SID + mVPN:
-    	- Preferred solution when mVPN are almost static
-        - Allow the customer to optimize multicast trees and simplify operation with a SDN 		  			controller
+    	- Preferred solution when mVPNs are almost static
+        - Allow the customer to optimize multicast trees and simplify operation with a controller
 
 
     	

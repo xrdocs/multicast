@@ -39,7 +39,7 @@ Node-4 is a Leaf Node.
 Node-3, Node-7 and Node-8 are Transit Nodes.
 SR-PCE (xtc1) is deployed out-of-band (OOB) and is not shown in the topology.
 
-Above nodes are xrv9k devices.
+Above nodes are IOS XRv 9000 devices.
 
 ## SR-PCE Configuration
 

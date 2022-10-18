@@ -52,7 +52,7 @@ show pce ipv4 peer
 
 ### Output:
 ```
-PCE\'s peer database:
+PCE's peer database:
 --------------------
 Peer address: 198.19.1.1
   State: Up

@@ -299,7 +299,7 @@ router pim
 
 ### PCE
 
-The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Node-5, Root Node) with the corresponding Tree-IDs.
+The control plane has already been established and we can see the LSPs that are rooted at Node-5, Root Node (198.19.1.5) with the corresponding Tree-IDs.
 
 **Command:**
 ```

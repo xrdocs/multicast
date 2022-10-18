@@ -363,17 +363,21 @@ _add anything else?_
 
 The topology that will be used is shown below.
 
-Summary topology:
+In our topology, there is a dynamic Tree-SID policy configured. The following shows a screenshot of the dynamic Tree-SID policy as rendered by the Crosswork Optimization Engine.
+
+Dynamic Static Tree-SID policy summary:
 
 ![TreeSID+COE dynamic tree-sid summary topology.png]({{site.baseurl}}/images/TreeSID+COE dynamic tree-sid summary topology.png)
 
-Tree-SID path topology:
+Dynamic Static Tree-SID policy path:
 
 ![TreeSID+COE dynamic tree-sid path topology.png]({{site.baseurl}}/images/TreeSID+COE dynamic tree-sid path topology.png)
 
-We can see from the path topology that the Root is node 5, Transit nodes are 8, 7, 3 and the Leaf node is 4. 
+We can see from the path topology that the Root is Node-5, Transit nodes are Node-8, Node-7, Node-3 and the Leaf node is Node-4. 
 
 ### Configurations
+
+On the PCE, we require a label-range to be provided for Dynamic Tree-SID creation. The PCE will pick a label within the provided range to be allocated for the dynamic Tree-SID policy.
 
 **PCE config**
 

@@ -8,29 +8,36 @@ position: hidden
 ---
 # Dynamic Tree-SID + Crosswork Optimization Engine (COE)
 
-[Tree-SID](https://xrdocs.io/multicast/tutorials/tree-sid/) has already been mentioned as a multicast technology in IOS-XR. Our goal is to enhance that technology and expand its potential thats why we are optimizing it by using Crosswork Optimization Engine (COE).
+
+In previous tutorials, we discussed the fundamentals of [Tree-SID](https://xrdocs.io/multicast/tutorials/tree-sid/) as a multicast technology in IOS-XR. Today we will showcase the integration of Dynamic Tree-SID deployments with the Crosswork Optimization Engine (COE). The Crosswork team has invested time and effort to evolve the Tree-SID solution with an automated and enhanced user experience with the goal of enhancing the technology and expanding its potential.
+ 
+There are 2 major challenges that we are trying to overcome:
+
 
 There are 2 major challenges that we are trying to overcome:
-1. The lack of accurate and intuitive visibility into multicast deployments
-2. The effective alignment with the controller architecture
+* The lack of accurate and intuitive visibility into multicast deployments
+* The effective alignment with the controller architecture
 
-To solve the above we need a tool to visualize and discover the multicast policies the controller holds. In our case we can leverage COE and achieve operational agility with ease of visualization plus rich automation benefits with controller friendly architecture.
 
-We already discussed the fundamentals of Tree-SID in previous tutorials. Today we want to showcase the integration of Dynamic Tree-SID with Crosswork Optimization Engine (COE). The Crosswork team has invested time and effort to evolve Tree-SID into an automated and enhanced user experience. We have the option to visualize Tree-SID topology, sessions, policies, and more in line with an automated Multicast solution. In the rest of this article, we will go over screenshots from the COE dashboard and use them to visualize the configurations we have in the routers.
+To solve the above, we need a tool to visualize and discover the multicast policies on the controller. In our case, we leverage COE and achieve operational agility with ease of visualization while providing rich automation benefits with a controller-friendly architecture.
+
+We have the option to visualize Tree-SID topology, sessions, policies, and more in line with an automated multicast solution. In the rest of this article, we will go over screenshots from the COE dashboard and use them to visualize the configurations we have in the routers.
 
 In the following [wiki](https://wiki.cisco.com/display/PCE/Tree-SID+visualization+using+dCloud) we can find configurations used in dCloud to setup this Demo.
 
 [github repo with configs?](https://github.com/lambros90/xrdocs/tree/main/coe-tree-sid)
+
+[Shall we put the sample configs on xrdocs and link them here instead?]
 
 The topology that will be used is shown below.
 
 ![TreeSID+COE 2022-10-13 13.03.56.png]({{site.baseurl}}/images/TreeSID+COE 2022-10-13 13.03.56.png)
 
 For our demonstration TreeSID topology, 
-Node-5 is the root node.
+Node-5 is a Root node.
 Node-4 is a Leaf Node.
 Node-3, Node-7 and Node-8 are Transit Nodes.
-SR-PCE (xtc1) is out-of-band (OOB) and is not shown in the topology.
+SR-PCE (xtc1) is deployed out-of-band (OOB) and is not shown in the topology.
 
 Above nodes are xrv9k devices.
 

@@ -75,7 +75,7 @@ TE and IGP respectively).
 
 The following shows a screenshot of one of the static Tree-SID polices as rendered by the Crosswork Optimization Engine. All essential information on the Tree-SID policy including the Root Node, Name, Tree-ID, Admin and Operational Status, SR Label, Type (Static/Dynamic), optimization criteria (Metric), Constraints and Path details are shown. This allows the operator to view all essential information pertaining to the Tree-SID policy at a glance.
 
-In addition, COE  maintains an event history of the Tree-SID policy. This means that the operator may use the COE UI to learn about past events such as admin and operational state changes, and changes in the SR policy paths.
+In addition, COE  maintains an event history of the Tree-SID policy. This means that the operator may use the COE UI to learn about past events such as admin and operational state changes, and changes in the Tree-SID SR policy paths.
 
 Static Tree-SID policy summary:
 

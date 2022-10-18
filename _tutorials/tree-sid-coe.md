@@ -8,15 +8,15 @@ position: hidden
 ---
 # Tree-SID + COE
 
-[Tree-SID](https://xrdocs.io/multicast/tutorials/tree-sid/) has already been mentioned as a multicast technology in IOS-XR. Our goal is to enhance that technology and expand its potential thats why we are optimizing it by using Crosswork Optimization Engine (COE).
+[Tree-SID](https://xrdocs.io/multicast/tutorials/tree-sid/) has been discussed as a multicast technology in IOS-XR. Our goal is to enhance that technology and expand its potential thats why we are optimizing it by using Crosswork Optimization Engine (COE).
 
 There are 2 major challenges that we are trying to overcome:
 1. The lack of accurate and intuitive visibility into multicast deployments
 2. The effective alignment with the controller architecture
 
-To solve the above we need a tool to visualize and discover the multicast policies the controller holds. In our case we can leverage COE and achieve operational agility with ease of visualization plus rich automation benefits with controller friendly architecture.
+To solve the above we need a tool to discover and visualize the multicast policies the controller holds. In our case we can leverage COE and achieve operational agility with ease of visualization while providing rich automation benefits with a controller friendly architecture.
 
-_what crosswork does_
+Cisco Crosswork is a suite of integrated applications that deliver adaptive network operations to achieve an autonomous, cloud-scale infrastructure using software-defined tools to manage multi-vendor and multi-domain networks. Cisco Crosswork Optimization Engine provides real-time network visualization and optimization capabilities, allowing operators to maximize network utility and increase service velocity.
 
 We already discussed the fundamentals of Tree-SID in previous tutorials. Today we want to showcase the integration of Dynamic Tree-SID with Crosswork Optimization Engine (COE). The Crosswork team has invested time and effort to evolve Tree-SID into an automated and enhanced user experience. We have the option to visualize Tree-SID topology, sessions, policies, and more in line with an automated Multicast solution. In the rest of this article, we will go over screenshots from the COE dashboard and use them to visualize the configurations we have in the routers.
 

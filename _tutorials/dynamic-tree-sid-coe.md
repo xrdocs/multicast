@@ -39,7 +39,7 @@ Node-4 is a Leaf Node.
 Node-3, Node-7 and Node-8 are Transit Nodes.
 SR-PCE (xtc1) is deployed out-of-band (OOB) and is not shown in the topology.
 
-Above nodes are xrv9k devices.
+Above nodes are IOS XRv 9000 devices.
 
 ## SR-PCE Configuration
 
@@ -77,10 +77,6 @@ Peer address: 198.19.1.7
 Peer address: 198.19.1.8
   State: Up
   Capabilities: Stateful, Segment-Routing, Update, Instantiation, SRv6
-
-Peer address: 198.19.1.99
-  State: Up
-  Capabilities: Stateful, Segment-Routing, Update, Instantiation
 ```
 
 ### COE Dashboard of topology
@@ -89,7 +85,7 @@ Peer address: 198.19.1.99
 
 The above screenshot displays all the nodes in the network that have PCEP sessions with the PCE.
 
-Next step is to check the Tree that has been dynamically created by the PCE. The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Root Node) wih the corresponding Tree IDs.
+Next step is to check the Tree that has been dynamically created by the PCE. The control plane has already been established and we can see the LSPs that are rooted at 198.19.1.5 (Root Node) with the corresponding Tree IDs.
 
 ### Command:
 ```
@@ -149,9 +145,9 @@ Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
 
 ![TreeSID+COE 2022-10-07 10.56.05.png]({{site.baseurl}}/images/TreeSID+COE 2022-10-07 10.56.05.png)
 
-Dashboard verifies the Tree-SID path that is rooted at Node-5.
+Dashboard verifies the Tree-SID path rooted at Node-5.
 
-All the above conclude the configurations and outputs on PCE node. Now we can move to the Root node.
+All of the above conclude the configurations and outputs on PCE node (xtc1). Now we can move to the Root node.
 
 ## Root node
 

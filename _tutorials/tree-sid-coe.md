@@ -360,9 +360,6 @@ multicast-routing
 !
 ```
 
-_add more show outputs?_
-_add anything else?_
-
 ## Dynamic Tree-SID + COE
 
 The topology that will be used is shown below.
@@ -505,7 +502,7 @@ multicast-routing
  !
 ```
 
-_configurations of transit nodes?_
+**The transit nodes do not hold any Tree-SID specific configuration.**
 
 ### Show outputs
 
@@ -521,7 +518,7 @@ show pce lsp p2mp root ipv4 198.19.1.5 | include Tree
 Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
 ```
 
-The next output shows the Tree stucture including the Root (Ingress), the Transit nodes and the leaves (Egress) with the corresponding label ID (31000) of the Tree.
+The next output shows the Tree stucture including the Root (Ingress), the Transit nodes and the leaves (Egress) with the corresponding label ID (31000) of the Tree. The PCE will pick a label within the provided range to be allocated for the dynamic Tree-SID policy. For Dynamic Tree-SID policies, a dynamic Tree-ID value will be allocated by the SR-PCE.
 
 **Command:**
 ```
@@ -567,7 +564,7 @@ Tree: sr_p2mp_root_198.19.1.5_tree_id_524289, Root: 198.19.1.5 ID: 524289
 
 ### Root
 
-From the root node we can get information such as VRFs, traffic-eng configurations, mvpn and segment-routing configurations
+From the root node we can get information such as VRFs, traffic-eng configurations, mvpn and segment-routing configurations.
 
 **Command:**
 ```
@@ -582,7 +579,7 @@ L3VPN_NM-MVPN-80     65000:80
                                          export  65000:80            IPV4  Unicast
 ```
 
-Now lets check the configuration of that specific VRF. The multicast routing for IPv4 and the bgp auto-discovery are enabled, we will use segment routing P2MP and we will allow default MDT based on P2MP SR policy. There is associated color to the default MDT.
+Now lets check the configuration of that specific VRF. The multicast routing for IPv4 and the bgp auto-discovery are enabled, we will use segment routing P2MP and we will allow default MDT based on P2MP SR policy.
 
 **Command:**
 ```
@@ -628,7 +625,7 @@ segment-routing
 !
 ```
 
-Below we can see the Route Type 1s for the PEs. 198.19.1.5 is the ingress PE and 198.19.1.4 is the egress PE.
+Below we can see the Route Type 1s for the PEs. Node-5 (198.19.1.5) is the Ingress PE and Node-4 (198.19.1.4) is the Egress PE.
 
 **Command:**
 ```
@@ -659,7 +656,7 @@ Route Distinguisher: 65000:80 (default for vrf L3VPN_NM-MVPN-80)
 Processed 2 prefixes, 2 paths
 ```
 
-The following is the default MDT or I-PMSI. It has 1 member which is root Node 4 and there is a Tree with ID 524289.
+The following is the default MDT or I-PMSI. It has 1 member which is root Node-4 (198.19.1.4) and there is a Tree with ID 524289.
 
 **Command:**
 ```
@@ -680,7 +677,10 @@ Control           0.0.0.0            0 (0x00000)  Down 80
 
 ### Transit Node 3
 
+**The transit nodes do not hold any Tree-SID specific configuration so there is no need for an output.**
 _whats the output of the following commands?_
+
+Below we can see the sr policy on all transit nodes that are part of the Tree-SID topology.
 
 **Command:**
 ```

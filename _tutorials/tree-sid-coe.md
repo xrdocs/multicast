@@ -73,15 +73,17 @@ Peer address: 198.19.1.8
 In our topology, there are two static Tree-SID policies configured ( sr_p2mp_root_198.19.1.5_static_c40 and sr_p2mp_root_198.19.1.5_static_c41). Both Tree-SID policies are rooted at Node-5 but are optimized for different route metric (
 TE and IGP respectively). The following shows a screenshot of one of the Tree-SID polices as rendered by the Crosswork Optimization Engine.
 
-Static Tree-SID summary:
+Static Tree-SID policy summary:
 
 ![TreeSID+COE static summary topology.png]({{site.baseurl}}/images/TreeSID+COE static summary topology.png)
 
-Static Tree-SID path:
+Static Tree-SID policy path:
 
 ![TreeSID+COE tree-sid path topology.png]({{site.baseurl}}/images/TreeSID+COE tree-sid path topology.png)
 
 We can see from the path topology that the Root is Node-5, Bud nodes are Node-1, Node-7 and the Leaf node is Node-4. 
+
+Note: For Static Tree-SID only the PCE configuration is required to initiate the Tree-SID P2MP SR Policy on the control plane. The rest of the configuration are provided for completeness. 
 
 ### Configurations
 
@@ -113,10 +115,6 @@ pce
         metric
          type te
         !
-       !
-      !
-     !
-    !
     policy sr_p2mp_root_198.19.1.5_static_c41
      source ipv4 198.19.1.5
      color 41 endpoint-set sr_p2mp_c41_ep

@@ -73,7 +73,7 @@ Peer address: 198.19.1.8
 In our topology, there are two static Tree-SID policies configured ( sr_p2mp_root_198.19.1.5_static_c40 and sr_p2mp_root_198.19.1.5_static_c41). Both Tree-SID policies are rooted at Node-5 but are optimized for different route metric (
 TE and IGP respectively). 
 
-The following shows a screenshot of one of the static Tree-SID polices as rendered by the Crosswork Optimization Engine. All essential information on the Tree-SID including the Tree-SID Root Node, Name, Tree-ID, Admin and Operational Status, Label, Type (Static/Dynamic), Metric Type, Constraints and Path details are shown. This allows the operator to view all essential information pertaining to the Tree-SID policy at a glance.
+The following shows a screenshot of one of the static Tree-SID polices as rendered by the Crosswork Optimization Engine. All essential information on the Tree-SID policy including the Root Node, Name, Tree-ID, Admin and Operational Status, SR Label, Type (Static/Dynamic), optimization criteria (Metric), Constraints and Path details are shown. This allows the operator to view all essential information pertaining to the Tree-SID policy at a glance.
 
 Static Tree-SID policy summary:
 
@@ -83,9 +83,9 @@ Static Tree-SID policy path:
 
 ![TreeSID+COE tree-sid path topology.png]({{site.baseurl}}/images/TreeSID+COE tree-sid path topology.png)
 
-We can see from the path topology that the Root is Node-5, Bud nodes are Node-1, Node-7 and the Leaf node is Node-4. 
+We can see from the path topology that the Tree-SID policy is rooted at Node-5. Bud nodes are Node-1, Node-7 and the Leaf node is Node-4. 
 
-Note: For Static Tree-SID only the PCE configuration is required to initiate the Tree-SID P2MP SR Policy on the control plane. The rest of the configuration are provided for completeness. 
+Note: For Static Tree-SID only the PCE configuration is required to initiate the Tree-SID Policy on the control plane. The rest of the configuration are provided for completeness. 
 
 ### Configurations
 

@@ -386,7 +386,7 @@ We can see from the path topology that the Root is Node-5, Transit nodes are Nod
 
 ### Configurations
 
-On the PCE, we require a label-range to be provided for Dynamic Tree-SID creation for PCE allocation. The PCE will also allocate a dynamic Tree-ID value which is not present for static Tree SID policies.
+On the PCE, we require a label-range for allocation for Dynamic Tree-SID policies. The PCE will also allocate a dynamic Tree-ID value which is not present for static Tree SID policies.
 
 **PCE config**
 

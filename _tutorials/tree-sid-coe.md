@@ -384,6 +384,8 @@ Dynamic Static Tree-SID policy path:
 
 We can see from the path topology that the Root is Node-5, Transit nodes are Node-8, Node-7, Node-3 and the Leaf node is Node-4. 
 
+Note: SR Policy events history is currently not available for Dynamic Tree-SID polices.
+
 ### Configurations
 
 On the PCE, we require a label-range for allocation for Dynamic Tree-SID policies. The PCE will also allocate a dynamic Tree-ID value which is not present for static Tree SID policies.
@@ -751,8 +753,3 @@ Policy: sr_p2mp_root_198.19.1.5_tree_id_524289  LSM-ID: 0x40003
 ```
 
 This concludes the configuration and show command outputs from the IOS-XR devices, as well as showcasing Crosswork Optimization Engine's Tree-SID visualization capabilities. We hope you find this article informative.
-
-
-
-
-

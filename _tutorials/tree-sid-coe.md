@@ -85,7 +85,7 @@ Static Tree-SID policy path:
 
 We can see from the path topology that the Tree-SID policy is rooted at Node-5. Bud nodes are Node-1, Node-7 and the Leaf node is Node-4. 
 
-In addition, COE maintains an event history of the Tree-SID policy. The operator may use the COE UI to learn about past events such as admin and operational state changes, and changes in the Tree-SID SR policy paths.
+In addition, COE maintains an event history of the Tree-SID policy. The operator may use the COE UI to learn about past events such as admin and operational state changes, and changes in the Tree-SID SR policy paths. When an event is selected, details of the Tree-SID Policy Path at that time will be shown.
 
 Static Tree-SID policy events: 
 

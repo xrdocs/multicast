@@ -73,9 +73,9 @@ Peer address: 198.19.1.8
 In our topology, there are two static Tree-SID policies configured ( sr_p2mp_root_198.19.1.5_static_c40 and sr_p2mp_root_198.19.1.5_static_c41). Both Tree-SID policies are rooted at Node-5 but are optimized for different route metric (
 TE and IGP respectively). There is also the ability to include link affinity constraints, although that is not configured on our setup.
 
-The following shows a screenshot of one of the static Tree-SID polices as rendered by the Crosswork Optimization Engine. All essential information on the Tree-SID policy including the Root Node, Name, Tree-ID, Admin and Operational Status, SR Label, Type (Static/Dynamic), optimization criteria (Metric), Constraints and Path details are shown. This allows the operator to view all essential information pertaining to the Tree-SID policy at a glance.
+The following shows a screenshot of one of the static Tree-SID polices as rendered by the Crosswork Optimization Engine. All essential information on the Tree-SID policy including the root node, name, tree-ID, admin and operational Status, SR label, type (static/dynamic), optimization criteria, affinity and path details are shown. This allows the operator to view all essential information pertaining to the Tree-SID policy at a glance.
 
-In addition, COE  maintains an event history of the Tree-SID policy. This means that the operator may use the COE UI to learn about past events such as admin and operational state changes, and changes in the Tree-SID SR policy paths.
+In addition, COE maintains an event history of the Tree-SID policy. The operator may use the COE UI to learn about past events such as admin and operational state changes, and changes in the Tree-SID SR policy paths.
 
 Static Tree-SID policy summary:
 

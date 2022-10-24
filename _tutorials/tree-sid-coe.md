@@ -85,9 +85,9 @@ Static Tree-SID policy path:
 
 ![TreeSID+COE tree-sid path topology.png]({{site.baseurl}}/images/TreeSID+COE tree-sid path topology.png)
 
-Static Tree-SID policy event history (state/path changes):
+Static Tree-SID policy events history (state/path changes):
 
-![TreeSID+COE 2022-10-24 11.56.10.png]({{site.baseurl}}/images/TreeSID+COE 2022-10-24 11.56.10.png)
+![TreeSID+COE static history.png]({{site.baseurl}}/images/TreeSID+COE static history.png)
 
 
 We can see from the path topology that the Tree-SID policy is rooted at Node-5. Bud nodes are Node-1, Node-7 and the Leaf node is Node-4. 

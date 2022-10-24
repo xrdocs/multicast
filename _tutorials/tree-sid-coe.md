@@ -75,8 +75,6 @@ TE and IGP respectively). There is also the ability to include link affinity con
 
 The following shows a screenshot of one of the static Tree-SID polices as rendered by the Crosswork Optimization Engine. All essential information on the Tree-SID policy including the root node, name, tree-ID, admin and operational Status, SR label, type (static/dynamic), optimization criteria, affinity and path details are shown. This allows the operator to view all essential information pertaining to the Tree-SID policy at a glance.
 
-In addition, COE maintains an event history of the Tree-SID policy. The operator may use the COE UI to learn about past events such as admin and operational state changes, and changes in the Tree-SID SR policy paths.
-
 Static Tree-SID policy summary:
 
 ![TreeSID+COE static summary topology.png]({{site.baseurl}}/images/TreeSID+COE static summary topology.png)
@@ -85,12 +83,15 @@ Static Tree-SID policy path:
 
 ![TreeSID+COE tree-sid path topology.png]({{site.baseurl}}/images/TreeSID+COE tree-sid path topology.png)
 
-Static Tree-SID policy events history (state/path changes):
+We can see from the path topology that the Tree-SID policy is rooted at Node-5. Bud nodes are Node-1, Node-7 and the Leaf node is Node-4. 
+
+In addition, COE maintains an event history of the Tree-SID policy. The operator may use the COE UI to learn about past events such as admin and operational state changes, and changes in the Tree-SID SR policy paths.
+
+Static Tree-SID policy events: 
 
 ![TreeSID+COE static history.png]({{site.baseurl}}/images/TreeSID+COE static history.png)
 
-
-We can see from the path topology that the Tree-SID policy is rooted at Node-5. Bud nodes are Node-1, Node-7 and the Leaf node is Node-4. 
+Crosswork 
 
 Note: For Static Tree-SID only the PCE configuration is required to initiate the Tree-SID Policy on the control plane. The rest of the configuration are provided for completeness. 
 

@@ -18,7 +18,7 @@ To solve the above we need a tool to discover and visualize the multicast polici
 
 Cisco Crosswork is a suite of integrated applications that deliver adaptive network operations to achieve an autonomous, cloud-scale infrastructure using software-defined tools to manage multi-vendor and multi-domain networks. Cisco Crosswork Optimization Engine provides real-time network visualization and optimization capabilities, allowing operators to maximize network utility and increase service velocity.
 
-Today we want to showcase the integration of Dynamic Tree-SID with COE. The Crosswork team has invested time and effort to evolve Tree-SID into an automated and enhanced user experience. We have the option to visualize Tree-SID topology, sessions, policies, and more in line with an automated Multicast solution. In the rest of this article, we will go over screenshots from the COE dashboard and use them to visualize the TreeSID SR Policies on the routers.
+Today we want to showcase the integration of Dynamic Tree-SID with COE. The Crosswork team has invested time and effort to evolve Tree-SID into an automated solution while providing enhanced user experience. We have the option to visualize Tree-SID topology, sessions, policies, and more in line with an automated Multicast solution. In the rest of this article, we will go over screenshots from the COE dashboard and use them to visualize the TreeSID SR Policies on the routers.
 
 ## Topology
 

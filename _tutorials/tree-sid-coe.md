@@ -687,8 +687,6 @@ Control           0.0.0.0            0 (0x00000)  Down 80
 
 ### Transit Node 3
 
-**The transit nodes do not hold any Tree-SID specific configuration so there is no need for an output.**
-
 Below we can see the P2MP SR policy on all transit nodes that are part of the Tree-SID topology.
 
 **Command:**

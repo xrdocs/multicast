@@ -75,7 +75,7 @@ In our topology, there are two static Tree-SID policies configured,
 * sr_p2mp_root_198.19.1.5_static_c40 
 * sr_p2mp_root_198.19.1.5_static_c41
 
-Both Tree-SID policies are rooted at Node-5 but are optimized for different metric (TE and IGP metric respectively). Tree-SID policies also support the use of link affinity constraints, although this is not configured on our setup.
+Both Tree-SID policies are rooted at Node-5 but are optimized for different metric (TE and IGP metric respectively). Tree-SID policies also support the use of link affinity constraints, although this is not configured in the current setup.
 
 The following shows a screenshot of one of the static Tree-SID polices as rendered by the Crosswork Optimization Engine. All essential information on the Tree-SID policy including the root node, name, tree-ID, admin and operational Status, SR label, type (static/dynamic), metric type, affinity constraints and path details are shown. This allows the operator to view all essential information pertaining to the Tree-SID policy at a glance.
 

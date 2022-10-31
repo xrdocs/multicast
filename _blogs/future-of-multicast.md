@@ -155,3 +155,10 @@ Step 1: low number of lead and low bandwidth usage, the SDN controller could dec
 Step 2: number of leaf augment or bandwidth increase, the SDN controller does select optimal replicators
 
 ## add financial streaming (mldp +FA)
+
+Non-TE solution (shortest path)
+»      IR (Ingress Replication) + mVPN [IR over IPv6 unicast]
+»      PIMv6 + mVPN 
+TE based solution
+»      PIMv6 + mVPN + FlexAlgo
+»      Tree-SID (SRv6) + mVPN

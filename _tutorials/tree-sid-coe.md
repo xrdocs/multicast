@@ -20,7 +20,7 @@ Cisco Crosswork is a suite of integrated applications that deliver adaptive netw
 
 Today we want to showcase the integration of Static and Dynamic Tree-SID with COE. The Crosswork team has invested time and effort to evolve Tree-SID into an automated solution while providing enhanced user experience. We have the option to visualize Tree-SID topology, sessions, policies, and more in line with an automated Multicast solution. In the rest of this article, we will go over screenshots from the COE dashboard and use them to visualize the TreeSID SR Policies on the routers.
 
-Furthermore, there is the need of validating tree disjointness for Video distribution:
+Furthermore, there is the need of validating tree disjointness for video distribution:
 1. SR-PCE allows to compute and deploy it (automatically).
 2. COE allows to visualize, and 'proove' trees are disjoint.
 

@@ -4,7 +4,6 @@ date: '2022-10-03 11:31 +0300'
 title: Tree-SID + COE
 author: Lampros Gkavogiannis
 excerpt: Dynamic Tree-SID + COE
-position: hidden
 ---
 # Tree-SID + COE
 

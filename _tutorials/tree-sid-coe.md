@@ -388,7 +388,7 @@ Dynamic Tree-SID policy path:
 
 We can see from the path topology that the Root is Node-5, Transit nodes are Node-8, Node-7, Node-3 and the Leaf node is Node-4. 
 
-Note: SR Policy events history is currently not available for Dynamic Tree-SID polices.
+Note: SR Policy events history is currently not available for Dynamic Tree-SID policies.
 
 ### Configurations
 

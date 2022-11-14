@@ -378,11 +378,11 @@ The topology that will be used is shown below.
 
 In our topology, there is a dynamic Tree-SID policy configured. The following shows a screenshot of the dynamic Tree-SID policy as rendered by the Crosswork Optimization Engine.
 
-Dynamic Static Tree-SID policy summary:
+Dynamic Tree-SID policy summary:
 
 ![TreeSID+COE dynamic tree-sid summary topology.png]({{site.baseurl}}/images/TreeSID+COE dynamic tree-sid summary topology.png)
 
-Dynamic Static Tree-SID policy path:
+Dynamic Tree-SID policy path:
 
 ![TreeSID+COE dynamic tree-sid path topology.png]({{site.baseurl}}/images/TreeSID+COE dynamic tree-sid path topology.png)
 

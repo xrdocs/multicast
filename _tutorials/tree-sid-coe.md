@@ -21,7 +21,7 @@ Today we want to showcase the integration of Static and Dynamic Tree-SID with CO
 
 Furthermore, there is the need of validating tree disjointness for video distribution:
 1. SR-PCE allows to compute and deploy it (automatically).
-2. COE allows to visualize, and 'proove' trees are disjoint.
+2. COE allows to visualize, and 'prove' trees are disjoint.
 
 
 ## Topology

@@ -76,7 +76,11 @@ In the following Default MDT scenario we have 4 PEs, where PE1 is the Root and c
 
 ![mdt 1.7.jpg]({{site.baseurl}}/images/mdt 1.7.jpg)
 
+### Data MDT
 
+In the following Data MDT scenario we have a unidirectional MDT with only a subset of PEs joining the Tree. PE1 is the Root and distributes the traffic to the connected PEs. Thus we have a P2MP mLDP Tree.
+
+![mdt 1.8.jpg]({{site.baseurl}}/images/mdt 1.8.jpg)
 
 
 

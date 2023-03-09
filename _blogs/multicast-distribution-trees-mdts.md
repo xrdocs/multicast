@@ -68,6 +68,14 @@ It is a combination of the previous two.
 
 ![mdt 1.6.jpg]({{site.baseurl}}/images/mdt 1.6.jpg)
 
+## Core Tree Type Construction - mLDP POV
+
+### Default MDT
+
+In the following Default MDT scenario we have 4 PEs, where PE1 is the Root and creates the MDT towards all 3 PEs. All the PEs act as the Root at once, trying to send the information to all PEs and all the PEs join that Tree. Thus we have a Full mesh of P2MP mLDP Trees.
+
+![mdt 1.7.jpg]({{site.baseurl}}/images/mdt 1.7.jpg)
+
 
 
 

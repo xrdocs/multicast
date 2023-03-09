@@ -76,13 +76,26 @@ In the following Default MDT scenario we have 4 PEs, where PE1 is the Root and c
 
 ![mdt 1.7.jpg]({{site.baseurl}}/images/mdt 1.7.jpg)
 
+We will follow the next steps to simulate the creation of the Default MDT Trees.
+1. Tree is built upon configuration. The way it is built, is based on the Core Tree Protocol used.
+2. All PEs are connected to each other
+3. There is a receiver directly connected to PE3 and sends (S,G) IGMP Join
+4. PE3 will look at the Source IP address and check how it can be reached. The reachability is in the VPN context through PE1
+6. The PE1 receives that and starts building the Tree towards the Source
+	1. It can be directly connected Source, thus we do not need to do anything
+    2. It can be connected to a CE, thus PIM would be the protocol to use (PIM Joins)
+7. Traffic starts flowing and it is flooded to all the PEs
+8. Since only PE3 is interested in this traffic, the rest of the PEs will drop it
+
 ### Data MDT
 
 In the following Data MDT scenario we have a unidirectional MDT with only a subset of PEs joining the Tree. PE1 is the Root and distributes the traffic to the connected PEs. Thus we have a P2MP mLDP Tree.
 
 ![mdt 1.8.jpg]({{site.baseurl}}/images/mdt 1.8.jpg)
 
+### Partitioned MDT
 
+Depending on whether it is bidirectional or unidirectional, it will be similar to Default or Data MDT.
 
 
 

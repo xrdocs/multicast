@@ -81,11 +81,15 @@ We will follow the next steps to simulate the creation of the Default MDT Trees.
 2. All PEs are connected to each other
 3. There is a receiver directly connected to PE3 and sends (S,G) IGMP Join
 4. PE3 will look at the Source IP address and check how it can be reached. The reachability is in the VPN context through PE1
-6. The PE1 receives that and starts building the Tree towards the Source
-	1. It can be directly connected Source, thus we do not need to do anything
-    2. It can be connected to a CE, thus PIM would be the protocol to use (PIM Joins)
-7. Traffic starts flowing and it is flooded to all the PEs
-8. Since only PE3 is interested in this traffic, the rest of the PEs will drop it
+5. The PE1 receives that and starts building the Tree towards the Source
+	- It can be directly connected Source, thus we do not need to do anything
+	- It can be connected to a CE, thus PIM would be the protocol to use (PIM Joins)
+6. Traffic starts flowing and it is flooded to all the PEs
+7. Since only PE3 is interested in this traffic, the rest of the PEs will drop it
+
+_na balw snapshot apo slides anuj - slide 6_
+
+We would have the same outcome in case we had a receiver behind a different PE with different or same Source. The caveat of Default MDT is the drop of multicast traffic on egress PE, if there is no receiver.
 
 ### Data MDT
 

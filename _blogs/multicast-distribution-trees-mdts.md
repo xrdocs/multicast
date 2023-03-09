@@ -43,11 +43,30 @@ They are called MDT (Multicast Distribution Tree) or PMSI (Provider Multicast Se
 All the PEs that belong in the same mVPN, are all connected together and bidirectional which means any traffic sent to a PE will be received by all the PEs. This MDT will always be present no matter if there is traffic or not.
 
 - Connects all PEs
-- Biderectional
+- Bidirectional
 - Always present
 
 ![mdt 1.4.jpg]({{site.baseurl}}/images/mdt 1.4.jpg)
-asd
+
+### Data MDT or Selective PMSI (S-PMSI)
+
+There is a PE (PE1) which is the Source or the Root and it is connected to a subset of PEs (PE3 and PE4), thus traffic will be received by them only.
+
+- Connects subset of PEs
+- Unidirectional (operating in a single direction)
+- On-Demand (config exists but it is triggered when parameters are met)
+
+![mdt 1.5.jpg]({{site.baseurl}}/images/mdt 1.5.jpg)
+
+### Partitioned MDT or Multidirectional Selective PMSI (MS-PMSI)
+
+It is a combination of the previous two.
+
+- Connects subset of PEs
+- Uni- or Bidirectional
+- On-Demand (a Join request will trigger the creation of the Tree)
+
+![mdt 1.6.jpg]({{site.baseurl}}/images/mdt 1.6.jpg)
 
 
 

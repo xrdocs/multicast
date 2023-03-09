@@ -105,6 +105,7 @@ We will follow the next steps to simulate the execution of Data MDT.
 5. Traffic will only be forwarded through that Tree
 
 _na balw snapshot apo slides anuj - slide 8_
+_extra info by Anuj_
 
 ### Partitioned MDT
 
@@ -126,3 +127,7 @@ Now we can assume that there is another receiver behind PE5 with a different Sou
 5. Thus, all receivers that have joined this Tree, drop the traffic that is not requested by their designated receiver
 
 _na balw snapshot apo slides anuj - slide 7_
+
+## Auto-Discovery
+
+We need to clarify how the MDTs are built

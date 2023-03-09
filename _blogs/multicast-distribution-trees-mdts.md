@@ -128,6 +128,12 @@ Now we can assume that there is another receiver behind PE5 with a different Sou
 
 _na balw snapshot apo slides anuj - slide 7_
 
+## Default MDT vs Partitioned MDT
+
+- The receivers in Partitioned MDT will not receive any unwanted traffic compared to Default
+- In Partitioned MDT once the Join goes away the Tree is pruned
+- The Partitioned MDT is exactly the same with Default, if all the receivers are active at the same time
+
 ## Auto-Discovery
 
-We need to clarify how the MDTs are built
+The process of discovering all the PEs with members in a given mVPN is the way a MDT is built. In the examples we are using BGP Auto-Discovery and BGP Signaling. Upon the enablement of the configuration, BGP enables address families. In Multicast, we have BGP IPv4 mVPN address family and if we enabled that we can discover all the PEs that are part of the specific mVPN.

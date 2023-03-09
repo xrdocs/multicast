@@ -97,11 +97,18 @@ In the following Data MDT scenario we have a unidirectional MDT with only a subs
 
 ![mdt 1.8.jpg]({{site.baseurl}}/images/mdt 1.8.jpg)
 
+We will follow the next steps to simulate the execution of Data MDT.
+1. All PEs are connected and receiving multicast traffic
+2. There is only 1 receiver behind the PE
+3. The PE connected to the Source sends a Route Type 3 message to all the participating PEs which Tree to join, only if the traffic rate > data MDT threshold
+4. The PEs with the receivers who are interested in this traffic will join the Data MDT via Core Tree Signaling (mLDP, Tree-SID, IR) and Tree gets built
+5. Traffic will only be forwarded through that Tree
+
 ### Partitioned MDT
 
 Depending on whether it is bidirectional or unidirectional, it will be similar to Default or Data MDT.
 
-We will follow the next steps to simulate the create of a Dynamic version of Default MDT model. We start with 5 PEs with no connection yet to each other.
+We will follow the next steps to simulate the creation of a Dynamic version of Default MDT model. We start with 5 PEs with no connection yet to each other.
 1. We have a receiver directly connected to PE3 which sends (S1, G1) IGMP Join
 2. PE3 will look at the Source1 IP address and check how it can be reached. The reachability is in the VPN context through PE1
 3. PE3 starts creating the Tree to PE1 which consists of a link between PE1 and PE3 (no other PEs are connected)
@@ -117,8 +124,3 @@ Now we can assume that there is another receiver behind PE5 with a different Sou
 5. Thus, all receivers that have joined this Tree, drop the traffic that is not requested by their designated receiver
 
 _na balw snapshot apo slides anuj - slide 7_
-
-
-
-
-

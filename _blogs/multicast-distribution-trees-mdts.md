@@ -32,6 +32,21 @@ The next step is to build a core plane (underlay) in the network. We need to use
 
 To build the overlay we are adding the customer boxes and PE devices that are already aware of the above underlay. There are 2 common protocols to be used here, PIM or IGMP. If the switch is directly connected to the PE then we configure PIM between the CE and the PE. For the connectivity between the PEs we either use BGP Signaling or PIM Signaling. For mVPN profile 14 we use BGP Signaling.
 
+![mdt 1.3.1.jpg]({{site.baseurl}}/images/mdt 1.3.1.jpg)
+
+## Core Tree Types
+
+They are called MDT (Multicast Distribution Tree) or PMSI (Provider Multicast Service Interface, IETF naming). It can be build with any of the Transport core protocols depending on the profile used.
+
+### Default MDT or Multi-Directional Inclusive PMSI (MI-PMSI)
+
+All the PEs that belong in the same mVPN, are all connected together and bidirectional which means any traffic sent to a PE will be received by all the PEs. This MDT will always be present no matter if there is traffic or not.
+
+- Connects all PEs
+- Biderectional
+- Always present
+
+
 
 
 

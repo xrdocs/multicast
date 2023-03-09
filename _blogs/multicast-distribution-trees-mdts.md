@@ -79,8 +79,8 @@ In the following Default MDT scenario we have 4 PEs, where PE1 is the Root and c
 We will follow the next steps to simulate the creation of the Default MDT Trees.
 1. Tree is built upon configuration. The way it is built, is based on the Core Tree Protocol used.
 2. All PEs are connected to each other
-3. There is a receiver directly connected to PE3 and sends (S,G) IGMP Join
-4. PE3 will look at the Source IP address and check how it can be reached. The reachability is in the VPN context through PE1
+3. There is a receiver directly connected to PE3 and sends (S1, G2) IGMP Join
+4. PE3 will look at the Source1 IP address and check how it can be reached. The reachability is in the VPN context through PE1
 5. The PE1 receives that and starts building the Tree towards the Source
 	- It can be directly connected Source, thus we do not need to do anything
 	- It can be connected to a CE, thus PIM would be the protocol to use (PIM Joins)
@@ -100,6 +100,24 @@ In the following Data MDT scenario we have a unidirectional MDT with only a subs
 ### Partitioned MDT
 
 Depending on whether it is bidirectional or unidirectional, it will be similar to Default or Data MDT.
+
+We will follow the next steps to simulate the create of a Dynamic version of Default MDT model. We start with 5 PEs with no connection yet to each other.
+1. We have a receiver directly connected to PE3 which sends (S1, G1) IGMP Join
+2. PE3 will look at the Source1 IP address and check how it can be reached. The reachability is in the VPN context through PE1
+3. PE3 starts creating the Tree to PE1 which consists of a link between PE1 and PE3 (no other PEs are connected)
+5. The Tree has been created and the PE1 gets the traffic for the receiver behind PE3
+
+Now we can assume that there is another receiver behind PE5 with a different Source
+1. Receiver sends (S2, G2) IGMP Join to PE5
+2. Based on the configuration of the transport protocol on the core, PE5 can join the same Tree that has already been built for PE3
+3. The traffic flows from S1 to PE1 and PE3 to PE5
+	- The PE5 drops this traffic
+4. The traffic flows from S2 to PE1 and PE3 to PE5
+	- The PE3 drops this traffic
+5. Thus, all receivers that have joined this Tree, drop the traffic that is not requested by their designated receiver
+
+_na balw snapshot apo slides anuj - slide 7_
+
 
 
 

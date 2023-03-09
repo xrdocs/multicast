@@ -46,7 +46,7 @@ All the PEs that belong in the same mVPN, are all connected together and bidirec
 - Bidirectional
 - Always present
 
-![mdt 1.4.jpg]({{site.baseurl}}/images/mdt 1.4.jpg)
+![mdt 1.4.1.jpg]({{site.baseurl}}/images/mdt 1.4.1.jpg)
 
 ### Data MDT or Selective PMSI (S-PMSI)
 
@@ -56,7 +56,7 @@ There is a PE (PE1) which is the Source or the Root and it is connected to a sub
 - Unidirectional (operating in a single direction)
 - On-Demand (config exists but it is triggered when parameters are met)
 
-![mdt 1.5.jpg]({{site.baseurl}}/images/mdt 1.5.jpg)
+![mdt 1.5.1.jpg]({{site.baseurl}}/images/mdt 1.5.1.jpg)
 
 ### Partitioned MDT or Multidirectional Selective PMSI (MS-PMSI)
 
@@ -66,7 +66,7 @@ It is a combination of the previous two.
 - Uni- or Bidirectional
 - On-Demand (a Join request will trigger the creation of the Tree)
 
-![mdt 1.6.jpg]({{site.baseurl}}/images/mdt 1.6.jpg)
+![mdt 1.6.1.jpg]({{site.baseurl}}/images/mdt 1.6.1.jpg)
 
 ## Core Tree Type Construction - mLDP POV
 

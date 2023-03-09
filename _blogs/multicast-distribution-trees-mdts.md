@@ -20,19 +20,19 @@ The instances might be using different VPNs, Red or Blue. If these instances are
 
 We assume that we have 4 PEs (PE1, PE2, PE3, PE4) and only one of them has 1 subset VPN instance. For example PE1, PE3 and PE4 use a Green VPN, while PE2 uses a Red VPN. In this case, if we use a common transport underlay then there will be a mix of traffic. Red VPN will receiving traffic from Green and vice-versa. This is why we need to come up with a new transport underlay.
 
-![mdt 1.1.jpg]({{site.baseurl}}/images/mdt 1.1.jpg)
+![mdt 1.1.1.jpg]({{site.baseurl}}/images/mdt 1.1.1.jpg)
 
 ### Underlay
 
 The next step is to build a core plane (underlay) in the network. We need to use a core tree protocol such as PIM, mLDP, P2MP TE, Tree-SID or IR.
 
-![mdt 1.2.jpg]({{site.baseurl}}/images/mdt 1.2.jpg)
+![mdt 1.2.1.jpg]({{site.baseurl}}/images/mdt 1.2.1.jpg)
 
 ### Overlay
 
 To build the overlay we are adding the customer boxes and PE devices that are already aware of the above underlay. There are 2 common protocols to be used here, PIM or IGMP. If the switch is directly connected to the PE then we configure PIM between the CE and the PE. For the connectivity between the PEs we either use BGP Signaling or PIM Signaling. For mVPN profile 14 we use BGP Signaling.
 
-![mdt 1.3.1.jpg]({{site.baseurl}}/images/mdt 1.3.1.jpg)
+![mdt 1.3.2.jpg]({{site.baseurl}}/images/mdt 1.3.2.jpg)
 
 ## Core Tree Types
 

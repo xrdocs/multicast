@@ -40,7 +40,7 @@ They are called MDT (Multicast Distribution Tree) or PMSI (Provider Multicast Se
 
 ### Default MDT or Multi-Directional Inclusive PMSI (MI-PMSI)
 
-All the PEs that belong in the same mVPN, are all connected together and bidirectional which means any traffic sent to a PE will be received by all the PEs. This MDT will always be present no matter if there is traffic or not.
+All the PEs that belong in the same mVPN, are all connected together bidirectional, which means any traffic sent to a PE will be received by all the PEs. This MDT will always be present no matter if there is traffic or not.
 
 - Connects all PEs
 - Bidirectional
@@ -87,7 +87,7 @@ We will follow the next steps to simulate the creation of the Default MDT Trees.
 6. Traffic starts flowing and it is flooded to all the PEs
 7. Since only PE3 is interested in this traffic, the rest of the PEs will drop it
 
-_na balw snapshot apo slides anuj - slide 6_
+![mdt 1.9.jpg]({{site.baseurl}}/images/mdt 1.9.jpg)
 
 We would have the same outcome in case we had a receiver behind a different PE with different or same Source. The caveat of Default MDT is the drop of multicast traffic on egress PE, if there is no receiver.
 
@@ -104,8 +104,8 @@ We will follow the next steps to simulate the execution of Data MDT.
 4. The PEs with the receivers who are interested in this traffic will join the Data MDT via Core Tree Signaling (mLDP, Tree-SID, IR) and Tree gets built
 5. Traffic will only be forwarded through that Tree
 
-_na balw snapshot apo slides anuj - slide 8_
-_extra info by Anuj_
+![mdt 1.11.jpg]({{site.baseurl}}/images/mdt 1.11.jpg)
+
 
 ### Partitioned MDT
 
@@ -126,7 +126,7 @@ Now we can assume that there is another receiver behind PE5 with a different Sou
 	- The PE3 drops this traffic
 5. Thus, all receivers that have joined this Tree, drop the traffic that is not requested by their designated receiver
 
-_na balw snapshot apo slides anuj - slide 7_
+![mdt 1.10.jpg]({{site.baseurl}}/images/mdt 1.10.jpg)
 
 ## Default MDT vs Partitioned MDT
 

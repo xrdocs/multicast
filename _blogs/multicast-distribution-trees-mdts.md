@@ -135,4 +135,4 @@ Now we can assume that there is another receiver behind PE5 with a different Sou
 
 ## Auto-Discovery
 
-The process of discovering all the PEs with members in a given mVPN is the way a MDT is built. In the examples we are using BGP Auto-Discovery and BGP Signaling. Upon the enablement of the configuration, BGP enables address families. In Multicast, we have BGP IPv4 mVPN address family and if we enabled that we can discover all the PEs that are part of the specific mVPN.
+The process of discovering all the PEs with members in a given mVPN is the way a MDT is built. In the examples we are using BGP Auto-Discovery and BGP Signaling. Upon the enablement of the configuration, BGP enables address families. In Multicast, we have BGP IPv4 mVPN address family and upon enabling that we can discover all the PEs that are part of the specific mVPN.

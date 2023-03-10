@@ -104,8 +104,7 @@ We will follow the next steps to simulate the execution of Data MDT.
 4. The PEs with the receivers who are interested in this traffic will join the Data MDT via Core Tree Signaling (mLDP, Tree-SID, IR) and Tree gets built
 5. Traffic will only be forwarded through that Tree
 
-![mdt 1.11.jpg]({{site.baseurl}}/images/mdt 1.11.jpg)
-
+![mdt 1.11.2.jpg]({{site.baseurl}}/images/mdt 1.11.2.jpg)
 
 ### Partitioned MDT
 

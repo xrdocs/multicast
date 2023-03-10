@@ -18,7 +18,7 @@ The instances might be using different VPNs, Red or Blue. If these instances are
 
 ### VPNs
 
-We assume that we have 4 PEs (PE1, PE2, PE3, PE4) and only one of them has 1 subset VPN instance. For example PE1, PE3 and PE4 use a Green VPN, while PE2 uses a Red VPN. In this case, if we use a common transport underlay then there will be a mix of traffic. Red VPN will receiving traffic from Green and vice-versa. This is why we need to come up with a new transport underlay.
+We assume that we have 4 PEs (PE1, PE2, PE3, PE4) and only one of them has 1 subset VPN instance. For example PE1, PE3 and PE4 use a Green VPN, while PE2 uses a Red VPN. In this case, if we use a common transport underlay then there will be a mix of traffic. Red VPN will be receiving traffic from Green and vice-versa. This is why we need to come up with a new transport underlay.
 
 ![mdt 1.1.1.jpg]({{site.baseurl}}/images/mdt 1.1.1.jpg)
 

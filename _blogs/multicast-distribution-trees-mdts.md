@@ -116,7 +116,7 @@ We will follow the next steps to simulate the creation of a Dynamic version of D
 3. PE3 starts creating the Tree to PE1 which consists of a link between PE1 and PE3 (no other PEs are connected)
 5. The Tree has been created and the PE1 gets the traffic for the receiver behind PE3
 
-Now we can assume that there is another receiver behind PE5 with a different Source
+Now we can assume that there is another receiver behind PE5 with a different Source (Source2)
 1. Receiver sends (S2, G2) IGMP Join to PE5
 2. Based on the configuration of the transport protocol on the core, PE5 can join the same Tree that has already been built for PE3
 3. The traffic flows from S1 to PE1 and PE3 to PE5

@@ -14,7 +14,7 @@ position: top
 
 In this blog, we will cover mVPN (Multicast VPN) and the Multicast Distribution Trees (MDT). In Unicast VPN, once the transport underlay is set, any VPN instance or any VRF instance can use the exact same transport but in Multicast this is not the case.
 
-The instances might be using different VPNs, Red or Blue. If these instances are using the same transport then the traffic designated to Red will be forwarded to Green and this is not a valid case. Thus for each VPN instance we have to build a separate transport underlay. We can come up with an example based on the following snapshot.
+The instances might be using different VPNs, Red or Blue. If these instances are using the same transport then the traffic designated to Red will be forwarded to Green and this is not acceptable. Thus for each VPN instance we have to build a separate transport underlay. We can come up with an example based on the following snapshot.
 
 ### VPNs
 

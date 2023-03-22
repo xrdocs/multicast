@@ -14,7 +14,7 @@ position: top
 
 In this blog, we will cover mVPN (Multicast VPN) and the Multicast Distribution Trees (MDT). In Unicast VPN, once the transport underlay is set, any VPN instance or any VRF instance can use the exact same transport but in Multicast this is not the case.
 
-The instances might be using different VPNs, Red or Blue. If these instances are using the same transport then the traffic designated to Red will be forwarded to Green and this is not acceptable. Thus for each VPN instance we have to build a separate transport underlay. We can come up with an example based on the following snapshot.
+The instances might be using different VPNs, Red or Blue. If these instances are using the same transport then the traffic designated to Red will be forwarded to Green and this is not acceptable. Thus, for each VPN instance we have to build a separate transport underlay. We can come up with an example based on the following snapshot.
 
 ### VPNs
 
@@ -24,7 +24,7 @@ We assume that we have 4 PEs (PE1, PE2, PE3, PE4) and only one of them has 1 sub
 
 ### Underlay
 
-The next step is to build a core plane (underlay) in the network. We need to use a core tree protocol such as PIM, mLDP, P2MP TE, Tree-SID or IR.
+The first step is to build a core plane (underlay) in the network. We need to use a core tree protocol such as PIM, mLDP, P2MP TE, Tree-SID or IR.
 
 ![mdt 1.2.1.jpg]({{site.baseurl}}/images/mdt 1.2.1.jpg)
 
@@ -72,14 +72,14 @@ It is a combination of the previous two.
 
 ### Default MDT
 
-In the following Default MDT scenario we have 4 PEs, where PE1 is the Root and creates the MDT towards all 3 PEs. All the PEs act as the Root at once, trying to send the information to all PEs and all the PEs join that Tree. Thus we have a Full mesh of P2MP mLDP Trees.
+In the following Default MDT scenario we have 4 PEs, where PE1 is the Root and creates the MDT towards all 3 PEs. All the PEs act as the Root at once, trying to send the information to all PEs and all the PEs join that Tree. Thus we have a full mesh of P2MP mLDP Trees.
 
 ![mdt 1.7.jpg]({{site.baseurl}}/images/mdt 1.7.jpg)
 
 We will follow the next steps to simulate the creation of the Default MDT Trees.
 1. Tree is built upon configuration. The way it is built, is based on the Core Tree Protocol used.
 2. All PEs are connected to each other
-3. There is a receiver directly connected to PE3 and sends (S1, G2) IGMP Join
+3. There is a receiver directly connected to PE3 and sends (S1, G1) IGMP Join
 4. PE3 will look at the Source1 IP address and check how it can be reached. The reachability is in the VPN context through PE1
 5. The PE1 receives that and starts building the Tree towards the Source
 	- It can be directly connected Source, thus we do not need to do anything

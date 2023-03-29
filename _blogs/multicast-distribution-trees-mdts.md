@@ -100,7 +100,7 @@ In the following Data MDT scenario we have a unidirectional MDT with only a subs
 We will follow the next steps to simulate the execution of Data MDT.
 1. All PEs are connected and receiving multicast traffic
 2. There is only 1 receiver behind the PE
-3. The PE connected to the Source sends a Route Type 3 message to all the participating PEs which Tree to join, only if the traffic rate > data MDT threshold
+3. The PE connected to the Source sends a Route Type 3 message to all the participating PEs which Tree to join, only if the traffic rate > data MDT threshold (in case of applied threshold configuration)
 4. The PEs with the receivers who are interested in this traffic will join the Data MDT via Core Tree Signaling (mLDP, Tree-SID, IR) and Tree gets built
 5. Traffic will only be forwarded through that Tree
 

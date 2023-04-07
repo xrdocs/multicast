@@ -136,3 +136,14 @@ Now we can assume that there is another receiver behind PE5 with a different Sou
 ## Auto-Discovery
 
 The process of discovering all the PEs with members in a given mVPN is the way a MDT is built. In the examples we are using BGP Auto-Discovery and BGP Signaling. Upon the enablement of the configuration, BGP enables address families. In Multicast, we have BGP IPv4 mVPN address family and upon enabling that we can discover all the PEs that are part of the specific mVPN.
+
+## Conclusion
+
+This blog covered the definition of the MDTs and the different types that are being used today.
+There are 26 mVPN Profiles that use Default, Partitioned and Data MDTs. More information about the configuration can be found here:
+
+[Cisco mVPN Profiles](https://www.cisco.com/c/en/us/support/docs/ip/multicast/118985-configure-mcast-00.html)
+
+More information about MDTs can be found in the follow Cisco Live sessions
+
+[BRKENT-2004](https://www.ciscolive.com/on-demand/on-demand-library.html?search=brkent-2004#/session/1655479492429001lr1z)

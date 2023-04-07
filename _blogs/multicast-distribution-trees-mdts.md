@@ -144,6 +144,10 @@ There are 26 mVPN Profiles that use Default, Partitioned and Data MDTs. More inf
 
 [Cisco mVPN Profiles](https://www.cisco.com/c/en/us/support/docs/ip/multicast/118985-configure-mcast-00.html)
 
-More information about MDTs can be found in the follow Cisco Live sessions
+More information about MDTs can be found in the follow Cisco Live sessions:
 
 [BRKENT-2004](https://www.ciscolive.com/on-demand/on-demand-library.html?search=brkent-2004#/session/1655479492429001lr1z)
+
+More information about Data MDT considerations while deploying mVPN Profile 14:
+
+[Data MDT Considerations](https://community.cisco.com/t5/service-providers-knowledge-base/mvpn-profile-14-on-ncs55xx-how-to-configure-verify-control-plane/ta-p/4004790#toc-hId--1067297304)

@@ -38,7 +38,7 @@ To build the overlay we are adding the customer boxes and PE devices that are al
 
 They are called MDT (Multicast Distribution Tree) or PMSI (Provider Multicast Service Interface, IETF naming). They can be built with any of the transport core protocols previously mentioned based on the mVPN profile used.
 
-### Default MDT or Multi-Directional Inclusive PMSI (MI-PMSI)
+### Default MDT or Multidirectional Inclusive PMSI (MI-PMSI)
 
 All the PEs that belong in the same mVPN, are all connected together bidirectional, which means any traffic sent to a PE will be received by all the PEs. This MDT will always be present no matter if there is traffic or not.
 

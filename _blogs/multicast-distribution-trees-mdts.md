@@ -12,7 +12,8 @@ position: top
 ---
 ## MVPN Overview
 
-The following blog was written with the support of [Anuj Budhiraja](https://www.linkedin.com/in/anuj-budhiraja/) who is proficient in the Multicast technology. 
+Many thanks to [Anuj Budhiraja](https://www.linkedin.com/in/anuj-budhiraja/), Cisco Technical Lead Engineer, for your help writting this article!
+{: .notice--info}
 
 In this blog, we will cover mVPN (Multicast VPN) and the Multicast Distribution Trees (MDT). In Unicast VPN, once the transport underlay is set, any VPN instance or any VRF instance can use the exact same transport but in Multicast this is not the case.
 

@@ -2,7 +2,7 @@
 published: true
 date: '2022-10-19 10:24 +0300'
 title: test yusef
-author: Sai Gopalakrishnan
+author: Ori Gerstel
 excerpt: test
 position: hidden
 ---
@@ -11,4 +11,3 @@ position: hidden
 test
 
 [asdasd](https://www.eddymens.com/blog/how-to-make-a-markdown-link-open-in-another-tab)<base target="_blank">
-

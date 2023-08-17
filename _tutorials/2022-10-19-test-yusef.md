@@ -2,7 +2,7 @@
 published: true
 date: '2022-10-19 10:24 +0300'
 title: test yusef
-author: Manish Chandra Pandey
+author: Anthony Terkuci
 excerpt: test
 position: hidden
 ---

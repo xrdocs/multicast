@@ -2,7 +2,7 @@
 published: true
 date: '2023-06-15 09:55 +0300'
 title: test chandra
-author: Rammohan A. M.
+author: Bradley Riapolov
 excerpt: test
 position: hidden
 ---

@@ -15,17 +15,23 @@ position: hidden
 
 # Introduction
 
-We have talked about Multicast before, how the technology works and the level of its complexity but we have not mentioned the way Multicast scales. In almost every interaction we have with customers or account teams we get questions such as:
+We have talked about Multicast before, how the technology works and the level of its complexity but we have not mentioned the way Multicast scales. In almost every interaction we have _with customers or account teams_ we get questions such as:
 1. What is the scale?
-2. How many Trees i can create?
+2. How many Trees can i create?
 3. How does the scale vary from platform to platform?
 4. How do you sum all these different counters (Labels, VRFs, etc.)?
 This blog will try to answer the above questions as detailed as possible and will bring to the surface how things work in regards to Multicast within IOS-XR software running on Cisco platforms.
 
 ## MPLS Overview
 
-aThe goal of this blog is to make aware the scaling capabilities, restrictions and enhancements
+In order to start talking about the scaling, we need to establish some basic knowledge regarding Multiprotocol Label Switching (MPLS).
 
+MPLS is a networking routing technology that offers the ability to forward traffic based on "labels", hence the name, instead of network addresses. These "labels" are defining the final destination of the packet and makes it much easier for the SPs to send those packets. The labels are stored in L2.
 
-
-In this blog post, we will introduce how Multicast scales and how an engineer can follow the the best practices to achieve required Enter text in [Markdown](http://daringfireball.net/projects/markdown/). Use the toolbar above, or click the **?** button for formatting help.
+benefits:
+1. interface independence
+2. bridge different sites together, full mesh
+3. one to many
+4. QoS
+5. transport
+6. assign labels to packets such as TOS, DSCP and are translated into MPLS Labels by SP

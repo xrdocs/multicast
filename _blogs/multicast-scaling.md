@@ -127,14 +127,18 @@ Going back to this [blog](https://xrdocs.io/multicast/blogs/multicast-distributi
 The policy is called Based S-PMSI and it is an enhanced route policy to map multicast sources and/ or groups to a named Data MDT. It is developed to determnistically control multicast flow mapping to Data MDT Trees and we assign names instead of numbers because they can become more descriptive.
 We can take a look on how the configuration for this policy looks in following image.
 
-```
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>
 route-policy data-mdt
 	if destination in (232.0.0.0/24 1e 32) then
-    	**set data-mdt Red-Group-1**
+    	<mark>set data-mdt Red-Group-1</mark>
         pass
     endif
 end-policy
-```
+</code>
+</pre>
+</div>
 
 
 

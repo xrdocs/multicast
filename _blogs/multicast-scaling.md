@@ -16,10 +16,12 @@ position: hidden
 ## Introduction
 
 We have talked about Multicast before, how the technology works and the level of its complexity but we have not mentioned the way Multicast scales. In almost every interaction we have _with customers or account teams_ we get questions such as:
+
 1. What is the scale?
 2. How many Trees can i create?
 3. How does the scale vary from platform to platform?
 4. How do you sum all these different counters (Labels, VRFs, etc.)?
+
 This blog will try to answer the above questions as detailed as possible and will bring to the surface how things work in regards to Multicast within IOS-XR software running on Cisco platforms.
 
 ## MPLS Overview

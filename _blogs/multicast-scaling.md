@@ -49,3 +49,8 @@ From MPLS Transport perspective we have 4 types of Nodes:
 2. Transit/ Mid Node: R2, R3, pure Transit Nodes, no MVPN config.
 3. Bud Node: R5, R6, mix of Mid/ Transit/ Leaf, can be directly connected to the Receivers
 4. Leaf Node: R4, directly connected to the Receivers
+
+![multicast scaling 1.3.1.jpg]({{site.baseurl}}/images/multicast scaling 1.3.1.jpg)
+
+Previously we [discussed](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/) about MVPN and at Cisco we have a huge variety of MVPN Profiles supported on our platforms.
+

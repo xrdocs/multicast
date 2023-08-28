@@ -90,7 +90,11 @@ On the Egress Interface we get:
 
 ![multicast scaling 1.3.2.jpg]({{site.baseurl}}/images/multicast scaling 1.3.2.jpg)
 
+## Resource Allocation - Example
 
+We will list a set of steps to understand the allocation of resources to each part of the network according to the image below.
+
+![multicast scaling 1.4.1.jpg]({{site.baseurl}}/images/multicast scaling 1.4.1.jpg)
 
 
 

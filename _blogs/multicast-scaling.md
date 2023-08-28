@@ -15,6 +15,9 @@ position: hidden
 
 ## Introduction
 
+Many thanks to [Anuj Budhiraja](https://www.linkedin.com/in/anuj-budhiraja/), Cisco Technical Lead Engineer, for his help writting this blog!
+{: .notice--info}
+
 We have talked about Multicast before, how the technology works and the level of its complexity but we have not mentioned the way Multicast scales. In almost every interaction we have _with customers or account teams_ we get questions such as:
 
 1. What is the scale?
@@ -52,7 +55,8 @@ From MPLS Transport perspective we have 4 types of Nodes:
 
 ![multicast scaling 1.3.1.jpg]({{site.baseurl}}/images/multicast scaling 1.3.1.jpg)
 
-Previously we [discussed](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/) about MVPN and at Cisco we have a huge variety of MVPN Profiles supported on our platforms. There is difference between each Profile when it comes to scaling, but in this blog we will mostly focus on Profile 14, because it is well known and massively deployed.{: .notice--info}
+Previously we [discussed](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/) about MVPN and at Cisco we have a huge variety of MVPN Profiles supported on our platforms. There is difference between each Profile when it comes to scaling, but in this blog we will mostly focus on Profile 14, because it is well known and massively deployed.
+{: .notice--info}
 
 
 

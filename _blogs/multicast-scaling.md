@@ -52,7 +52,7 @@ From MPLS Transport perspective we have 4 types of Nodes:
 
 ![multicast scaling 1.3.1.jpg]({{site.baseurl}}/images/multicast scaling 1.3.1.jpg)
 
-{: .notice--success}Previously we [discussed](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/) about MVPN and at Cisco we have a huge variety of MVPN Profiles supported on our platforms. There is difference between each Profile when it comes to scaling, but in this blog we will mostly focus on Profile 14, because it is well known and massively deployed.{: .notice--success}
+Previously we [discussed](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/) about MVPN and at Cisco we have a huge variety of MVPN Profiles supported on our platforms. There is difference between each Profile when it comes to scaling, but in this blog we will mostly focus on Profile 14, because it is well known and massively deployed.{: .notice--info}
 
 
 

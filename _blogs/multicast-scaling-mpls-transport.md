@@ -26,7 +26,9 @@ This blog will try to answer the above questions as detailed as possible and wil
 
 In order to start talking about the scaling, we need to establish some basic knowledge regarding Multiprotocol Label Switching (MPLS).
 
-MPLS is a networking routing technology that offers the ability to forward traffic based on "labels", hence the name, instead of network addresses. These "labels" are defining the final destination of the packet and makes it much easier for the SPs to send those packets. The labels are stored in L2.
+MPLS is a networking routing technology that offers the ability to forward traffic based on labels, hence the name, instead of network addresses. These labels are defining the final destination of the packet and makes it much easier and more scalable for the SPs to send those packets. The labels are stored in L2.
+
+MPLS is a transport protocol and provides the benefit of bridging different sites together (full mesh). Furthermore, offers the allocation of different labels such as ToS or DSCP to the external networks and enhances the ability to support QoS and traffic prioritization.
 
 benefits:
 1. interface independence

@@ -58,6 +58,19 @@ From MPLS Transport perspective we have 4 types of Nodes:
 Previously we [discussed](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/) about MVPN and at Cisco we have a huge variety of MVPN Profiles supported on our platforms. There is difference between each Profile when it comes to scaling, but in this blog we will mostly focus on Profile 14, because it is well known and massively deployed.
 {: .notice--info}
 
+For all the above Nodes there are different scale numbers that are being allocated for Profile 14. Let us define what scale numbers we get on each Node.
+
+1. Root Node: 
+The Ingress traffic comes from the customer network to the service provider network and we have 3 scale numbers:
+	1. The amount of (S, G).
+    2. The amount of the Label Trees (MDTs).
+    3. The amount of VRFs.
+The Egress traffic leaves the Root and transits to the rest of the network and there we get:
+	1. The amount of replications per Label Tree
+    
+2. 
+
+
 
 
 

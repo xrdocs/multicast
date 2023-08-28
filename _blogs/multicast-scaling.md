@@ -88,6 +88,8 @@ On the Egress Interface we get:
 	1. The amount of replications per Label Tree per (S, G).
     2. The aggregate number of replications.
 
+![multicast scaling 1.3.2.jpg]({{site.baseurl}}/images/multicast scaling 1.3.2.jpg)
+
 
 
 

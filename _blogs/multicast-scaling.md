@@ -125,7 +125,7 @@ So far we discussed how the Resources are allocated, but we understand that some
 Going back to this [blog](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/), we mentioned what Data MDT is and how/ when it can be used. Now, we will discuss about a policy that can be applied to a Data MDT.
 
 The policy is called Based S-PMSI or named Data MDT and it is an enhanced route policy to map multicast sources and/ or groups to a named Data MDT. It is developed to determnistically control multicast flow mapping to Data MDT Trees and we assign names instead of numbers because they can become more descriptive.
-Below we can see a snippet of the configuration.
+Sample configuration:
 
 <div class="highlighter-rouge">
 <pre class="highlight">
@@ -144,7 +144,7 @@ The policy is able to automatically assign transport specific attributes such as
 
 ## Flow Mapping
 
-We can have nested statements within the same Route Policy as well as different parameters too. Below we can see a snippet of such a configuration.
+We can have nested statements within the same Route Policy as well as different parameters too. Sample configuration:
 
 <div class="highlighter-rouge">
 <pre class="highlight">
@@ -168,4 +168,35 @@ end-policy
 </div>
 
 As we can notice, there are 2 different parameters that satisfy the "Red-Group-1" Policy and there is one more parameter that satisfy a different Data MDT, "Red-Group-2", because disparate multicast flows can be mapped to the same named Data MDT. In addition, one policy can specify multiple named Data MDTs and only those flows mapped via one of the policies can use the named Data MDT.
+
+## Namespace Scope
+
+Each Data MDT namespace is per Aadress Family/ VRF, thus named Data MDTs with same name in distinct VRFs create distinct Data MDTs and using same policies across VRFs will also create distinct Data MDTs. This also applies on named Data MDTs with same name in IPv4 and IPv6 of a VRF.
+For example, if we create VRF Red with Data MDT "Red-Group-1" then it will be within the scope of VRD Red and the route policy name will determine if it will be a separate Data MDT.
+Sample configuration:
+
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>
+route-policy data-mdt-vrf-red-ipv4
+	if destination in (232.0.0.0/24 1e 32) then
+    	<mark>set data-mdt Red-Group-1</mark>
+        pass
+    endif
+end-policy
+route-policy data-mdt-vrf-red-ipv6
+	if destination in (ff05::/96 1e 128) then
+    	<mark>set data-mdt Red-Group-1</mark>
+        pass
+    endif
+end-policy
+route-policy data-mdt-vrf-green-ipv4
+	if destination in (232.0.0.0/24 1e 32) then
+    	<mark>set data-mdt Red-Group-1</mark>
+        pass
+    endif
+end-policy
+</code>
+</pre>
+</div>
 

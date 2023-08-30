@@ -121,7 +121,7 @@ On the second part of the blog, we will cover one of the tools that IOS-XR can p
 
 Going back to this [blog](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/), we mentioned what Data MDT is and how/ when it can be used. Now, we will discuss about a policy that can be applied to a Data MDT.
 
-The policy is called Based S-PMSI or named Data MDT and it is an enhanced route policy to map Multicast sources and/ or groups to a named Data MDT. It is developed to determnistically control Multicast flow mapping into Data MDT Trees. For this policy we assign names instead of numbers because they can become more descriptive.
+The policy is called Based S-PMSI or named Data MDT and it is an enhanced route policy to map Multicast sources and/ or groups to a named Data MDT. It is developed to deterministically control Multicast flow mapping into Data MDT Trees. For this policy we assign names instead of numbers because they can become more descriptive.
 
 Sample configuration:
 
@@ -167,7 +167,7 @@ end-policy
 </pre>
 </div>
 
-As we can notice, there are 2 different parameters that satisfy the "Red-Group-1" Policy and there is one more parameter that satisfy a different Data MDT, "Red-Group-2", because disparate Multicast flows can be mapped to the same named Data MDT. In addition, one policy can specify multiple named Data MDTs and only those flows mapped via one of the policies can use the named Data MDT.
+As we can notice, there are 2 different parameters that satisfy the "Red-Group-1" policy and there is one more parameter that satisfies a different Data MDT, "Red-Group-2", because disparate Multicast flows can be mapped to the same named Data MDT. In addition, one policy can specify multiple named Data MDTs and only those flows mapped via one of the policies can use the named Data MDT.
 
 ## Namespace Scope
 

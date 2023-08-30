@@ -17,7 +17,7 @@ position: top
 Many thanks to [Anuj Budhiraja](https://www.linkedin.com/in/anuj-budhiraja/), Cisco Technical Lead Engineer, for his help writting this blog!
 {: .notice--info}
 
-In this blog, we will cover mVPN (Multicast VPN) and the Multicast Distribution Trees (MDT). In Unicast VPN, once the transport underlay is set, any VPN instance or any VRF instance can use the exact same transport but in Multicast this is not the case.
+In this blog, we will cover MVPN (Multicast VPN) and the Multicast Distribution Trees (MDT). In Unicast VPN, once the transport underlay is set, any VPN instance or any VRF instance can use the exact same transport but in Multicast this is not the case.
 
 The instances might be using different VPNs, Red or Blue. If these instances are using the same transport then the traffic designated to Red will be forwarded to Green and this is not acceptable. Thus, for each VPN instance we have to build a separate transport underlay. We can come up with an example based on the following snapshot.
 
@@ -35,17 +35,17 @@ The first step is to build a core plane (underlay) in the network. We need to us
 
 ### Overlay
 
-To build the overlay we are adding the customer boxes and PE devices that are already aware of the above underlay. There are 2 common protocols to be used here, PIM or IGMP. If the switch is directly connected to the PE then we configure PIM between the CE and the PE. For the connectivity between the PEs we either use BGP Signaling or PIM Signaling. For mVPN profile 14 we use BGP Signaling.
+To build the overlay we are adding the customer boxes and PE devices that are already aware of the above underlay. There are 2 common protocols to be used here, PIM or IGMP. If the switch is directly connected to the PE then we configure PIM between the CE and the PE. For the connectivity between the PEs we either use BGP Signaling or PIM Signaling. For MVPN profile 14 we use BGP Signaling.
 
 ![mdt 1.3.2.jpg]({{site.baseurl}}/images/mdt 1.3.2.jpg)
 
 ## Core Tree Types
 
-They are called MDT (Multicast Distribution Tree) or PMSI (Provider Multicast Service Interface, IETF naming). They can be built with any of the transport core protocols previously mentioned based on the mVPN profile used.
+They are called MDT (Multicast Distribution Tree) or PMSI (Provider Multicast Service Interface, IETF naming). They can be built with any of the transport core protocols previously mentioned based on the MVPN profile used.
 
 ### Default MDT or Multidirectional Inclusive PMSI (MI-PMSI)
 
-All the PEs that belong in the same mVPN, are all connected together bidirectional, which means any traffic sent to a PE will be received by all the PEs. This MDT will always be present no matter if there is traffic or not.
+All the PEs that belong in the same MVPN, are all connected together bidirectional, which means any traffic sent to a PE will be received by all the PEs. This MDT will always be present no matter if there is traffic or not.
 
 - Connects all PEs
 - Bidirectional
@@ -140,19 +140,19 @@ Now we can assume that there is another receiver behind PE5 with a different Sou
 
 ## Auto-Discovery
 
-The process of discovering all the PEs with members in a given mVPN is the way a MDT is built. In the examples we are using BGP Auto-Discovery and BGP Signaling. Upon the enablement of the configuration, BGP enables address families. In Multicast, we have BGP IPv4 mVPN address family and upon enabling that we can discover all the PEs that are part of the specific mVPN.
+The process of discovering all the PEs with members in a given MVPN is the way a MDT is built. In the examples we are using BGP Auto-Discovery and BGP Signaling. Upon the enablement of the configuration, BGP enables address families. In Multicast, we have BGP IPv4 MVPN address family and upon enabling that we can discover all the PEs that are part of the specific MVPN.
 
 ## Conclusion
 
 This blog covered the definition of the MDTs and the different types that are being used today.
-There are 26 mVPN Profiles that use Default, Partitioned and Data MDTs. More information about the configuration can be found here:
+There are 26 MVPN Profiles that use Default, Partitioned and Data MDTs. More information about the configuration can be found here:
 
-[Cisco mVPN Profiles](https://www.cisco.com/c/en/us/support/docs/ip/multicast/118985-configure-mcast-00.html)
+[Cisco MVPN Profiles](https://www.cisco.com/c/en/us/support/docs/ip/multicast/118985-configure-mcast-00.html)
 
 More information about MDTs can be found in the follow Cisco Live sessions:
 
 [BRKENT-2004](https://www.ciscolive.com/on-demand/on-demand-library.html?search=brkent-2004#/session/1655479492429001lr1z)
 
-More information about Data MDT considerations while deploying mVPN Profile 14:
+More information about Data MDT considerations while deploying MVPN Profile 14:
 
 [Data MDT Considerations](https://community.cisco.com/t5/service-providers-knowledge-base/mvpn-profile-14-on-ncs55xx-how-to-configure-verify-control-plane/ta-p/4004790#toc-hId--1067297304)

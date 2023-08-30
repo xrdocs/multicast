@@ -118,14 +118,14 @@ We will list a set of steps to understand the allocation of resources to each pa
 
 # Redesign Options - Recommendations
 
-So far we discussed how the Resources are allocated, but we understand that sometimes scaling can become an issue. There are networks that change over the time and the designs are getting replaced by new ones with updated requirements and we want to be able to comply to them as much as possible. There are situations that a platform upgrade can happen and will suffice for the new changes but there also situations that the platform has to remain the same but a redesign might be required in order to adapt to the new scaling. On the second part of the blog, we will cover some these extra options that IOS-XR can provide to us.
+So far we discussed how the Resources are allocated, but we understand that sometimes scaling can become an issue. There are networks that change over the time and the designs are getting replaced by new ones with updated requirements and we want to be able to comply to them as much as possible. There are situations that a platform upgrade can happen and will suffice for the new changes but there also situations that the platform has to remain the same and a redesign might be required in order to adapt to the new scaling aspects. On the second part of the blog, we will cover some of these extra options that IOS-XR can provide to us.
 
 ## Route Policy Based S-PMSI
 
 Going back to this [blog](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/), we mentioned what Data MDT is and how/ when it can be used. Now, we will discuss about a policy that can be applied to a Data MDT.
 
-The policy is called Based S-PMSI and it is an enhanced route policy to map multicast sources and/ or groups to a named Data MDT. It is developed to determnistically control multicast flow mapping to Data MDT Trees and we assign names instead of numbers because they can become more descriptive.
-We can take a look on how the configuration for this policy looks in following image.
+The policy is called Based S-PMSI or named Data MDT and it is an enhanced route policy to map multicast sources and/ or groups to a named Data MDT. It is developed to determnistically control multicast flow mapping to Data MDT Trees and we assign names instead of numbers because they can become more descriptive.
+Below we can see a snippet of the configuration.
 
 <div class="highlighter-rouge">
 <pre class="highlight">
@@ -140,19 +140,5 @@ end-policy
 </pre>
 </div>
 
-
-
-
-
-- transport specific attributes (e.g., mLDP FEC) of a named Data MDT assigned automatically
-- named Data MDT created when matches the route-policy and needs to be transitioned to Data MDT
-- we can create a route policy and based on the route policy matching constraints we can put all the interested flows which we want to collect on one single Data MDT, so it can deterministically controll all the Multicast Flows and map it to a single Data MDT Tree
-- the functionality is also known as Named Data MDT
-- named Data MDT is removed when last flow using it is moved off the Data MDT Tree
-- example criteria
-
-
-
-
-
+The policy is able to automatically assign transport specific attributes such as MLDP FEC. The named Data MDT is created only when it matches the route-policy and needs to be transition to Data MDT. We can create a route policy and based on the route policy matching constraints we can put all the interested flows which we want to collect on one single Data MDT, so it deterministally can controll all the Multicast Flows and map them to a single Data MDT Tree. This Data MDT will be removed if the last flow using it is removed off the Data MDT Tree.
 

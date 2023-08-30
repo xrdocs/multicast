@@ -55,10 +55,9 @@ For all the above nodes there are different scale numbers that are being allocat
 
 **1. Root node:**
 The Ingress traffic comes from the customer network to the service provider network and we have 3 scale numbers:
-
-	1. The amount of (S, G).
-    2. The amount of the Label Trees (MDTs).
-    3. The amount of VRFs.
+1. The amount of (S, G).
+2. The amount of the Label Trees (MDTs).
+3. The amount of VRFs.
 On the Egress Interface we get:
 
     1. The amount of replications per Label Tree.
@@ -118,7 +117,7 @@ So far we discussed how the Resources are allocated, but we understand that some
 
 On the second part of the blog, we will cover one of the tools that IOS-XR can provide to us to reduce the creation of Data MDTs and therefore reduce the amount of Label Trees that are being created.
 
-## Route Policy Based S-PMSI
+## Route policy Based S-PMSI
 
 Going back to this [blog](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/), we mentioned what Data MDT is and how/ when it can be used. Now, we will discuss about a policy that can be applied to a Data MDT.
 
@@ -143,7 +142,7 @@ The policy is able to automatically assign transport specific attributes such as
 
 ## Flow Mapping
 
-We can have nested statements within the same Route Policy as well as different parameters too.
+We can have nested statements within the same route policy as well as different parameters too.
 
 Sample configuration:
 
@@ -155,11 +154,11 @@ route-policy data-mdt
     	<mark>set data-mdt Red-Group-1</mark>
         pass
     endif
-    if source in (192.168.10.1/32) and destination in (232.0.1.0/24 le 32) then
+    if source in (192.168.10.1/32) and destination in (232.0.1.0/24 1e 32) then
     	<mark>set data-mdt Red-Group-1</mark>
         pass
     endif
-    if destination in (226.0.2.0/24 le 32) then
+    if destination in (226.0.2.0/24 1e 32) then
     	<span style="background-color: #E6E600">set data-mdt Red-Group-2</span>
         pass
     endif
@@ -172,8 +171,8 @@ As we can notice, there are 2 different parameters that satisfy the "Red-Group-1
 
 ## Namespace Scope
 
-Each Data MDT namespace is per Aadress Family/ VRF, thus named Data MDTs with same name in distinct VRFs create distinct Data MDTs and using same policies across VRFs will also create distinct Data MDTs. This also applies on named Data MDTs with same name in IPv4 and IPv6 of a VRF.
-For example, if we create VRF Red with Data MDT "Red-Group-1" then it will be within the scope of VRD Red and the route policy name will determine if it will be a separate Data MDT.
+_Each Data MDT namespace is per Address Family/ VRF, thus named Data MDTs with the same name in distinct VRFs create distinct Data MDTs and by using same policies across VRFs will also create distinct Data MDTs_. This also applies on named Data MDTs with the same name in IPv4 and IPv6 of a VRF.
+For example, if we create a VRF Red with Data MDT "Red-Group-1" then it will be within the scope of VRF Red and the route policy name will determine if it will be a separate Data MDT.
 
 Sample configuration:
 
@@ -201,3 +200,7 @@ end-policy
 </code>
 </pre>
 </div>
+
+# Conclusion
+
+asdadsa

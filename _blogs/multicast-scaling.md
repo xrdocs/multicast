@@ -116,7 +116,7 @@ We will list a set of steps to understand the allocation of resources to each pa
 9. Despite the fact we created 1 Data MDT, 4 Label Resources were consumed.
 	- The purpose of the Label Resource allocation varies on each node.
 
-# Redesign Options - Recommendations
+# Scaling Adaptation
 
 So far we discussed how the Resources are allocated, but we understand that sometimes scaling can become an issue. There are networks that change over the time and the designs are getting replaced by new ones with updated requirements and we want to be able to comply to them as much as possible. There are situations that a platform upgrade can happen and will suffice for the new changes but there also situations that the platform has to remain the same and a redesign might be required in order to adapt to the new scaling aspects. On the second part of the blog, we will cover some of these extra options that IOS-XR can provide to us.
 
@@ -141,4 +141,29 @@ end-policy
 </div>
 
 The policy is able to automatically assign transport specific attributes such as MLDP FEC. The named Data MDT is created only when it matches the route-policy and needs to be transition to Data MDT. We can create a route policy and based on the route policy matching constraints we can put all the interested flows which we want to collect on one single Data MDT, so it can deterministically control all the Multicast Flows and map them to a single Data MDT Tree. This Data MDT will be removed if the last flow using it is removed off the Data MDT Tree.
+
+## Flow Mapping
+
+We can have nested statements within the same Route Policy as well as different parameters too. Below we can see a snippet of such a configuration.
+
+<div class="highlighter-rouge">
+<pre class="highlight">
+<code>
+route-policy data-mdt
+	if destination in (232.0.0.0/24 1e 32) then
+    	<mark>set data-mdt Red-Group-1</mark>
+        pass
+    endif
+    if source in (192.168.10.1/32) and destination in (232.0.1.0/24 le 32) then
+    	<mark>set data-mdt Red-Group-1</mark>
+        pass
+    endif
+    if destination in (226.0.2.0/24 le 32) then
+    	<mark>set data-mdt Red-Group-2</mark>
+        pass
+    endif
+end-policy
+</code>
+</pre>
+</div>
 

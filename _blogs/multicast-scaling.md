@@ -167,3 +167,5 @@ end-policy
 </pre>
 </div>
 
+As we can notice, there are 2 different parameters that satisfy the "Red-Group-1" Policy and there is one more parameter that satisfy a different Data MDT, "Red-Group-2", because disparate multicast flows can be mapped to the same named Data MDT. In addition, one policy can specify multiple named Data MDTs and only those flows mapped via one of the policies can use the named Data MDT.
+

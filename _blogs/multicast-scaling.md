@@ -159,7 +159,7 @@ route-policy data-mdt
         pass
     endif
     if destination in (226.0.2.0/24 le 32) then
-    	<span style="background-color: #FBA6C3">set data-mdt Red-Group-2</span>
+    	<span style="background-color: #E6E600">set data-mdt Red-Group-2</span>
         pass
     endif
 end-policy

@@ -55,29 +55,34 @@ For all the above nodes there are different scale numbers that are being allocat
 
 **1. Root node:**
 The Ingress traffic comes from the customer network to the service provider network and we have 3 scale numbers:
+
 	1. The amount of (S, G).
     2. The amount of the Label Trees (MDTs).
     3. The amount of VRFs.
 On the Egress Interface we get:
-	1. The amount of replications per Label Tree.
-    
+
+    1. The amount of replications per Label Tree.
 **2. Transit/ Mid node:**
 On the Igress Interface we get:
+
 	1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:
+
 	1. The amount of replications per Label Tree.
-    
 **3. Bud node:**
 On the Ingress Interface we get:
+
 	1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:
+
 	1. The amount of replications per Label Tree per (S, G).
     2. The aggregate number of replications.
-
 **4. Leaf node:**
 On the Ingress Interface we get:
+
 	1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:
+
 	1. The amount of replications per Label Tree per (S, G).
     2. The aggregate number of replications.
 
@@ -118,6 +123,7 @@ On the second part of the blog, we will cover one of the tools that IOS-XR can p
 Going back to this [blog](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/), we mentioned what Data MDT is and how/ when it can be used. Now, we will discuss about a policy that can be applied to a Data MDT.
 
 The policy is called Based S-PMSI or named Data MDT and it is an enhanced route policy to map Multicast sources and/ or groups to a named Data MDT. It is developed to determnistically control Multicast flow mapping into Data MDT Trees. For this policy we assign names instead of numbers because they can become more descriptive.
+
 Sample configuration:
 
 <div class="highlighter-rouge">
@@ -133,11 +139,13 @@ end-policy
 </pre>
 </div>
 
-The policy is able to automatically assign transport specific attributes such as MLDP FEC. The named Data MDT is created only when it matches the route-policy and needs to be transition to Data MDT. We can create a route policy and based on the route policy matching constraints we can put all the interested flows which we want to collect on one single Data MDT, so it can deterministically control all the Multicast Flows and map them to a single Data MDT Tree. This Data MDT will be removed if the last flow using it is removed off the Data MDT Tree.
+The policy is able to automatically assign transport specific attributes such as MLDP FEC. The named Data MDT is created only when it matches the route policy and needs to be transitioned to Data MDT. We can create a route policy and based on its matching constraints we can put all the interested flows which we want to collect on one single Data MDT, so it can deterministically control all the Multicast Flows and map them to a single Data MDT Tree. This Data MDT will be removed if the last flow using it is removed from the Data MDT Tree.
 
 ## Flow Mapping
 
-We can have nested statements within the same Route Policy as well as different parameters too. Sample configuration:
+We can have nested statements within the same Route Policy as well as different parameters too.
+
+Sample configuration:
 
 <div class="highlighter-rouge">
 <pre class="highlight">
@@ -166,6 +174,7 @@ As we can notice, there are 2 different parameters that satisfy the "Red-Group-1
 
 Each Data MDT namespace is per Aadress Family/ VRF, thus named Data MDTs with same name in distinct VRFs create distinct Data MDTs and using same policies across VRFs will also create distinct Data MDTs. This also applies on named Data MDTs with same name in IPv4 and IPv6 of a VRF.
 For example, if we create VRF Red with Data MDT "Red-Group-1" then it will be within the scope of VRD Red and the route policy name will determine if it will be a separate Data MDT.
+
 Sample configuration:
 
 <div class="highlighter-rouge">

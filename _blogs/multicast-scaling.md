@@ -58,18 +58,21 @@ The Ingress traffic comes from the customer network to the service provider netw
 1. The amount of (S, G).
 2. The amount of the Label Trees (MDTs).
 3. The amount of VRFs.
+
 On the Egress Interface we get:
 1. The amount of replications per Label Tree.
 
 **Transit/ Mid node:**
 On the Igress Interface we get:
 1. The amount of the Label Trees (MDTs).
+
 On the Egress Interface we get:
 1. The amount of replications per Label Tree.
 
 **Bud node:**
 On the Ingress Interface we get:
 1. The amount of the Label Trees (MDTs).
+
 On the Egress Interface we get:
 1. The amount of replications per Label Tree per (S, G).
 2. The aggregate number of replications.
@@ -77,6 +80,7 @@ On the Egress Interface we get:
 **Leaf node:**
 On the Ingress Interface we get:
 1. The amount of the Label Trees (MDTs).
+
 On the Egress Interface we get:
 1. The amount of replications per Label Tree per (S, G).
 2. The aggregate number of replications.
@@ -89,7 +93,7 @@ We will list a set of steps to understand the allocation of resources to each pa
 
 ![multicast scaling 1.4.1.jpg]({{site.baseurl}}/images/multicast scaling 1.4.1.jpg)
 
-1. R1 acts as a receiver and sends an IGMP Join towards PE1.
+1. R1 acts as a receiver and sends an IGMP Join (S, G) towards PE1.
 2. PE1 will leverage the IGMP Sync to sync with PE2.
 3. PE1 sends a Join in MVPN context in the form of BGP Route Type 7 for this (S, G) to PE4.
 	- PE4 is behind a Dual Homed Peer.

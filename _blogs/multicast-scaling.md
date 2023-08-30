@@ -44,7 +44,7 @@ From MPLS Transport perspective we have 4 types of nodes:
 1. Root node: R1, it is the Source node.
 2. Transit/ Mid node: R2, R3, pure Transit nodes, no MVPN config.
 3. Bud node: R5, R6, mix of Mid/ Transit/ Leaf, can be directly connected to the Receivers.
-4. Leaf node: R4, directly connected to the Receivers
+4. Leaf node: R4, directly connected to the Receivers.
 
 ![multicast scaling 1.3.1.jpg]({{site.baseurl}}/images/multicast scaling 1.3.1.jpg)
 
@@ -90,8 +90,8 @@ We will list a set of steps to understand the allocation of resources to each pa
 ![multicast scaling 1.4.1.jpg]({{site.baseurl}}/images/multicast scaling 1.4.1.jpg)
 
 1. R1 acts as a receiver and sends an IGMP Join towards PE1.
-2. PE1 will leverage IGMP Sync to sync with PE2.
-3. PE1 sends a Join in MVPN context of BGP Route Type 7 for this (S, G) to PE4.
+2. PE1 will leverage the IGMP Sync to sync with PE2.
+3. PE1 sends a Join in MVPN context in the form of BGP Route Type 7 for this (S, G) to PE4.
 	- PE4 is behind a Dual Homed Peer.
 4. PE4 will allocate a MDT for this (S, G).
 	- It consumes a Label Resource.
@@ -109,13 +109,15 @@ We will list a set of steps to understand the allocation of resources to each pa
 
 # Scaling Adaptation
 
-So far we discussed how the Resources are allocated, but we understand that sometimes scaling can become an issue. There are networks that change over the time and the designs are getting replaced by new ones with updated requirements and we want to be able to comply to them as much as possible. There are situations that a platform upgrade can happen and will suffice for the new changes but there also situations that the platform has to remain the same and a redesign might be required in order to adapt to the new scaling aspects. On the second part of the blog, we will cover some of these extra options that IOS-XR can provide to us.
+So far we discussed how the Resources are allocated, but we understand that sometimes scaling can become tedious. There are networks that change over the time and the designs are getting replaced by new ones with updated requirements and we want to be able to comply to them as much as possible. There are situations that a platform upgrade can happen and will suffice for the new changes but there also situations that the platform has to remain the same and a redesign might be required in order to adapt to the new scaling aspects. 
+
+On the second part of the blog, we will cover one of the tools that IOS-XR can provide to us to reduce the creation of Data MDTs and therefore reduce the amount of Label Trees that are being created.
 
 ## Route Policy Based S-PMSI
 
 Going back to this [blog](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/), we mentioned what Data MDT is and how/ when it can be used. Now, we will discuss about a policy that can be applied to a Data MDT.
 
-The policy is called Based S-PMSI or named Data MDT and it is an enhanced route policy to map Multicast sources and/ or groups to a named Data MDT. It is developed to determnistically control Multicast flow mapping to Data MDT Trees and we assign names instead of numbers because they can become more descriptive.
+The policy is called Based S-PMSI or named Data MDT and it is an enhanced route policy to map Multicast sources and/ or groups to a named Data MDT. It is developed to determnistically control Multicast flow mapping into Data MDT Trees. For this policy we assign names instead of numbers because they can become more descriptive.
 Sample configuration:
 
 <div class="highlighter-rouge">

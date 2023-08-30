@@ -178,19 +178,19 @@ Sample configuration:
 <div class="highlighter-rouge">
 <pre class="highlight">
 <code>
-route-policy data-mdt-vrf-red-ipv4
+route-policy <span style="background-color: #FDD7E4">data-mdt-vrf-red-ipv4</span>
 	if destination in (232.0.0.0/24 1e 32) then
     	<mark>set data-mdt Red-Group-1</mark>
         pass
     endif
 end-policy
-route-policy data-mdt-vrf-red-ipv6
+route-policy <span style="background-color: #FDD7E4">data-mdt-vrf-red-ipv6</span>
 	if destination in (ff05::/96 1e 128) then
     	<mark>set data-mdt Red-Group-1</mark>
         pass
     endif
 end-policy
-route-policy data-mdt-vrf-green-ipv4
+route-policy <span style="background-color: #FDD7E4">data-mdt-vrf-green-ipv4</span>
 	if destination in (232.0.0.0/24 1e 32) then
     	<mark>set data-mdt Red-Group-1</mark>
         pass

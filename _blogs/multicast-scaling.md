@@ -159,7 +159,7 @@ route-policy data-mdt
         pass
     endif
     if destination in (226.0.2.0/24 le 32) then
-    	<mark>set data-mdt Red-Group-2</mark>
+    	<span style="background-color: #FBA6C3">set data-mdt Red-Group-2</span>
         pass
     endif
 end-policy
@@ -190,7 +190,7 @@ route-policy <span style="background-color: #FDD7E4">data-mdt-vrf-red-ipv6</span
         pass
     endif
 end-policy
-route-policy <span style="background-color: #FDD7E4">data-mdt-vrf-green-ipv4</span>
+route-policy <span style="background-color: #D7FDDD">data-mdt-vrf-green-ipv4</span>
 	if destination in (232.0.0.0/24 1e 32) then
     	<mark>set data-mdt Red-Group-1</mark>
         pass

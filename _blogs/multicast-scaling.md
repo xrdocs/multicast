@@ -140,5 +140,5 @@ end-policy
 </pre>
 </div>
 
-The policy is able to automatically assign transport specific attributes such as MLDP FEC. The named Data MDT is created only when it matches the route-policy and needs to be transition to Data MDT. We can create a route policy and based on the route policy matching constraints we can put all the interested flows which we want to collect on one single Data MDT, so it deterministally can controll all the Multicast Flows and map them to a single Data MDT Tree. This Data MDT will be removed if the last flow using it is removed off the Data MDT Tree.
+The policy is able to automatically assign transport specific attributes such as MLDP FEC. The named Data MDT is created only when it matches the route-policy and needs to be transition to Data MDT. We can create a route policy and based on the route policy matching constraints we can put all the interested flows which we want to collect on one single Data MDT, so it can deterministically control all the Multicast Flows and map them to a single Data MDT Tree. This Data MDT will be removed if the last flow using it is removed off the Data MDT Tree.
 

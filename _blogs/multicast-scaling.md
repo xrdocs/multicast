@@ -59,31 +59,24 @@ The Ingress traffic comes from the customer network to the service provider netw
 2. The amount of the Label Trees (MDTs).
 3. The amount of VRFs.
 On the Egress Interface we get:
-
-    1. The amount of replications per Label Tree.
+1. The amount of replications per Label Tree.
 **2. Transit/ Mid node:**
 On the Igress Interface we get:
-
-	1. The amount of the Label Trees (MDTs).
+1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:
-
-	1. The amount of replications per Label Tree.
+1. The amount of replications per Label Tree.
 **3. Bud node:**
 On the Ingress Interface we get:
-
-	1. The amount of the Label Trees (MDTs).
+1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:
-
-	1. The amount of replications per Label Tree per (S, G).
-    2. The aggregate number of replications.
+1. The amount of replications per Label Tree per (S, G).
+2. The aggregate number of replications.
 **4. Leaf node:**
 On the Ingress Interface we get:
-
-	1. The amount of the Label Trees (MDTs).
+1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:
-
-	1. The amount of replications per Label Tree per (S, G).
-    2. The aggregate number of replications.
+1. The amount of replications per Label Tree per (S, G).
+2. The aggregate number of replications.
 
 ![multicast scaling 1.3.2.jpg]({{site.baseurl}}/images/multicast scaling 1.3.2.jpg)
 
@@ -203,4 +196,10 @@ end-policy
 
 # Conclusion
 
-asdadsa
+The goal of this blog was to answer commonly asked questions regarding Multicast scaling. It is understood that this topic has deeper context than just this blog but we tried to scratch the surface of it. For additional information please refer to the following links:
+
+[Multicast Distribution Trees - MDTS](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/)
+
+[Configuring Multicast VPN](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipmulti_mvpn/configuration/xe-16/imc-mvpn-xe-16-book/imc-cfg-mc-vpn.html#:~:text=MVPN%20IP%20allows%20a%20service,across%20the%20service%20provider%20backbone.)
+
+[Configure a Basic MPLS VPN](https://www.cisco.com/c/en/us/support/docs/multiprotocol-label-switching-mpls/mpls/13733-mpls-vpn-basic.html)

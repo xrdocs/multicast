@@ -53,7 +53,7 @@ Previously we [discussed](https://xrdocs.io/multicast/blogs/multicast-distributi
 
 For all the above nodes there are different scale numbers that are being allocated for Profile 14. Let us define what scale numbers we get on each node.
 
-**1. Root node:**
+**Root node:**
 The Ingress traffic comes from the customer network to the service provider network and we have 3 scale numbers:
 1. The amount of (S, G).
 2. The amount of the Label Trees (MDTs).
@@ -61,20 +61,20 @@ The Ingress traffic comes from the customer network to the service provider netw
 On the Egress Interface we get:
 1. The amount of replications per Label Tree.
 
-**2. Transit/ Mid node:**
+**Transit/ Mid node:**
 On the Igress Interface we get:
 1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:
 1. The amount of replications per Label Tree.
 
-**3. Bud node:**
+**Bud node:**
 On the Ingress Interface we get:
 1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:
 1. The amount of replications per Label Tree per (S, G).
 2. The aggregate number of replications.
 
-**4. Leaf node:**
+**Leaf node:**
 On the Ingress Interface we get:
 1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:

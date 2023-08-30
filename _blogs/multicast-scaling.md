@@ -20,11 +20,10 @@ position: hidden
 Many thanks to [Anuj Budhiraja](https://www.linkedin.com/in/anuj-budhiraja/), Cisco Technical Lead Engineer, for his help writting this blog!
 {: .notice--info}
 
-We have talked about Multicast before, how the technology works and the level of its complexity but we have not mentioned the way Multicast scales. In almost every interaction we have _with customers or account teams_ we get questions such as:
+We have talked about Multicast before, how the technology works and the level of its complexity but we have not mentioned the way Multicast scales yet. In almost every Multicast interaction we have we get questions such as:
 
-1. What is the scale?
+1. What is the Multicast scale?
 2. How many Trees can i create?
-3. How does the scale vary from platform to platform?
 4. How do you sum all these different counters (Labels, VRFs, etc.)?
 
 This blog will try to answer the above questions as detailed as possible and will bring to the surface how things work in regards to Multicast within IOS-XR software running on Cisco platforms.
@@ -33,36 +32,28 @@ This blog will try to answer the above questions as detailed as possible and wil
 
 In order to start talking about the scaling, we need to establish some basic knowledge regarding Multiprotocol Label Switching (MPLS).
 
-MPLS is a networking routing technology that offers the ability to forward traffic based on labels, hence the name, instead of network addresses. These labels are defining the final destination of the packet and makes it much easier and more scalable for the SPs to send those packets. The labels are stored in L2.
+MPLS is a networking routing technology that offers the ability to forward traffic based on labels, hence the name, instead of network addresses. These labels are defining the final destination of the packet and makes it much easier and more scalable for the Service Providers (SPs) to send those packets. The labels are stored in the Layer 2.
 
 MPLS is a transport protocol and provides the benefit of bridging different sites together (full mesh). Furthermore, offers the allocation of different labels such as ToS or DSCP to the external networks and enhances the ability to support QoS and traffic prioritization.
 
-_benefits:
-1. interface independence
-2. bridge different sites together, full mesh
-3. one to many
-4. QoS
-5. transport
-6. assign labels to packets such as TOS, DSCP and are translated into MPLS Labels by SP_
-
 ## Multicast Scaling - MPLS Transport
 
-In the following image we can see a simple design with all types of Nodes within a MPLS Transport network.
+In the following image we can see a simple design with all types of nodes within a MPLS Transport network.
 
-From MPLS Transport perspective we have 4 types of Nodes:
-1. Root Node: R1, it is the Source Node
-2. Transit/ Mid Node: R2, R3, pure Transit Nodes, no MVPN config.
-3. Bud Node: R5, R6, mix of Mid/ Transit/ Leaf, can be directly connected to the Receivers
-4. Leaf Node: R4, directly connected to the Receivers
+From MPLS Transport perspective we have 4 types of nodes:
+1. Root node: R1, it is the Source node.
+2. Transit/ Mid node: R2, R3, pure Transit nodes, no MVPN config.
+3. Bud node: R5, R6, mix of Mid/ Transit/ Leaf, can be directly connected to the Receivers.
+4. Leaf node: R4, directly connected to the Receivers
 
 ![multicast scaling 1.3.1.jpg]({{site.baseurl}}/images/multicast scaling 1.3.1.jpg)
 
-Previously we [discussed](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/) about MVPN and at Cisco we have a huge variety of MVPN Profiles supported on our platforms. There is difference between each Profile when it comes to scaling, but in this blog we will mostly focus on Profile 14, because it is well known and massively deployed.
+Previously we [discussed](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/) about MVPN and at Cisco we have a huge variety of MVPN Profiles supported on our platforms. There are differences between Profiles when it comes to scaling, but in this blog we will mostly focus on Profile 14, because it is well known and massively deployed.
 {: .notice--info}
 
-For all the above Nodes there are different scale numbers that are being allocated for Profile 14. Let us define what scale numbers we get on each Node.
+For all the above nodes there are different scale numbers that are being allocated for Profile 14. Let us define what scale numbers we get on each node.
 
-**1. Root Node:**
+**1. Root node:**
 The Ingress traffic comes from the customer network to the service provider network and we have 3 scale numbers:
 	1. The amount of (S, G).
     2. The amount of the Label Trees (MDTs).
@@ -70,20 +61,20 @@ The Ingress traffic comes from the customer network to the service provider netw
 On the Egress Interface we get:
 	1. The amount of replications per Label Tree.
     
-**2. Transit/ Mid Node:**
+**2. Transit/ Mid node:**
 On the Igress Interface we get:
 	1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:
 	1. The amount of replications per Label Tree.
     
-**3. Bud Node:**
+**3. Bud node:**
 On the Ingress Interface we get:
 	1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:
 	1. The amount of replications per Label Tree per (S, G).
     2. The aggregate number of replications.
 
-**4. Leaf Node:**
+**4. Leaf node:**
 On the Ingress Interface we get:
 	1. The amount of the Label Trees (MDTs).
 On the Egress Interface we get:
@@ -124,7 +115,7 @@ So far we discussed how the Resources are allocated, but we understand that some
 
 Going back to this [blog](https://xrdocs.io/multicast/blogs/multicast-distribution-trees-mdts/), we mentioned what Data MDT is and how/ when it can be used. Now, we will discuss about a policy that can be applied to a Data MDT.
 
-The policy is called Based S-PMSI or named Data MDT and it is an enhanced route policy to map multicast sources and/ or groups to a named Data MDT. It is developed to determnistically control multicast flow mapping to Data MDT Trees and we assign names instead of numbers because they can become more descriptive.
+The policy is called Based S-PMSI or named Data MDT and it is an enhanced route policy to map Multicast sources and/ or groups to a named Data MDT. It is developed to determnistically control Multicast flow mapping to Data MDT Trees and we assign names instead of numbers because they can become more descriptive.
 Sample configuration:
 
 <div class="highlighter-rouge">
@@ -167,7 +158,7 @@ end-policy
 </pre>
 </div>
 
-As we can notice, there are 2 different parameters that satisfy the "Red-Group-1" Policy and there is one more parameter that satisfy a different Data MDT, "Red-Group-2", because disparate multicast flows can be mapped to the same named Data MDT. In addition, one policy can specify multiple named Data MDTs and only those flows mapped via one of the policies can use the named Data MDT.
+As we can notice, there are 2 different parameters that satisfy the "Red-Group-1" Policy and there is one more parameter that satisfy a different Data MDT, "Red-Group-2", because disparate Multicast flows can be mapped to the same named Data MDT. In addition, one policy can specify multiple named Data MDTs and only those flows mapped via one of the policies can use the named Data MDT.
 
 ## Namespace Scope
 
@@ -199,4 +190,3 @@ end-policy
 </code>
 </pre>
 </div>
-

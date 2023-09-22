@@ -95,6 +95,7 @@ On the Egress Interface we get:
 
 We will list a set of steps to understand the allocation of resources to each part of the network according to the image below.
 
+![multicast scaling 1.4.1.jpg]({{site.baseurl}}/images/multicast scaling 1.4.1.jpg)
 
 1. R1 acts as a receiver and sends an IGMP Join (S, G) towards PE1.
 2. PE1 sends a Join in MVPN context in the form of BGP Route Type 7 for this (S, G) to PE4.

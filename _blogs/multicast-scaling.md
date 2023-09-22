@@ -95,24 +95,21 @@ On the Egress Interface we get:
 
 We will list a set of steps to understand the allocation of resources to each part of the network according to the image below.
 
-![multicast scaling 1.4.1.jpg]({{site.baseurl}}/images/multicast scaling 1.4.1.jpg)
-
 1. R1 acts as a receiver and sends an IGMP Join (S, G) towards PE1.
-2. PE1 will leverage the IGMP Sync to sync with PE2.
-3. PE1 sends a Join in MVPN context in the form of BGP Route Type 7 for this (S, G) to PE4.
+2. PE1 sends a Join in MVPN context in the form of BGP Route Type 7 for this (S, G) to PE4.
 	- PE4 is behind a Dual Homed Peer.
-4. PE4 will allocate a MDT for this (S, G).
+3. PE4 will allocate a MDT for this (S, G).
 	- It consumes a Label Resource.
-5. PE4 will use BGP Auto Discovery Route Type 3 to send to all Ps.
+4. PE4 will use BGP Auto Discovery Route Type 3 to send to all Ps.
 	- P-1 receives it and learns which Tree to join.
-6. PE1 will join this this Data MDT for this (S, G).
+5. PE1 will join this this Data MDT for this (S, G).
 	- It consumes a Label Resource.
-7. The Join will reach P-1 and P-1 joins the MLDP Tree.
+6. The Join will reach P-1 and P-1 joins the MLDP Tree.
 	- It consumes a Label Resource.
-8. P-1 sends the Join to P-2 and P-2 joins the MLDP Tree.
+7. P-1 sends the Join to P-2 and P-2 joins the MLDP Tree.
 	- It consumes a Label Resource.
     - The Tree is complete.
-9. Despite the fact we created 1 Data MDT, 4 Label Resources were consumed.
+8. Despite the fact we created 1 Data MDT, 4 Label Resources were consumed.
 	- The purpose of the Label Resource allocation varies on each node.
 
 # Scaling Adaptation
@@ -175,7 +172,7 @@ As we can notice, there are 2 different parameters that satisfy the "Red-Group-1
 
 ## Namespace Scope
 
-_Each Data MDT namespace is per Address Family/ VRF, thus named Data MDTs with the same name in distinct VRFs create distinct Data MDTs and by using same policies across VRFs will also create distinct Data MDTs_. This also applies on named Data MDTs with the same name in IPv4 and IPv6 of a VRF.
+Each Data MDT namespace is per Address Family/ VRF, thus named Data MDTs with the same name in distinct VRFs create distinct Data MDTs and by using same policies across VRFs will also create distinct Data MDTs. This also applies on named Data MDTs with the same name in IPv4 and IPv6 of a VRF.
 For example, if we create a VRF Red with Data MDT "Red-Group-1" then it will be within the scope of VRF Red and the route policy name will determine if it will be a separate Data MDT.
 
 Sample configuration:

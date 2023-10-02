@@ -9,7 +9,7 @@ excerpt: >-
 tags:
   - iosxr
   - Multicast
-position: hidden
+position: top
 ---
 {% include toc icon="table" title="Multicast Scaling" %}
 
